@@ -1,6 +1,4 @@
 // Vendors
-import 'svg-morpheus';
-import 'angular';
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import uiRouter from 'angular-ui-router';
