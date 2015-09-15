@@ -17,7 +17,9 @@ var config = {
     fallback: nodeRoot,
     alias: {
       'angular-material.css': nodeRoot + '/angular-material/angular-material.css',
-      'toastr.scss': nodeRoot + '/toastr/toastr.scss'
+      'angular-material-icons.css': nodeRoot + '/angular-material-icons/angular-material-icons.css',
+      'toastr.scss': nodeRoot + '/toastr/toastr.scss',
+      'svg-morpheus': nodeRoot + '/svg-morpheus/compile/unminified/svg-morpheus.js'
     },
     extensions: ['', '.js', '.json', 'html', 'scss', 'css']
   },
