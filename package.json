@@ -70,7 +70,7 @@
     "angular-ui-router": "~0.2.15",
     "jquery": "~2.1.4",
     "oclazyload": "~1.0.5",
-    "sanji-utils-ui": "~1.0.3",
+    "sanji-utils-ui": "~1.0.4",
     "svg-morpheus": "alexk111/SVG-Morpheus#v0.1.8"
   }
 }
