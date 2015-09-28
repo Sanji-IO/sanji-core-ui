@@ -37,7 +37,9 @@ var config = {
           /(sanji-utils-ui)/,
           /(sanji-logger-ui)/,
           /(sanji-exception-ui)/,
-          /(sanji-socket-ui)/
+          /(sanji-socket-ui)/,
+          /(sanji-rest-ui)/,
+          /(sanji-auth-ui)/
         ]
       },
       {
