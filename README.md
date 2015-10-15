@@ -29,7 +29,7 @@ module. It is responsible for config all webapp services.
 - [angular-ui-router](https://github.com/angular-ui/ui-router)
 - [angular-sanji-window](https://github.com/Sanji-IO/angular-sanji-window/tree/webpack-sanji-window)
 - [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)
-- [sanji-utils-ui](https://github.com/Sanji-IO/sanji-logger-ui)
+- [sanji-utils-ui](https://github.com/Sanji-IO/sanji-utils-ui)
 
 ## Installation
 ```shell
