@@ -27,8 +27,11 @@ module. It is responsible for config all webapp services.
 - [angular-material](https://github.com/angular/material)
 - [angular-material-icons](https://github.com/klarsys/angular-material-icons)
 - [angular-ui-router](https://github.com/angular-ui/ui-router)
+- [angular-formly](https://github.com/formly-js/angular-formly)
 - [angular-sanji-window](https://github.com/Sanji-IO/angular-sanji-window/tree/webpack-sanji-window)
 - [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)
+- [lodash](https://github.com/lodash/lodash)
+- [api-check](https://github.com/kentcdodds/api-check)
 - [sanji-utils-ui](https://github.com/Sanji-IO/sanji-utils-ui)
 
 ## Installation
