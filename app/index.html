@@ -26,28 +26,6 @@
       </div>
     </md-toolbar>
 
-    <div layout="row" layout-padding layout-align="center center">
-      <div flex="33">
-        <sanji-window window-name="Ethernet">
-          <sanji-window-state default-state state-name="sanji-info"
-          link-name="Information" icon="">
-            <div ng-controller="EthernetController as vm">
-              <md-content>
-                <small class="md-subheader">IP</small>
-                <h2 ng-bind="::vm.ethernet.ip"></h2>
-                <br/>
-                <small class="md-subheader">Netmask</small>
-                <h2 ng-bind="::vm.ethernet.netmask"></h2>
-                <br/>
-                <small class="md-subheader">Gateway</small>
-                <h2 ng-bind="::vm.ethernet.gateway"></h2>
-              </md-content>
-            </div>
-          </sanji-window-state>
-        </sanji-window>
-      </div>
-    </div>
-
     <div layout="row" layout-align="center center">
       <span class="md-caption">from the Sanji Team</span>
     </div>
