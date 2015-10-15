@@ -1,5 +1,6 @@
 // Vendors
-import 'api-check';
+import apiCheck from 'api-check';
+import _ from 'lodash';
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import formly from 'angular-formly';
@@ -25,6 +26,8 @@ let app = angular.module('sanji.core', [
   sjUtils
 ]);
 
+app.constant('apiCheck', apiCheck);
+app.constant('_', _);
 app.config(theme);
 app.config(utils);
 app.config(toastr);
