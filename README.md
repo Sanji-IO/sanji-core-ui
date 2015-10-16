@@ -28,6 +28,7 @@ module. It is responsible for config all webapp services.
 - [angular-material-icons](https://github.com/klarsys/angular-material-icons)
 - [angular-ui-router](https://github.com/angular-ui/ui-router)
 - [angular-formly](https://github.com/formly-js/angular-formly)
+- [ng-file-upload](https://github.com/danialfarid/ng-file-upload)
 - [angular-sanji-window](https://github.com/Sanji-IO/angular-sanji-window/tree/webpack-sanji-window)
 - [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)
 - [lodash](https://github.com/lodash/lodash)
