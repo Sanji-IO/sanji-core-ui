@@ -21,6 +21,7 @@ config.externals = {
   'angular-material': 'ngMaterial',
   'angular-material-icons': 'ngMdIcons',
   'angular-ui-router': 'uiRouter',
+  'ng-file-upload': 'ngFileUpload',
   'angular-sanji-window': 'sjWindow',
   'oclazyload': 'ocLazyLoad',
   'sanji-utils-ui': 'sjUtils'
