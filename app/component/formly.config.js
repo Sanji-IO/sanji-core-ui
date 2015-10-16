@@ -62,7 +62,7 @@ const wrappers = [
   }
 ];
 
-function setType(types) {
+function setType(formlyConfig, types) {
   let i;
   let length = types.length;
   for (i = 0; i < length; i++) {
@@ -70,7 +70,7 @@ function setType(types) {
   }
 }
 
-function setWrapper(wrappers) {
+function setWrapper(formlyConfig, wrappers) {
   let i;
   let length = wrappers.length;
   for (i = 0; i < length; i++) {
@@ -79,6 +79,6 @@ function setWrapper(wrappers) {
 }
 
 export default formlyConfig => {
-  setType(types);
-  setWrapper(wrappers);
+  setType(formlyConfig, types);
+  setWrapper(formlyConfig, wrappers);
 }
