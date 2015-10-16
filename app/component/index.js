@@ -5,6 +5,7 @@ import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import formly from 'angular-formly';
 import uiRouter from 'angular-ui-router';
+import ngFileUpload from 'ng-file-upload';
 import sjWindow from 'angular-sanji-window';
 import ocLazyLoad from 'oclazyload';
 import sjUtils from 'sanji-utils-ui';
@@ -21,6 +22,7 @@ let app = angular.module('sanji.core', [
   ngMdIcons,
   formly,
   uiRouter,
+  ngFileUpload,
   sjWindow,
   ocLazyLoad,
   sjUtils
