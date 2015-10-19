@@ -26,15 +26,27 @@ const types = [
     template: `<div layout>
                 <md-input-container style="width: 70%;">
                   <label>{{to.label}}</label>
-                  <input readonly ng-model="model[options.key].name">
+                  <input style="color: rgba(0,0,0,0.87);" ng-model="model[options.key]" readonly>
                 </md-input-container>
                 <md-input-container>
-                  <md-button class="md-raised" ngf-select ng-model="model[options.key]"
-                   name="file" accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
-                    Select
+                  <md-button class="md-raised" ngf-select"$fileSelect($file, options.key)"
+                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
+                   Select
                   </md-button>
                 </md-input-container>
               </div>`,
+    controller: function($scope) {
+      $scope.$fileSelect = (file, key) => {
+        $scope.model[key] = file.name;
+        if (undefined === $scope.formOptions.files) {
+          $scope.formOptions.files = [];
+          $scope.formOptions.files.push({key: key, file: file});
+        }
+        else {
+          $scope.formOptions.files.push({key: key, file: file});
+        }
+      };
+    },
     defaultOptions: {
       templateOptions: {
         label: 'File'
@@ -73,6 +85,7 @@ const types = [
     template: `<input type="number" ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
     defaultOptions: {
       templateOptions: {
+        label: 'Number',
         min: -65535,
         max: 65535
       }
@@ -86,11 +99,11 @@ const types = [
   },
   {
     name: 'datepicker',
-    template: `<md-datepicker name="dateField"
+    template: `<md-datepicker
                 ng-model="model[options.key]"
                 md-placeholder="{{to.placeholder}}"
-                md-min-date="to.minDate"
-                md-max-date="to.maxDate"
+                md-min-date="to.min"
+                md-max-date="to.max"
                 ng-required="to.required"></md-datepicker>`
   },
   {
