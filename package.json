@@ -64,7 +64,7 @@
   "dependencies": {
     "angular": "~1.4.7",
     "angular-formly": "~7.2.1",
-    "angular-material": "~0.11.3",
+    "angular-material": "~0.11.4",
     "angular-material-icons": "~0.6.0",
     "angular-sanji-window": "Sanji-IO/angular-sanji-window#webpack-sanji-window",
     "angular-ui-router": "~0.2.15",
@@ -72,6 +72,7 @@
     "jquery": "~2.1.4",
     "lodash": "~3.10.1",
     "oclazyload": "~1.0.6",
+    "path-to-regexp": "~1.2.1",
     "sanji-utils-ui": "~1.0.9",
     "svg-morpheus": "alexk111/SVG-Morpheus#v0.1.8"
   }

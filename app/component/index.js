@@ -1,4 +1,5 @@
 // Vendors
+import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
 import ngMaterial from 'angular-material';
@@ -26,6 +27,7 @@ let app = angular.module('sanji.core', [
   sjUtils
 ]);
 
+app.constant('pathToRegexp', pathToRegexp);
 app.constant('apiCheck', apiCheck);
 app.constant('_', _);
 app.config(theme);
