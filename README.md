@@ -45,10 +45,11 @@ let app = angular.module('webapp', ['sanji.core']);
 
 ## Form Config
 sanji-core-ui define some basic form fields through [angular-formly](https://github.com/formly-js/angular-formly).
+
 ### Define Config
-- *key*(**required**): this is field uniq id.
-- *type*(**required**): this is field type.
-- *templateOptions*(**optional**): this is for setting field property.
+- **key**(*required*): this is field uniq id.
+- **type**(*required*): this is field type.
+- **templateOptions**(*optional*): this is for setting field property.
 
 example:
 ```javascript
@@ -64,133 +65,133 @@ example:
 
 ### Build-in Field Type
 
-Type name: *input*
+Type name: **input**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *password*
+Type name: **password**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *url*
+Type name: **url**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *email*
+Type name: **email**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *range*
+Type name: **range**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *min*: minimum value.
-- *max*: maximum value.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **min**: minimum value.
+- **max**: maximum value.
 
-Type name: *file*
+Type name: **file**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *accept*: accept file pattern, like `image/*`.
-- *maxSize*: file size limitation, like `10MB`.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **accept**: accept file pattern, like `image/*`.
+- **maxSize**: file size limitation, like `10MB`.
 
-Type name: *date*
+Type name: **date**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *min*: minimum date value.
-- *max*: maximum date value.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **min**: minimum date value.
+- **max**: maximum date value.
 
-Type name: *datetime*
+Type name: **datetime**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *min*: minimum date value(ISO8601).
-- *max*: maximum date value(ISO8601).
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **min**: minimum date value(ISO8601).
+- **max**: maximum date value(ISO8601).
 
-Type name: *number*
+Type name: **number**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
-- *min*: minimum value.
-- *max*: maximum value.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
+- **min**: minimum value.
+- **max**: maximum value.
 
-Type name: *radio*
+Type name: **radio**
 templateOptions:
-- *options*: radio option array, like `[{label: 'foo', value: 'bar'}]`.
+- **options**: radio option array, like `[{label: 'foo', value: 'bar'}]`.
 
 
-Type name: *datepicker*
+Type name: **datepicker**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *placeholder*: placeholder string.
-- *min*: minimum date value.
-- *max*: maximum date value.
+- **required**: value is `true` or `false`.
+- **placeholder**: placeholder string.
+- **min**: minimum date value.
+- **max**: maximum date value.
 
-Type name: *select*
+Type name: **select**
 templateOptions:
-- *options*: select option array, like `[{label: 'foo', value: 'bar'}]`.
+- **options**: select option array, like `[{label: 'foo', value: 'bar'}]`.
 
-Type name: *checkbox*
+Type name: **checkbox**
 templateOptions:
-- *label*: label name.
+- **label**: label name.
 
-Type name: *ip*
+Type name: **ip**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *latitude*
+Type name: **latitude**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *longitude*
+Type name: **longitude**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *aliasName*
+Type name: **aliasName**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *hostname*
+Type name: **hostname**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *port*
+Type name: **port**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *mac*
+Type name: **mac**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
-Type name: *float*
+Type name: **float**
 templateOptions:
-- *required*: value is `true` or `false`.
-- *label*: label name.
-- *placeholder*: placeholder string.
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
 
 ## Contact
 
