@@ -28,7 +28,6 @@ module. It is responsible for config all webapp services.
 - [angular-material-icons](https://github.com/klarsys/angular-material-icons)
 - [angular-ui-router](https://github.com/angular-ui/ui-router)
 - [angular-formly](https://github.com/formly-js/angular-formly)
-- [ng-file-upload](https://github.com/danialfarid/ng-file-upload)
 - [angular-sanji-window](https://github.com/Sanji-IO/angular-sanji-window/tree/webpack-sanji-window)
 - [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)
 - [lodash](https://github.com/lodash/lodash)
@@ -43,6 +42,155 @@ npm install sanji-core-ui --save
 ```javascript
 let app = angular.module('webapp', ['sanji.core']);
 ```
+
+## Form Config
+sanji-core-ui define some basic form fields through [angular-formly](https://github.com/formly-js/angular-formly).
+### Define Config
+- *key*(**required**): this is field uniq id.
+- *type*(**required**): this is field type.
+- *templateOptions*(**optional**): this is for setting field property.
+
+example:
+```javascript
+[{
+  "key": "ip",
+  "type": "input",
+  "templateOptions": {
+    "label": "IP",
+    "required": true
+  }
+}]
+```
+
+### Build-in Field Type
+
+Type name: *input*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *password*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *url*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *email*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *range*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *min*: minimum value.
+- *max*: maximum value.
+
+Type name: *file*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *accept*: accept file pattern, like `image/*`.
+- *maxSize*: file size limitation, like `10MB`.
+
+Type name: *date*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *min*: minimum date value.
+- *max*: maximum date value.
+
+Type name: *datetime*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *min*: minimum date value(ISO8601).
+- *max*: maximum date value(ISO8601).
+
+Type name: *number*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+- *min*: minimum value.
+- *max*: maximum value.
+
+Type name: *radio*
+templateOptions:
+- *options*: radio option array, like `[{label: 'foo', value: 'bar'}]`.
+
+
+Type name: *datepicker*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *placeholder*: placeholder string.
+- *min*: minimum date value.
+- *max*: maximum date value.
+
+Type name: *select*
+templateOptions:
+- *options*: select option array, like `[{label: 'foo', value: 'bar'}]`.
+
+Type name: *checkbox*
+templateOptions:
+- *label*: label name.
+
+Type name: *ip*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *latitude*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *longitude*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *aliasName*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *hostname*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *port*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *mac*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
+
+Type name: *float*
+templateOptions:
+- *required*: value is `true` or `false`.
+- *label*: label name.
+- *placeholder*: placeholder string.
 
 ## Contact
 
