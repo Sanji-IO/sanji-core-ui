@@ -65,59 +65,59 @@ example:
 
 ### Build-in Field Type
 
-Type name: **input**
+Type name: `input`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **password**
+Type name: `password`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **url**
+Type name: `url`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **email**
+Type name: `email`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **range**
+Type name: `range`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **min**: minimum value.
 - **max**: maximum value.
 
-Type name: **file**
+Type name: `file`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **accept**: accept file pattern, like `image/*`.
 - **maxSize**: file size limitation, like `10MB`.
 
-Type name: **date**
+Type name: `date`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **min**: minimum date value.
 - **max**: maximum date value.
 
-Type name: **datetime**
+Type name: `datetime`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **min**: minimum date value(ISO8601).
 - **max**: maximum date value(ISO8601).
 
-Type name: **number**
+Type name: `number`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
@@ -125,69 +125,69 @@ templateOptions:
 - **min**: minimum value.
 - **max**: maximum value.
 
-Type name: **radio**
+Type name: `radio`
 templateOptions:
 - **options**: radio option array, like `[{label: 'foo', value: 'bar'}]`.
 
 
-Type name: **datepicker**
+Type name: `datepicker`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **placeholder**: placeholder string.
 - **min**: minimum date value.
 - **max**: maximum date value.
 
-Type name: **select**
+Type name: `select`
 templateOptions:
 - **options**: select option array, like `[{label: 'foo', value: 'bar'}]`.
 
-Type name: **checkbox**
+Type name: `checkbox`
 templateOptions:
 - **label**: label name.
 
-Type name: **ip**
-templateOptions:
-- **required**: value is `true` or `false`.
-- **label**: label name.
-- **placeholder**: placeholder string.
-
-Type name: **latitude**
+Type name: `ip`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **longitude**
+Type name: `latitude`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **aliasName**
+Type name: `longitude`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **hostname**
+Type name: `aliasName`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **port**
+Type name: `hostname`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **mac**
+Type name: `port`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
 - **placeholder**: placeholder string.
 
-Type name: **float**
+Type name: `mac`
+templateOptions:
+- **required**: value is `true` or `false`.
+- **label**: label name.
+- **placeholder**: placeholder string.
+
+Type name: `float`
 templateOptions:
 - **required**: value is `true` or `false`.
 - **label**: label name.
