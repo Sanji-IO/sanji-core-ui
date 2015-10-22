@@ -4,16 +4,22 @@ const types = [
     template: `<input type="url" ng-model="model[options.key]">`,
     defaultOptions: {
       templateOptions: {
-        label: 'URL'
+        label: 'FORM_LABEL_URL'
       }
     }
   },
   {
     name: 'range',
-    template: `<md-slider style="padding: 0 20px;" ng-model="model[options.key]" ng-min="to.min" ng-max="to.max"  aria-label="slider" class="md-primary"></md-slider>`,
+    template: `<md-slider
+              style="padding: 0 20px;"
+              ng-model="model[options.key]"
+              ng-min="to.min"
+              ng-max="to.max"
+              aria-label="slider"
+              class="md-primary"></md-slider>`,
     defaultOptions: {
       templateOptions: {
-        label: 'Range'
+        label: 'FORM_LABEL_RANGE'
       }
     }
   },
@@ -48,7 +54,7 @@ const types = [
     },
     defaultOptions: {
       templateOptions: {
-        label: 'File'
+        label: 'FORM_LABEL_FILE'
       }
     }
   },
@@ -57,7 +63,7 @@ const types = [
     template: `<input type="date" ng-model="model[options.key]" ng-min="to.min" ng-max="to.max">`,
     defaultOptions: {
       templateOptions: {
-        label: 'Date'
+        label: 'FORM_LABEL_DATE'
       }
     }
   },
@@ -66,7 +72,7 @@ const types = [
     template: `<input type="datetime-local" ng-model="model[options.key]" ng-min="to.min" ng-max="to.max">`,
     defaultOptions: {
       templateOptions: {
-        label: 'Date Time'
+        label: 'FORM_LABEL_DATE_TIME'
       }
     }
   },
@@ -75,7 +81,7 @@ const types = [
     template: `<input type="email" ng-model="model[options.key]">`,
     defaultOptions: {
       templateOptions: {
-        label: 'Email'
+        label: 'FORM_LABEL_EMAIL'
       }
     }
   },
@@ -84,7 +90,7 @@ const types = [
     template: `<input type="number" ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
     defaultOptions: {
       templateOptions: {
-        label: 'Number',
+        label: 'FORM_LABEL_NUMBER',
         min: -65535,
         max: 65535
       }
@@ -92,9 +98,10 @@ const types = [
   },
   {
     name: 'radio',
-    template: `<md-radio-button ng-repeat="item in to.options track by $index" ng-value="item.value">
-                {{item.label}}
-              </md-radio-button>`
+    template: `<md-radio-button
+                ng-repeat="item in to.options track by $index"
+                ng-value="item.value"
+                translate="{{item.label}}"></md-radio-button>`
   },
   {
     name: 'datepicker',
@@ -107,21 +114,21 @@ const types = [
   },
   {
     name: 'select',
-    template: `<md-option ng-repeat="item in to.options track by $index" ng-value="item.value">
-                {{item.label}}
-              </md-option>`
+    template: `<md-option
+                ng-repeat="item in to.options track by $index"
+                ng-value="item.value"
+                translate="{{item.label}}">
+                </md-option>`
   },
   {
     name: 'checkbox',
-    template: `<md-checkbox ng-model="model[options.key]">
-                {{to.label}}
-              </md-checkbox>`
+    template: `<md-checkbox ng-model="model[options.key]" translate="{{to.label}}"></md-checkbox>`
   },
   {
     name: 'ip',
     defaultOptions: {
       templateOptions: {
-        label: 'IP',
+        label: 'FORM_LABEL_IP',
         placeholder: '127.0.0.1'
       },
       validators: {
@@ -136,7 +143,7 @@ const types = [
     name: 'latitude',
     defaultOptions: {
       templateOptions: {
-        label: 'Latitude'
+        label: 'FORM_LABEL_LATITUDE'
       },
       validators: {
         latitude: function($viewValue, $modelValue) {
@@ -150,7 +157,7 @@ const types = [
     name: 'longitude',
     defaultOptions: {
       templateOptions: {
-        label: 'Longitude'
+        label: 'FORM_LABEL_LONGITUDE'
       },
       validators: {
         latitude: function($viewValue, $modelValue) {
@@ -165,7 +172,7 @@ const types = [
     template: `<input type="password" ng-model="model[options.key]">`,
     defaultOptions: {
       templateOptions: {
-        label: 'Password'
+        label: 'FORM_LABEL_PASSWORD'
       },
       validators: {
         password: function($viewValue, $modelValue) {
@@ -179,7 +186,7 @@ const types = [
     name: 'aliasName',
     defaultOptions: {
       templateOptions: {
-        label: 'Name'
+        label: 'FORM_LABEL_NAME'
       },
       validators: {
         aliasName: function($viewValue, $modelValue) {
@@ -193,7 +200,7 @@ const types = [
     name: 'hostname',
     defaultOptions: {
       templateOptions: {
-        label: 'Hostname'
+        label: 'FORM_LABEL_HOSTNAME'
       },
       validators: {
         hostname: function($viewValue, $modelValue) {
@@ -207,7 +214,7 @@ const types = [
     name: 'port',
     defaultOptions: {
       templateOptions: {
-        label: 'Port'
+        label: 'FORM_LABEL_PORT'
       },
       validators: {
         port: function($viewValue, $modelValue) {
@@ -221,7 +228,7 @@ const types = [
     name: 'mac',
     defaultOptions: {
       templateOptions: {
-        label: 'MAC'
+        label: 'FORM_LABEL_MAC'
       },
       validators: {
         mac: function($viewValue, $modelValue) {
