@@ -36,7 +36,8 @@ const types = [
                 </md-input-container>
                 <md-input-container>
                   <md-button class="md-raised" ngf-select"$fileSelect($file, options.key)"
-                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}" translate="FORM_SELECT_BUTTON">
+                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
+                    <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
               </div>`,
@@ -100,8 +101,9 @@ const types = [
     name: 'radio',
     template: `<md-radio-button
                 ng-repeat="item in to.options track by $index"
-                ng-value="item.value"
-                translate="{{item.label}}"></md-radio-button>`
+                ng-value="item.value">
+                  <span translate="{{item.label}}"></span>
+                </md-radio-button>`
   },
   {
     name: 'datepicker',
@@ -116,13 +118,15 @@ const types = [
     name: 'select',
     template: `<md-option
                 ng-repeat="item in to.options track by $index"
-                ng-value="item.value"
-                translate="{{item.label}}">
+                ng-value="item.value">
+                  <span translate="{{item.label}}"></span>
                 </md-option>`
   },
   {
     name: 'checkbox',
-    template: `<md-checkbox ng-model="model[options.key]" translate="{{to.label}}"></md-checkbox>`
+    template: `<md-checkbox ng-model="model[options.key]">
+                <span translate="{{to.label}}"></span>
+              </md-checkbox>`
   },
   {
     name: 'ip',
