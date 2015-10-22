@@ -7,8 +7,8 @@ export default ($translateProvider, $provide) => {
   $translateProvider.translations(LANG_ZH_TW, require('./lang/zh-tw.json'));
 
   $translateProvider
-    .preferredLanguage('en')
-    .fallbackLanguage('en')
+    .preferredLanguage(LANG_EN)
+    .fallbackLanguage(LANG_EN)
     .useCookieStorage()
-    .useSanitizeValueStrategy('sanitize');
+    .useSanitizeValueStrategy('escape');
 }
