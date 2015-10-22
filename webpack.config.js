@@ -42,6 +42,7 @@ var config = {
           /(sanji-auth-ui)/
         ]
       },
+      { test: /\.json$/, loader: 'json', exclude: /(node_modules)/ },
       {
         test: /\.html$/,
         loader: 'ng-cache?prefix=[dir]/[dir]',
