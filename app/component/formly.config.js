@@ -30,8 +30,7 @@ const types = [
                 </md-input-container>
                 <md-input-container>
                   <md-button class="md-raised" ngf-select"$fileSelect($file, options.key)"
-                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
-                   Select
+                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}" translate="FORM_SELECT_BUTTON">
                   </md-button>
                 </md-input-container>
               </div>`,
@@ -249,7 +248,7 @@ const wrappers = [
   {
     name: 'mdLabel',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url'],
-    template: `<label>{{to.label}}</label>
+    template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
   },
   {
