@@ -24,6 +24,8 @@ module. It is responsible for config all webapp services.
 
 ## Dependencies
 - [angularjs](https://github.com/angular/angular.js)
+- [angular-sanitize](https://github.com/angular/bower-angular-sanitize)
+- [angular-translate](https://github.com/angular-translate/angular-translate)
 - [angular-material](https://github.com/angular/material)
 - [angular-material-icons](https://github.com/klarsys/angular-material-icons)
 - [angular-ui-router](https://github.com/angular-ui/ui-router)
