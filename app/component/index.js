@@ -2,6 +2,7 @@
 import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
+import ngSanitize from 'angular-sanitize';
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import formly from 'angular-formly';
@@ -21,6 +22,7 @@ import router from './router.config';
 import form from './formly.config';
 
 let app = angular.module('sanji.core', [
+  ngSanitize,
   ngMaterial,
   ngMdIcons,
   formly,
