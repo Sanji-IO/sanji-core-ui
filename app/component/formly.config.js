@@ -357,7 +357,14 @@ function setWrapper(formlyConfig, wrappers) {
   }
 }
 
-export default formlyConfig => {
-  setType(formlyConfig, types);
-  setWrapper(formlyConfig, wrappers);
+export default app => {
+  app.config(formlyConfigProvider => {
+    formlyConfigProvider.disableWarnings = __RELEASE__;
+    formlyConfigProvider.extras.removeChromeAutoComplete = true;
+    formlyConfigProvider.extras.explicitAsync = true;
+  });
+  app.run(formlyConfig => {
+    setType(formlyConfig, types);
+    setWrapper(formlyConfig, wrappers);
+  });
 }

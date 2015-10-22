@@ -19,7 +19,7 @@ import lang from './i18n.config';
 import utils from './utils.config';
 import toastr from './toastr.config';
 import router from './router.config';
-import form from './formly.config';
+import formlyConfig from './formly.config';
 
 let app = angular.module('sanji.core', [
   ngSanitize,
@@ -41,6 +41,8 @@ app.config(lang);
 app.config(utils);
 app.config(toastr);
 app.run(router);
-app.run(form);
+
+formlyConfig(app);
+  apiCheck.globalConfig.disabled = __RELEASE__;
 
 export default app = app.name
