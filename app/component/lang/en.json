@@ -5,6 +5,7 @@
   "404_MESSAGE_3": "a mistyped address",
   "404_MESSAGE_4": "an out-of-date link",
   "FORM_SELECT_BUTTON": "Select",
+  "FORM_LABEL_SWITCH": "Enable",
   "FORM_LABEL_URL": "URL",
   "FORM_LABEL_RANGE": "Range",
   "FORM_LABEL_FILE": "File",

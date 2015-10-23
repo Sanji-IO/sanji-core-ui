@@ -1,5 +1,18 @@
 const types = [
   {
+    name: 'switch',
+    template: `<md-switch class="md-primary"
+                aria-label="Switch"
+                ng-model="model[options.key]" ng-true-value="1" ng-false-value="0">
+                  <span translate="{{to.label}}"></span>
+              </md-switch>`,
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_SWITCH'
+      }
+    }
+  },
+  {
     name: 'url',
     template: `<input type="url" ng-model="model[options.key]">`,
     defaultOptions: {
