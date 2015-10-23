@@ -285,9 +285,12 @@ const wrappers = [
   {
     name: 'mdSelect',
     types: ['select'],
-    template: `<md-select ng-model="model[options.key]" aria-label="select">
-                <formly-transclude></formly-transclude>
-              </md-select>`
+    template: `<md-input-container>
+                <label translate="{{to.label}}"></label>
+                <md-select ng-model="model[options.key]" aria-label="select">
+                  <formly-transclude></formly-transclude>
+                </md-select>
+              </md-input-container>`
   },
   {
     name: 'mdInputContainer',
