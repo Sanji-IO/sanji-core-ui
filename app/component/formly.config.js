@@ -154,11 +154,13 @@ const types = [
   },
   {
     name: 'radio',
-    template: `<md-radio-button
-                ng-repeat="item in to.options track by $index"
-                ng-value="item.value">
-                  <span translate="{{item.label}}"></span>
-                </md-radio-button>`
+    template: `<md-radio-group ng-model="model[options.key]">
+                  <md-radio-button
+                  ng-repeat="item in to.options track by $index"
+                  ng-value="item.value">
+                    <span translate="{{item.label}}"></span>
+                  </md-radio-button>
+              </md-radio-group>`
   },
   {
     name: 'datepicker',
@@ -316,13 +318,6 @@ const wrappers = [
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url'],
     template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
-  },
-  {
-    name: 'mdRadioGroup',
-    types: ['radio'],
-    template: `<md-radio-group ng-model="model[options.key]">
-                <formly-transclude></formly-transclude>
-              </md-radio-group>`
   },
   {
     name: 'mdSelect',
