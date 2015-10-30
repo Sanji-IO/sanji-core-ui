@@ -4,6 +4,7 @@
   "404_MESSAGE_2": "無法瀏覽可能的原因如下:",
   "404_MESSAGE_3": "網址打錯",
   "404_MESSAGE_4": "過時的連結",
+  "FORM_PLACEHOLDER_SELECT_DATE": "選擇日期",
   "FORM_SELECT_BUTTON": "選擇",
   "FORM_LABEL_SWITCH": "啟用",
   "FORM_LABEL_URL": "URL",
@@ -20,5 +21,7 @@
   "FORM_LABEL_NAME": "名稱",
   "FORM_LABEL_HOSTNAME": "主機名稱",
   "FORM_LABEL_PORT": "埠號",
-  "FORM_LABEL_MAC": "MAC"
+  "FORM_LABEL_MAC": "MAC",
+  "FORM_LABEL_HOUR": "小時",
+  "FORM_LABEL_MINUTE": "分鐘"
 }

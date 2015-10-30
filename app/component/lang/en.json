@@ -4,6 +4,7 @@
   "404_MESSAGE_2": "It looks like this was the result of either:",
   "404_MESSAGE_3": "a mistyped address",
   "404_MESSAGE_4": "an out-of-date link",
+  "FORM_PLACEHOLDER_SELECT_DATE": "Select Date",
   "FORM_SELECT_BUTTON": "Select",
   "FORM_LABEL_SWITCH": "Enable",
   "FORM_LABEL_URL": "URL",
@@ -20,5 +21,7 @@
   "FORM_LABEL_NAME": "Name",
   "FORM_LABEL_HOSTNAME": "Hostname",
   "FORM_LABEL_PORT": "Port",
-  "FORM_LABEL_MAC": "MAC"
+  "FORM_LABEL_MAC": "MAC",
+  "FORM_LABEL_HOUR": "Hour",
+  "FORM_LABEL_MINUTE": "Minute"
 }

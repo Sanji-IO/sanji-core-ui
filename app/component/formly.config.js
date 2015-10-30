@@ -1,5 +1,47 @@
 const types = [
   {
+    name: 'datetimepicker',
+    template: `<div layout>
+                <md-datepicker style="margin-top: 8px;"
+                  ng-model="to.date"
+                  md-placeholder="{{to.datePlaceholder | translate}}"
+                  ng-required="to.required"></md-datepicker>
+                <md-input-container flex>
+                  <label translate="{{to.hourLabel}}"></label>
+                  <input type="number" ng-model="to.hour" ng-required="to.required">
+                </md-input-container>
+                <md-input-container flex>
+                  <label translate="{{to.minLabel}}"></label>
+                  <input type="number" ng-model="to.minute" ng-required="to.required">
+                </md-input-container>
+              </div>`,
+    controller: function($scope) {
+      let date = new Date($scope.model[$scope.options.key]);
+      $scope.options.templateOptions.date = date;
+      $scope.options.templateOptions.hour = date.getHours();
+      $scope.options.templateOptions.minute = date.getMinutes();
+      $scope.$watchGroup([
+        'options.templateOptions.date',
+        'options.templateOptions.hour',
+        'options.templateOptions.minute'
+      ], (newVals, oldVals, scope) => {
+        let date = newVals[0];
+        if (date) {
+          date.setHours(newVals[1]);
+          date.setMinutes(newVals[2]);
+          scope.model[scope.options.key] = date;
+        }
+      });
+    },
+    defaultOptions: {
+      templateOptions: {
+        datePlaceholder: 'FORM_PLACEHOLDER_SELECT_DATE',
+        hourLabel: 'FORM_LABEL_HOUR',
+        minLabel: 'FORM_LABEL_MINUTE'
+      }
+    }
+  },
+  {
     name: 'switch',
     template: `<md-switch class="md-primary"
                 aria-label="Switch"
