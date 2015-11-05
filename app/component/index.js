@@ -2,6 +2,7 @@
 import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
+import moment from 'moment';
 import ngSanitize from 'angular-sanitize';
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
@@ -12,6 +13,7 @@ import 'angular-translate-storage-cookie';
 import sjWindow from 'angular-sanji-window';
 import ocLazyLoad from 'oclazyload';
 import sjUtils from 'sanji-utils-ui';
+import 'angular-moment';
 
 import './404.html';
 import theme from './theme.config';
@@ -25,6 +27,7 @@ let app = angular.module('sanji.core', [
   ngSanitize,
   ngMaterial,
   ngMdIcons,
+  'angularMoment',
   formly,
   uiRouter,
   i18n,
@@ -36,6 +39,7 @@ let app = angular.module('sanji.core', [
 app.constant('pathToRegexp', pathToRegexp);
 app.constant('apiCheck', apiCheck);
 app.constant('_', _);
+app.constant('moment', moment);
 app.config(theme);
 app.config(lang);
 app.config(utils);
