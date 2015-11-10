@@ -1,4 +1,6 @@
 // Vendors
+import 'jquery';
+import 'jquery-sparkline';
 import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
@@ -11,6 +13,7 @@ import uiRouter from 'angular-ui-router';
 import i18n from 'angular-translate';
 import 'angular-translate-storage-cookie';
 import sjWindow from 'angular-sanji-window';
+import sjSparklines from 'angular-sparklines';
 import ocLazyLoad from 'oclazyload';
 import sjUtils from 'sanji-utils-ui';
 import 'angular-moment';
@@ -28,6 +31,7 @@ let app = angular.module('sanji.core', [
   ngMaterial,
   ngMdIcons,
   'angularMoment',
+  sjSparklines,
   formly,
   uiRouter,
   i18n,

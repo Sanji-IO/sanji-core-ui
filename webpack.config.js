@@ -42,6 +42,7 @@ var config = {
           /(sanji-auth-ui)/
         ]
       },
+      { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
       { test: /\.json$/, loader: 'json', exclude: /(node_modules)/ },
       {
         test: /\.html$/,
