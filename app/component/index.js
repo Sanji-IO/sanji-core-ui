@@ -17,6 +17,7 @@ import sjSparklines from 'angular-sparklines';
 import ocLazyLoad from 'oclazyload';
 import sjUtils from 'sanji-utils-ui';
 import 'angular-moment';
+import 'angular-filter';
 
 import './404.html';
 import theme from './theme.config';
@@ -31,6 +32,7 @@ let app = angular.module('sanji.core', [
   ngMaterial,
   ngMdIcons,
   'angularMoment',
+  'angular.filter',
   sjSparklines,
   formly,
   uiRouter,
