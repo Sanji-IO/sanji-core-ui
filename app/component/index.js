@@ -12,6 +12,7 @@ import formly from 'angular-formly';
 import uiRouter from 'angular-ui-router';
 import i18n from 'angular-translate';
 import 'angular-translate-storage-cookie';
+import ngMaterialTable from 'angular-material-data-table';
 import sjWindow from 'angular-sanji-window';
 import sjSparklines from 'angular-sparklines';
 import ocLazyLoad from 'oclazyload';
@@ -31,6 +32,7 @@ let app = angular.module('sanji.core', [
   ngSanitize,
   ngMaterial,
   ngMdIcons,
+  ngMaterialTable,
   'angularMoment',
   'angular.filter',
   sjSparklines,
