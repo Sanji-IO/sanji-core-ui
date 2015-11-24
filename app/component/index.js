@@ -6,6 +6,7 @@ import apiCheck from 'api-check';
 import _ from 'lodash';
 import moment from 'moment';
 import ngSanitize from 'angular-sanitize';
+import ngCookies from 'angular-cookies';
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import formly from 'angular-formly';
@@ -30,6 +31,7 @@ import formlyConfig from './formly.config';
 
 let app = angular.module('sanji.core', [
   ngSanitize,
+  ngCookies,
   ngMaterial,
   ngMdIcons,
   ngMaterialTable,
