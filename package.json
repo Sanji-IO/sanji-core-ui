@@ -3,7 +3,7 @@
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
   "version": "0.0.0-semantic-released",
-  "main": "index",
+  "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
