@@ -5,6 +5,7 @@ import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
 import moment from 'moment';
+import 'angular';
 import ngSanitize from 'angular-sanitize';
 import ngCookies from 'angular-cookies';
 import ngMaterial from 'angular-material';
