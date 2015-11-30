@@ -12,20 +12,6 @@ config.entry = {
 };
 config.output.filename = 'sanji-core-ui.js';
 config.output.library = 'sjCore';
-config.output.libraryTarget = 'umd';
-config.externals = {
-  'lodash': '_',
-  'angular': 'angular',
-  'api-check': 'apiCheck',
-  'angular-formly': 'ngFormly',
-  'angular-material': 'ngMaterial',
-  'angular-material-icons': 'ngMdIcons',
-  'angular-ui-router': 'uiRouter',
-  'ng-file-upload': 'ngFileUpload',
-  'angular-sanji-window': 'sjWindow',
-  'oclazyload': 'ocLazyLoad',
-  'sanji-utils-ui': 'sjUtils'
-};
 
 config.module.loaders = [
   {
