@@ -11,7 +11,6 @@ config.entry = {
   'sanji-ui': './component/index.js'
 };
 config.output.filename = 'sanji-core-ui.js';
-config.output.library = 'sjCore';
 
 config.module.loaders = [
   {
