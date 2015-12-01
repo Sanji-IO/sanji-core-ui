@@ -11,6 +11,7 @@ config.entry = {
   'sanji-ui': './component/index.js'
 };
 config.output.filename = 'sanji-core-ui.js';
+config.output.libraryTarget = 'umd';
 
 config.module.loaders = [
   {
