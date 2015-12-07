@@ -13,6 +13,10 @@ config.entry = {
 config.output.filename = 'sanji-core-ui.js';
 config.output.libraryTarget = 'umd';
 config.output.externals = [
+  'jquery',
+  'jquery-sjSparklines',
+  'path-to-regexp',
+  'moment',
   'lodash',
   'angular',
   'api-check',
@@ -22,6 +26,12 @@ config.output.externals = [
   'angular-ui-router',
   'ng-file-upload',
   'angular-sanji-window',
+  'angular-sanitize',
+  'angular-cookies',
+  'angular-material-data-table',
+  'angular-sparklines',
+  'angular-moment',
+  'angular-filter',
   'oclazyload',
   'sanji-utils-ui'
 ];

@@ -19,6 +19,7 @@ import sjWindow from 'angular-sanji-window';
 import sjSparklines from 'angular-sparklines';
 import ocLazyLoad from 'oclazyload';
 import sjUtils from 'sanji-utils-ui';
+import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
 
@@ -44,6 +45,7 @@ let app = angular.module('sanji.core', [
   i18n,
   sjWindow,
   ocLazyLoad,
+  'ngLetterAvatar',
   sjUtils
 ]);
 
