@@ -1,34 +1,16 @@
-md-card {
+.sj-window {
   position: relative; }
-  md-card > .card-header {
+  .sj-window > .sj-window-header {
+    padding-top: 0;
+    padding-bottom: 0;
     background-color: #f7f7f7;
-    height: 42px;
-    min-height: 42px;
     color: #5e5e5e; }
-    md-card > .card-header > .md-toolbar-tools {
-      height: 42px;
-      min-height: 42px; }
-      md-card > .card-header > .md-toolbar-tools > .card-btn-group {
-        margin: auto;
-        margin-right: -8px; }
-        md-card > .card-header > .md-toolbar-tools > .card-btn-group > .md-icon-button {
-          margin-right: 0;
-          width: 42px;
-          height: 42px;
-          min-height: 42px;
-          line-height: 42px;
-          color: #5e5e5e; }
-        md-card > .card-header > .md-toolbar-tools > .card-btn-group > .md-menu {
-          padding: 0; }
-          md-card > .card-header > .md-toolbar-tools > .card-btn-group > .md-menu > .md-icon-button {
-            width: 42px;
-            height: 42px;
-            min-height: 42px;
-            line-height: 42px;
-            color: #5e5e5e; }
+    .sj-window > .sj-window-header .sj-window-btn-group {
+      text-align: right; }
 
 .sj-window-loading {
   position: absolute;
+  padding-top: 50px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -50,7 +32,7 @@ md-card {
 
 .sj-spinner-bg {
   background-color: #fff;
-  padding: 15px !important;
+  padding: 5px !important;
   border-radius: 50%; }
 
 /*# sourceMappingURL=sanji-core-ui.css.map*/
