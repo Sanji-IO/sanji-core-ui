@@ -322,7 +322,7 @@ const wrappers = [
   {
     name: 'mdSelect',
     types: ['select'],
-    template: `<md-input-container>
+    template: `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
                 <md-select ng-model="model[options.key]" aria-label="select">
                   <formly-transclude></formly-transclude>
@@ -332,7 +332,7 @@ const wrappers = [
   {
     name: 'mdInputContainer',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url'],
-    template: `<md-input-container>
+    template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
               </md-input-container>`
   }
