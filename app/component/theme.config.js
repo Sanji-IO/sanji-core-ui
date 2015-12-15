@@ -1,7 +1,4 @@
-export default ($mdIconProvider, $mdThemingProvider) => {
-  // Register a default set of SVG icon definitions
-  $mdIconProvider.defaultIconSet('moxa-icons');
-
+export default $mdThemingProvider => {
   $mdThemingProvider.definePalette('moxa-material', {
     '50': '#E6F3F3',
     '100': '#B3DBDB',
@@ -23,7 +20,8 @@ export default ($mdIconProvider, $mdThemingProvider) => {
      '200', '300', '400', 'A100'],
     'contrastLightColors': undefined    // could also specify this if default was 'dark'
   });
+  $mdThemingProvider.theme('moxa')
+    .primaryPalette('moxa-material');
 
-  $mdThemingProvider.theme('default')
-  .primaryPalette('moxa-material');
+  $mdThemingProvider.setDefaultTheme('moxa');
 }

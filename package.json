@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "1.9.9",
+  "version": "1.10.0",
   "main": "index",
   "config": {
     "commitizen": {
@@ -68,8 +68,8 @@
     "angular": "~1.4.8",
     "angular-cookies": "~1.4.8",
     "angular-filter": "~0.5.7",
-    "angular-formly": "~7.3.8",
-    "angular-material": "~0.11.4",
+    "angular-formly": "~7.3.9",
+    "angular-material": "~1.0.0",
     "angular-material-data-table": "~0.8.11",
     "angular-material-icons": "~0.6.0",
     "angular-moment": "~0.10.3",
