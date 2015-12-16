@@ -2,7 +2,7 @@ const types = [
   {
     name: 'datetimepicker',
     template: `<div layout>
-                <md-datepicker style="margin-top: 8px;"
+                <md-datepicker style="margin-top: 15px;"
                   ng-model="to.date"
                   md-placeholder="{{to.datePlaceholder | translate}}"
                   ng-required="to.required"></md-datepicker>
