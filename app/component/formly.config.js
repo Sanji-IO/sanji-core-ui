@@ -80,7 +80,12 @@ const types = [
   },
   {
     name: 'input',
-    template: `<input ng-model="model[options.key]">`
+    template: `<input ng-model="model[options.key]">`,
+    defaultOptions: {
+      templateOptions: {
+        label: ''
+      }
+    }
   },
   {
     name: 'file',
@@ -160,7 +165,17 @@ const types = [
                   ng-value="item.value">
                     <span translate="{{item.label}}"></span>
                   </md-radio-button>
-              </md-radio-group>`
+              </md-radio-group>`,
+    defaultOptions: {
+      templateOptions: {
+        options: [
+          {
+            label: 'FORM_LABEL_RADIO_OPTION',
+            value: ''
+          }
+        ]
+      }
+    }
   },
   {
     name: 'datepicker',
@@ -177,13 +192,28 @@ const types = [
                 ng-repeat="item in to.options track by $index"
                 ng-value="item.value">
                   <span translate="{{item.label}}"></span>
-                </md-option>`
+                </md-option>`,
+    defaultOptions: {
+      templateOptions: {
+        options: [
+          {
+            label: 'FORM_LABEL_SELECT_OPTION',
+            value: ''
+          }
+        ]
+      }
+    }
   },
   {
     name: 'checkbox',
     template: `<md-checkbox ng-model="model[options.key]">
                 <span translate="{{to.label}}"></span>
-              </md-checkbox>`
+              </md-checkbox>`,
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_CHECKBOX'
+      }
+    }
   },
   {
     name: 'ip',
@@ -302,6 +332,9 @@ const types = [
   {
     name: 'float',
     defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_FLOAT'
+      },
       validators: {
         flaot: function($viewValue, $modelValue) {
           var value = $modelValue || $viewValue;
