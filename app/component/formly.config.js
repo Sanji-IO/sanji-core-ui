@@ -348,7 +348,7 @@ const types = [
 const wrappers = [
   {
     name: 'mdLabel',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float'],
     template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
   },
@@ -364,7 +364,7 @@ const wrappers = [
   },
   {
     name: 'mdInputContainer',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float'],
     template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
               </md-input-container>`
