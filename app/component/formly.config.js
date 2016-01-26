@@ -45,7 +45,7 @@ const types = [
     name: 'switch',
     template: `<md-switch class="md-primary"
                 aria-label="Switch"
-                ng-model="model[options.key]" ng-true-value="1" ng-false-value="0">
+                ng-model="model[options.key]">
                   <span translate="{{to.label}}"></span>
               </md-switch>`,
     defaultOptions: {
