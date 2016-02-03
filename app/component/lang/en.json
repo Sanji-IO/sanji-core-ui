@@ -27,5 +27,6 @@
   "FORM_LABEL_PORT": "Port",
   "FORM_LABEL_MAC": "MAC",
   "FORM_LABEL_HOUR": "Hour",
-  "FORM_LABEL_MINUTE": "Minute"
+  "FORM_LABEL_MINUTE": "Minute",
+  "FORM_LABEL_TEXTAREA": "Textarea"
 }

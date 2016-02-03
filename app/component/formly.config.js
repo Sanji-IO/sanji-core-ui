@@ -42,6 +42,16 @@ const types = [
     }
   },
   {
+    name: 'textarea',
+    template: `<textarea ng-model="model[options.key]"
+                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`,
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_TEXTAREA'
+      }
+    }
+  },
+  {
     name: 'switch',
     template: `<md-switch class="md-primary"
                 aria-label="Switch"
@@ -160,7 +170,7 @@ const types = [
   {
     name: 'radio',
     template: `<md-radio-group ng-model="model[options.key]">
-                  <md-radio-button
+                  <md-radio-button class="md-primary" aria-label="{{item.label}}"
                   ng-repeat="item in to.options track by $index"
                   ng-value="item.value">
                     <span translate="{{item.label}}"></span>
@@ -348,7 +358,7 @@ const types = [
 const wrappers = [
   {
     name: 'mdLabel',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float', 'textarea'],
     template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
   },
@@ -364,7 +374,7 @@ const wrappers = [
   },
   {
     name: 'mdInputContainer',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float', 'textarea'],
     template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
               </md-input-container>`
