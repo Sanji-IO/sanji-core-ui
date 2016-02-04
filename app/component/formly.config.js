@@ -341,9 +341,12 @@ const types = [
   },
   {
     name: 'float',
+    template: `<input type="number" step="any" ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
     defaultOptions: {
       templateOptions: {
-        label: 'FORM_LABEL_FLOAT'
+        label: 'FORM_LABEL_FLOAT',
+        min: -65535,
+        max: 65535
       },
       validators: {
         flaot: function($viewValue, $modelValue) {
