@@ -200,8 +200,8 @@ const types = [
     name: 'select',
     template: `<md-option
                 ng-repeat="item in to.options track by $index"
-                ng-value="item.value">
-                  <span translate="{{item.label}}"></span>
+                ng-value="item.value || item">
+                  <span translate="{{item.label || item}}"></span>
                 </md-option>`,
     defaultOptions: {
       templateOptions: {
