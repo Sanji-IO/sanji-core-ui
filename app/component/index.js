@@ -23,6 +23,7 @@ import sjUtils from 'sanji-utils-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
+import 'angular-cron-jobs';
 
 import './404.html';
 import theme from './theme.config';
@@ -48,6 +49,7 @@ let app = angular.module('sanji.core', [
   sjWindow,
   ocLazyLoad,
   'ngLetterAvatar',
+  'angular-cron-jobs',
   sjUtils
 ]);
 
