@@ -42,6 +42,16 @@ const types = [
     }
   },
   {
+    name: 'textarea',
+    template: `<textarea ng-model="model[options.key]"
+                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`,
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_TEXTAREA'
+      }
+    }
+  },
+  {
     name: 'switch',
     template: `<md-switch class="md-primary"
                 aria-label="Switch"
@@ -160,7 +170,7 @@ const types = [
   {
     name: 'radio',
     template: `<md-radio-group ng-model="model[options.key]">
-                  <md-radio-button
+                  <md-radio-button class="md-primary" aria-label="{{item.label}}"
                   ng-repeat="item in to.options track by $index"
                   ng-value="item.value">
                     <span translate="{{item.label}}"></span>
@@ -190,8 +200,8 @@ const types = [
     name: 'select',
     template: `<md-option
                 ng-repeat="item in to.options track by $index"
-                ng-value="item.value">
-                  <span translate="{{item.label}}"></span>
+                ng-value="item.value || item">
+                  <span translate="{{item.label || item}}"></span>
                 </md-option>`,
     defaultOptions: {
       templateOptions: {
@@ -331,9 +341,12 @@ const types = [
   },
   {
     name: 'float',
+    template: `<input type="number" step="any" ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
     defaultOptions: {
       templateOptions: {
-        label: 'FORM_LABEL_FLOAT'
+        label: 'FORM_LABEL_FLOAT',
+        min: -65535,
+        max: 65535
       },
       validators: {
         flaot: function($viewValue, $modelValue) {
@@ -348,7 +361,7 @@ const types = [
 const wrappers = [
   {
     name: 'mdLabel',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float', 'textarea'],
     template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
   },
@@ -357,14 +370,14 @@ const wrappers = [
     types: ['select'],
     template: `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
-                <md-select ng-model="model[options.key]" aria-label="select">
+                <md-select ng-model="model[options.key]" aria-label="select" ng-required="{{to.required}}">
                   <formly-transclude></formly-transclude>
                 </md-select>
               </md-input-container>`
   },
   {
     name: 'mdInputContainer',
-    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float'],
+    types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float', 'textarea'],
     template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
               </md-input-container>`

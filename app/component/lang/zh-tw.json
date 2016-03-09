@@ -27,5 +27,6 @@
   "FORM_LABEL_PORT": "埠號",
   "FORM_LABEL_MAC": "MAC",
   "FORM_LABEL_HOUR": "小時",
-  "FORM_LABEL_MINUTE": "分鐘"
+  "FORM_LABEL_MINUTE": "分鐘",
+  "FORM_LABEL_TEXTAREA": "文字區塊"
 }
