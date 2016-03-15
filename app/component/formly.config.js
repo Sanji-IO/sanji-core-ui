@@ -70,6 +70,11 @@ const types = [
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_URL'
+      },
+      validation: {
+        messages: {
+          url: '"FORM_URL_ERROR_MSG"'
+        }
       }
     }
   },
@@ -153,6 +158,11 @@ const types = [
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_EMAIL'
+      },
+      validation: {
+        messages: {
+          email: '"FORM_EMAIL_ERROR_MSG"'
+        }
       }
     }
   },
@@ -233,9 +243,12 @@ const types = [
         placeholder: '127.0.0.1'
       },
       validators: {
-        ip: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateIp(value);
+        ip: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateIp(value);
+          },
+          message: '"FORM_IP_ERROR_MSG"'
         }
       }
     }
@@ -247,9 +260,12 @@ const types = [
         label: 'FORM_LABEL_LATITUDE'
       },
       validators: {
-        latitude: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateLatitude(value);
+        latitude: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateLatitude(value);
+          },
+          message: '"FORM_LATITUDE_ERROR_MSG"'
         }
       }
     }
@@ -261,9 +277,12 @@ const types = [
         label: 'FORM_LABEL_LONGITUDE'
       },
       validators: {
-        latitude: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateLongitude(value);
+        longitude: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateLongitude(value);
+          },
+          message: '"FORM_LONITUDE_ERROR_MSG"'
         }
       }
     }
@@ -276,9 +295,12 @@ const types = [
         label: 'FORM_LABEL_PASSWORD'
       },
       validators: {
-        password: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validatePassword(value);
+        password: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validatePassword(value);
+          },
+          message: '"FORM_PASSWORD_ERROR_MSG"'
         }
       }
     }
@@ -290,9 +312,12 @@ const types = [
         label: 'FORM_LABEL_NAME'
       },
       validators: {
-        aliasName: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateAliasName(value);
+        aliasName: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateAliasName(value);
+          },
+          message: '"FORM_ALIASNAME_ERROR_MSG"'
         }
       }
     }
@@ -304,9 +329,12 @@ const types = [
         label: 'FORM_LABEL_HOSTNAME'
       },
       validators: {
-        hostname: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateHostName(value);
+        hostname: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateHostName(value);
+          },
+          message: '"FORM_HOSTNAME_ERROR_MSG"'
         }
       }
     }
@@ -318,9 +346,12 @@ const types = [
         label: 'FORM_LABEL_PORT'
       },
       validators: {
-        port: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validatePort(value);
+        port: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validatePort(value);
+          },
+          message: '"FORM_PORT_ERROR_MSG"'
         }
       }
     }
@@ -332,9 +363,12 @@ const types = [
         label: 'FORM_LABEL_MAC'
       },
       validators: {
-        mac: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateMac(value);
+        mac: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateMac(value);
+          },
+          message: '"FORM_MAC_ERROR_MSG"'
         }
       }
     }
@@ -349,9 +383,12 @@ const types = [
         max: 65535
       },
       validators: {
-        flaot: function($viewValue, $modelValue) {
-          var value = $modelValue || $viewValue;
-          return !value || validateFloat(value);
+        float: {
+          expression: function($viewValue, $modelValue) {
+            var value = $modelValue || $viewValue;
+            return !value || validateFloat(value);
+          },
+          message: '"FORM_FLOAT_ERROR_MSG"'
         }
       }
     }
@@ -373,6 +410,12 @@ const wrappers = [
                 <md-select ng-model="model[options.key]" aria-label="select" ng-required="{{to.required}}">
                   <formly-transclude></formly-transclude>
                 </md-select>
+                <div ng-messages="fc.$error" ng-show="showError">
+                  <div ng-repeat="(name, message) in options.validation.messages"
+                  ng-message="{{name}}">
+                    {{message(fc.$viewValue, fc.$modelValue, this) | translate:options}}
+                  </div>
+                </div>
               </md-input-container>`
   },
   {
@@ -380,6 +423,12 @@ const wrappers = [
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float', 'textarea'],
     template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
+                <div ng-messages="fc.$error" ng-show="showError">
+                  <div ng-repeat="(name, message) in options.validation.messages"
+                  ng-message="{{name}}">
+                    {{message(fc.$viewValue, fc.$modelValue, this) | translate:options}}
+                  </div>
+                </div>
               </md-input-container>`
   }
 ];
@@ -461,9 +510,16 @@ export default app => {
     formlyConfigProvider.disableWarnings = __RELEASE__;
     formlyConfigProvider.extras.removeChromeAutoComplete = true;
     formlyConfigProvider.extras.explicitAsync = true;
+    formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;
   });
-  app.run(formlyConfig => {
+  app.run((formlyConfig, formlyValidationMessages) => {
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
+    formlyValidationMessages.addStringMessage('required', 'FORM_REQUIRED_ERROR_MSG');
+    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', '', 'FORM_MIN_ERROR_MSG2', 'FORM_MIN_ERROR_MSG');
+    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', '', 'FORM_MAX_ERROR_MSG2', 'FORM_MAX_ERROR_MSG');
+    formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'FORM_MINLEN_ERROR_MSG2', 'FORM_MINLEN_ERROR_MSG');
+    formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', 'FORM_MAXLEN_ERROR_MSG2', 'FORM_MAXLEN_ERROR_MSG');
+    formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', 'FORM_PATTERN_ERROR_MSG');
   });
 }
