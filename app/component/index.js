@@ -9,6 +9,7 @@ import 'angular';
 import ngSanitize from 'angular-sanitize';
 import ngCookies from 'angular-cookies';
 import ngMaterial from 'angular-material';
+import ngMessages from 'angular-messages';
 import ngMdIcons from 'angular-material-icons';
 import ngFileUpload from 'ng-file-upload';
 import formly from 'angular-formly';
@@ -37,6 +38,7 @@ let app = angular.module('sanji.core', [
   ngSanitize,
   ngCookies,
   ngMaterial,
+  ngMessages,
   ngMdIcons,
   ngFileUpload,
   ngMaterialTable,
@@ -64,6 +66,6 @@ app.config(toastr);
 app.run(router);
 
 formlyConfig(app);
-  apiCheck.globalConfig.disabled = __RELEASE__;
+apiCheck.globalConfig.disabled = __RELEASE__;
 
 export default app = app.name
