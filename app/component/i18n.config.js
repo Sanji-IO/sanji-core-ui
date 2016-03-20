@@ -1,4 +1,5 @@
 export default ($translateProvider, $provide) => {
+  'ngInject';
   const LANG_EN = { key: 'en', label: 'English' };
   const LANG_ZH_TW = { key: 'zh-tw', label: '繁體中文' };
 

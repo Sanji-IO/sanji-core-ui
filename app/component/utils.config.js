@@ -1,4 +1,5 @@
 export default ($logProvider, routerHelperProvider, exceptionHandlerProvider) => {
+  'ngInject';
   let config = {
     appErrorPrefix: '[webapp Error] ',
     appTitle: 'webapp'

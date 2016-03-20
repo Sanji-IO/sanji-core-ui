@@ -1,4 +1,5 @@
-export default (routerHelper) => {
+export default routerHelper => {
+  'ngInject';
   let otherwise = '/404';
   routerHelper.configureStates(getStates(), otherwise);
 

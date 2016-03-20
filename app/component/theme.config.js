@@ -1,4 +1,5 @@
 export default $mdThemingProvider => {
+  'ngInject';
   $mdThemingProvider.definePalette('moxa-material', {
     '50': '#E6F3F3',
     '100': '#B3DBDB',
