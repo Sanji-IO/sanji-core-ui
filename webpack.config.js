@@ -19,6 +19,7 @@ var config = {
       'angular-material.css': nodeRoot + '/angular-material/angular-material.css',
       'angular-material-icons.css': nodeRoot + '/angular-material-icons/angular-material-icons.css',
       'angular-material-data-table.css': nodeRoot + '/angular-material-data-table/dist/md-data-table.css',
+      'angular-sanji-window.css': nodeRoot + '/angular-sanji-window/dist/angular-sanji-window.css',
       'toastr.scss': nodeRoot + '/toastr/toastr.scss',
       'svg-morpheus': nodeRoot + '/svg-morpheus/compile/unminified/svg-morpheus.js'
     },
@@ -29,28 +30,10 @@ var config = {
       {test: /\.js$/, loader: "eslint", exclude: /(node_modules)/}
     ],
     loaders: [
-      {test: /\.js$/, loader: 'ng-annotate!babel', exclude: /(node_modules)/},
-      {
-        test: /\.js$/,
-        loader: 'babel?optional[]=runtime&stage=0',
-        include: [
-          /(angular-sanji-window)/,
-          /(sanji-utils-ui)/,
-          /(sanji-logger-ui)/,
-          /(sanji-exception-ui)/,
-          /(sanji-socket-ui)/,
-          /(sanji-rest-ui)/,
-          /(sanji-auth-ui)/
-        ]
-      },
+      { test: /\.js$/, loader: 'ng-annotate!babel', exclude: /(node_modules)/ },
       { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
       { test: /\.json$/, loader: 'json', exclude: /(node_modules)/ },
-      {
-        test: /\.html$/,
-        loader: 'ng-cache?prefix=[dir]/[dir]',
-        include: /(angular-sanji-window)/
-      },
-      {test: /\.html$/, loader: 'ng-cache?prefix=[dir]/[dir]', exclude: /(node_modules)/}
+      { test: /\.html$/, loader: 'ng-cache?prefix=[dir]/[dir]', exclude: /(node_modules)/ }
     ],
     noParse: []
   },

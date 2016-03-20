@@ -5,13 +5,12 @@ import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
 import moment from 'moment';
-import 'angular';
+import angular from 'angular';
 import ngSanitize from 'angular-sanitize';
 import ngCookies from 'angular-cookies';
 import ngMaterial from 'angular-material';
 import ngMessages from 'angular-messages';
 import ngMdIcons from 'angular-material-icons';
-import ngFileUpload from 'ng-file-upload';
 import formly from 'angular-formly';
 import uiRouter from 'angular-ui-router';
 import i18n from 'angular-translate';
@@ -40,7 +39,6 @@ let app = angular.module('sanji.core', [
   ngMaterial,
   ngMessages,
   ngMdIcons,
-  ngFileUpload,
   ngMaterialTable,
   'angularMoment',
   'angular.filter',

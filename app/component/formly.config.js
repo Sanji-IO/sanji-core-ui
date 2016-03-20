@@ -506,12 +506,14 @@ function setWrapper(formlyConfig, wrappers) {
 }
 
 export default app => {
+  // @ngInject
   app.config(formlyConfigProvider => {
     formlyConfigProvider.disableWarnings = __RELEASE__;
     formlyConfigProvider.extras.removeChromeAutoComplete = true;
     formlyConfigProvider.extras.explicitAsync = true;
     formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;
   });
+  // @ngInject
   app.run((formlyConfig, formlyValidationMessages) => {
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
