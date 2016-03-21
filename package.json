@@ -63,10 +63,19 @@
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
   "peerDependencies": {
+    "angular": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-http-auth": "~1.2.1",
     "angular-material": "~1.0.5",
     "angular-material-data-table": "~0.9.11",
     "angular-material-icons": "~0.6.0",
-    "angular-sanji-window": "~2.1.0"
+    "angular-sanji-window": "~2.1.0",
+    "angular-socket-io": "~0.7.0",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.2.0",
+    "ng-file-upload": "~12.0.1",
+    "socket.io-client": "~1.4.5",
+    "toastr": "~2.1.2"
   },
   "dependencies": {
     "angular": "~1.5.0",
