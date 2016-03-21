@@ -64,6 +64,7 @@
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
   "peerDependencies": {
     "angular": "~1.5.0",
+    "angular-busy": "~4.1.3",
     "angular-cookies": "~1.5.0",
     "angular-http-auth": "~1.2.1",
     "angular-material": "~1.0.5",
