@@ -62,9 +62,14 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
+  "peerDependencies": {
+    "angular-material": "~1.0.5",
+    "angular-material-data-table": "~0.9.11",
+    "angular-material-icons": "~0.6.0",
+    "angular-sanji-window": "~2.1.0"
+  },
   "dependencies": {
     "angular": "~1.5.0",
-    "angular-cookies": "~1.5.0",
     "angular-cron-jobs": "~1.4.1",
     "angular-filter": "~0.5.7",
     "angular-formly": "~8.0.3",
@@ -76,9 +81,8 @@
     "angular-sanitize": "~1.5.0",
     "angular-sanji-window": "~2.1.0",
     "angular-sparklines": "~1.0.2",
-    "angular-translate": "~2.10.0",
-    "angular-translate-storage-cookie": "~2.10.0",
-    "angular-ui-router": "~0.2.18",
+    "angular-translate": "~2.11.0",
+    "angular-translate-storage-cookie": "~2.11.0",
     "api-check": "~7.5.5",
     "jquery": "~2.2.0",
     "jquery-sparkline": "~2.3.0",
@@ -87,7 +91,6 @@
     "ngletteravatar": "~4.0.0",
     "oclazyload": "~1.0.9",
     "path-to-regexp": "~1.2.1",
-    "sanji-utils-ui": "~1.2.1",
-    "svg-morpheus": "alexk111/SVG-Morpheus#v0.1.8"
+    "sanji-utils-ui": "~1.2.4"
   }
 }
