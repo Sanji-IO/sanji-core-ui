@@ -16,6 +16,7 @@ const types = [
                 </md-input-container>
               </div>`,
     controller: function($scope) {
+      'ngInject';
       let date = new Date($scope.model[$scope.options.key]);
       $scope.options.templateOptions.date = date;
       $scope.options.templateOptions.hour = date.getHours();
@@ -117,6 +118,7 @@ const types = [
                 </md-input-container>
               </div>`,
     controller: function($scope) {
+      'ngInject';
       $scope.$fileSelect = (file, key) => {
         $scope.model[key] = file.name;
         if (undefined === $scope.formOptions.files) {
