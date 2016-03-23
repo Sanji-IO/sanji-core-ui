@@ -32,6 +32,7 @@
   "FORM_FLOAT_ERROR_MSG": "浮點數格式錯誤",
   "FORM_MAC_ERROR_MSG": "MAC 格式錯誤",
   "FORM_FLOAT_ERROR_MSG": "埠格式錯誤",
+  "FORM_ALIASNAME_ERROR_MSG": "字元只允許包含 A-Z,a-z,0-9,_,- 並且長度在3-255之間",
   "FORM_HOSTNAME_ERROR_MSG": "主機名稱格式錯誤",
   "FORM_NAME_ERROR_MSG": "名稱格式錯誤",
   "FORM_PASSWORD_ERROR_MSG": "密碼格式錯誤",
