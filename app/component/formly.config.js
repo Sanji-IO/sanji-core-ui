@@ -111,21 +111,30 @@ const types = [
                   <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly>
                 </md-input-container>
                 <md-input-container style="margin-top: 6px;">
-                  <md-button class="md-raised" ngf-select="fileSelect($file)" ng-model="$file"
+                  <md-button class="md-raised" ngf-select="fileSelect($file, options.key)" ng-model="$file"
                    ngf-accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}" aria-label="select file">
                     <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
               </div>`,
-    controller: function($scope) {
+    controller: function($scope, _) {
       'ngInject';
-      $scope.fileSelect = (file) => {
+      $scope.fileSelect = (file, key) => {
+        if (!file) {
+          return;
+        }
         if (undefined === $scope.formOptions.files) {
           $scope.formOptions.files = [];
-          $scope.formOptions.files.push(file);
+          $scope.formOptions.files.push({key: key, file: file});
         }
         else {
-          $scope.formOptions.files.push(file);
+          let idx = _.findIndex($scope.formOptions.files, {key: key});
+          if (-1 === idx) {
+            $scope.formOptions.files.push({key: key, file: file});
+          }
+          else {
+            $scope.formOptions.files[idx].file = file;
+          }
         }
       };
     },
