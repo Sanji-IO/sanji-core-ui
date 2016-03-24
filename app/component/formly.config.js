@@ -108,25 +108,24 @@ const types = [
     template: `<div layout>
                 <md-input-container style="width: 70%;">
                   <label>{{to.label}}</label>
-                  <input style="color: rgba(0,0,0,0.87);" ng-model="model[options.key]" readonly>
+                  <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly>
                 </md-input-container>
                 <md-input-container>
-                  <md-button class="md-raised" ngf-select"$fileSelect($file, options.key)"
-                   accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
+                  <md-button class="md-raised" ngf-select="fileSelect($file)" ng-model="$file"
+                   ngf-accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
                     <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
               </div>`,
     controller: function($scope) {
       'ngInject';
-      $scope.$fileSelect = (file, key) => {
-        $scope.model[key] = file.name;
+      $scope.fileSelect = (file) => {
         if (undefined === $scope.formOptions.files) {
           $scope.formOptions.files = [];
-          $scope.formOptions.files.push({key: key, file: file});
+          $scope.formOptions.files.push(file);
         }
         else {
-          $scope.formOptions.files.push({key: key, file: file});
+          $scope.formOptions.files.push(file);
         }
       };
     },
