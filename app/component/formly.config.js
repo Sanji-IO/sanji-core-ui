@@ -106,7 +106,7 @@ const types = [
   {
     name: 'file',
     template: `<div layout>
-                <md-input-container>
+                <md-input-container style="width: 100%">
                   <label translate="{{to.label}}"></label>
                   <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly>
                 </md-input-container>
