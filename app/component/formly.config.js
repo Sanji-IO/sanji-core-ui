@@ -110,9 +110,9 @@ const types = [
                   <label>{{to.label}}</label>
                   <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly>
                 </md-input-container>
-                <md-input-container>
+                <md-input-container style="margin-top: 6px;">
                   <md-button class="md-raised" ngf-select="fileSelect($file)" ng-model="$file"
-                   ngf-accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}">
+                   ngf-accept="{{to.accept}}" ngf-max-size="{{to.maxSize}}" aria-label="select file">
                     <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
