@@ -102,6 +102,7 @@
     "ngletteravatar": "~4.0.0",
     "oclazyload": "~1.0.9",
     "path-to-regexp": "~1.2.1",
-    "sanji-utils-ui": "~1.2.4"
+    "sanji-utils-ui": "~1.2.4",
+    "webfontloader": "~1.6.24"
   }
 }
