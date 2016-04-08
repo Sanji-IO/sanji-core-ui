@@ -1,6 +1,7 @@
 // Vendors
 import 'jquery';
 import 'jquery-sparkline';
+import webFont from 'webfontloader';
 import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
 import _ from 'lodash';
@@ -32,6 +33,13 @@ import utils from './utils.config';
 import toastr from './toastr.config';
 import router from './router.config';
 import formlyConfig from './formly.config';
+
+// default material font
+webFont.load({
+  google: {
+    families: ['Roboto']
+  }
+});
 
 let app = angular.module('sanji.core', [
   ngSanitize,
