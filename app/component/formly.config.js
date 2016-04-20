@@ -236,7 +236,7 @@ const types = [
   },
   {
     name: 'checkbox',
-    template: `<md-checkbox ng-model="model[options.key]">
+    template: `<md-checkbox ng-model="model[options.key]" aria-label="{{::to.label}}">
                 <span translate="{{to.label}}"></span>
               </md-checkbox>`,
     defaultOptions: {
