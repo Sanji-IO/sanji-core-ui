@@ -1,4 +1,4 @@
-export default ($compileProvider, $logProvider, routerHelperProvider, exceptionHandlerProvider) => {
+export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvider, exceptionHandlerProvider) => {
   'ngInject';
   let config = {
     appErrorPrefix: '[webapp Error] ',
@@ -6,8 +6,9 @@ export default ($compileProvider, $logProvider, routerHelperProvider, exceptionH
   };
 
   // __DEV__ is webpack defined variable
-  $logProvider.debugEnabled(__DEV__);
+  $httpProvider.useApplyAsync(true);
   $compileProvider.debugInfoEnabled(__DEV__);
+  $logProvider.debugEnabled(__DEV__);
   exceptionHandlerProvider.configure(config.appErrorPrefix);
   routerHelperProvider.configure({docTitle: config.appTitle + ': ', defaultRoute: '/'});
 }
