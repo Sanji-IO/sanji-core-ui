@@ -464,10 +464,6 @@ function validateAliasName(value) {
   return /^[A-Za-z0-9_-]{3,255}$/.test(value);
 }
 
-function validateUrl(value) {
-  return /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/.test(value);
-}
-
 function validateLatitude(value) {
   return /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/.test(value);
 }
@@ -534,4 +530,4 @@ export default app => {
     formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', 'FORM_MAXLEN_ERROR_MSG2', 'FORM_MAXLEN_ERROR_MSG');
     formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', 'FORM_PATTERN_ERROR_MSG');
   });
-}
+};

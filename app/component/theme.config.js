@@ -25,4 +25,4 @@ export default $mdThemingProvider => {
     .primaryPalette('moxa-material');
 
   $mdThemingProvider.setDefaultTheme('moxa');
-}
+};

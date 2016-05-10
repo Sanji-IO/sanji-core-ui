@@ -8,5 +8,4 @@ import './app.scss';
 import angular from 'angular';
 import component from './component';
 
-let app = angular.module('webapp', [component]);
-
+angular.module('webapp', [component]);

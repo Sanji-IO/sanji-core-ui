@@ -12,4 +12,4 @@ export default ($translateProvider, $provide) => {
     .fallbackLanguage(LANG_EN.key)
     .useCookieStorage()
     .useSanitizeValueStrategy('escape');
-}
+};
