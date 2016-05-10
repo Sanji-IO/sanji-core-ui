@@ -11,4 +11,4 @@ export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvi
   $logProvider.debugEnabled(__DEV__);
   exceptionHandlerProvider.configure(config.appErrorPrefix);
   routerHelperProvider.configure({docTitle: config.appTitle + ': ', defaultRoute: '/'});
-}
+};

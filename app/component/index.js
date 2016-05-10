@@ -74,4 +74,4 @@ app.run(router);
 formlyConfig(app);
 apiCheck.globalConfig.disabled = __RELEASE__;
 
-export default app = app.name
+export default app = app.name;
