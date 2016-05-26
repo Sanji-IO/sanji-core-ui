@@ -402,6 +402,23 @@ const types = [
         }
       }
     }
+  },
+  {
+    name: 'matchField',
+    defaultOptions: function matchFieldDefaultOptions(options) {
+      return {
+        validators: {
+          fieldMatch: {
+            expression: (viewValue, modelValue, fieldScope) => {
+              var value = modelValue || viewValue;
+              var model = fieldScope.model;
+              return value === model[options.data.fieldToMatch];
+            },
+            message: options.data.matchFieldMessage || '"Must match!"'
+          }
+        }
+      };
+    }
   }
 ];
 
