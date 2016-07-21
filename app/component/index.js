@@ -20,7 +20,7 @@ import ngMaterialTable from 'angular-material-data-table';
 import sjWindow from 'angular-sanji-window';
 import sjSparklines from 'angular-sparklines';
 import ocLazyLoad from 'oclazyload';
-import sjUtils from 'sanji-utils-ui';
+import {sjUtils} from 'sanji-utils-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
@@ -41,7 +41,7 @@ webFont.load({
   }
 });
 
-let app = angular.module('sanji.core', [
+const app = angular.module('sanji.core', [
   ngSanitize,
   ngCookies,
   ngMaterial,
@@ -59,19 +59,20 @@ let app = angular.module('sanji.core', [
   'ngLetterAvatar',
   'angular-cron-jobs',
   sjUtils
-]);
-
-app.constant('pathToRegexp', pathToRegexp);
-app.constant('apiCheck', apiCheck);
-app.constant('_', _);
-app.constant('moment', moment);
-app.config(theme);
-app.config(lang);
-app.config(utils);
-app.config(toastr);
-app.run(router);
+])
+.constant('pathToRegexp', pathToRegexp)
+.constant('apiCheck', apiCheck)
+.constant('_', _)
+.constant('moment', moment)
+.config(theme)
+.config(lang)
+.config(utils)
+.config(toastr)
+.run(router);
 
 formlyConfig(app);
 apiCheck.globalConfig.disabled = __RELEASE__;
 
-export default app = app.name;
+const sjCore = app.name;
+
+export {sjCore};
