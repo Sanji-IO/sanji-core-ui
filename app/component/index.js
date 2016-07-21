@@ -41,7 +41,7 @@ webFont.load({
   }
 });
 
-const app = angular.module('sanji.core', [
+let app = angular.module('sanji.core', [
   ngSanitize,
   ngCookies,
   ngMaterial,
@@ -59,16 +59,16 @@ const app = angular.module('sanji.core', [
   'ngLetterAvatar',
   'angular-cron-jobs',
   sjUtils
-])
-.constant('pathToRegexp', pathToRegexp)
-.constant('apiCheck', apiCheck)
-.constant('_', _)
-.constant('moment', moment)
-.config(theme)
-.config(lang)
-.config(utils)
-.config(toastr)
-.run(router);
+]);
+app.constant('pathToRegexp', pathToRegexp);
+app.constant('apiCheck', apiCheck);
+app.constant('_', _);
+app.constant('moment', moment);
+app.config(theme);
+app.config(lang);
+app.config(utils);
+app.config(toastr);
+app.run(router);
 
 formlyConfig(app);
 apiCheck.globalConfig.disabled = __RELEASE__;

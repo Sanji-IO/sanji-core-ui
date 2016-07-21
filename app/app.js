@@ -8,7 +8,10 @@ import './app.scss';
 import angular from 'angular';
 import {sjCore} from './component';
 
-angular.module('webapp', [sjCore]);
+angular.module('webapp', [sjCore])
+  .run((LANG_KEYS) => {
+    console.log(LANG_KEYS);
+  });
 
 angular.element(document).ready(() => {
   angular.bootstrap(document.body, ['webapp']);
