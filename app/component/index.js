@@ -4,7 +4,6 @@ import 'jquery-sparkline';
 import webFont from 'webfontloader';
 import pathToRegexp from 'path-to-regexp';
 import apiCheck from 'api-check';
-import _ from 'lodash';
 import moment from 'moment';
 import angular from 'angular';
 import ngSanitize from 'angular-sanitize';
@@ -62,7 +61,6 @@ let app = angular.module('sanji.core', [
 ]);
 app.constant('pathToRegexp', pathToRegexp);
 app.constant('apiCheck', apiCheck);
-app.constant('_', _);
 app.constant('moment', moment);
 app.config(theme);
 app.config(lang);
