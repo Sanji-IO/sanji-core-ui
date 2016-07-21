@@ -9,8 +9,9 @@ import angular from 'angular';
 import {sjCore} from './component';
 
 angular.module('webapp', [sjCore])
-  .run((LANG_KEYS) => {
+  .run((LANG_KEYS, _) => {
     console.log(LANG_KEYS);
+    console.log(_);
   });
 
 angular.element(document).ready(() => {
