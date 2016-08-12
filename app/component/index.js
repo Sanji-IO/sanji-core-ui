@@ -66,11 +66,11 @@ app.config(theme);
 app.config(lang);
 app.config(utils);
 app.config(toastr);
-// app.filter('trustAsResourceUrl', ['$sce', function($sce) {
-//   return function(val) {
-//     return $sce.trustAsResourceUrl(val);
-//   };
-// }]);
+app.filter('trustAsResourceUrl', ['$sce', function($sce) {
+  return function(val) {
+    return $sce.trustAsResourceUrl(val);
+  };
+}]);
 app.run(router);
 
 formlyConfig(app);
