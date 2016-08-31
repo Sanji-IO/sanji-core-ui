@@ -12,7 +12,7 @@ import ngMaterial from 'angular-material';
 import ngMessages from 'angular-messages';
 import ngMdIcons from 'angular-material-icons';
 import formly from 'angular-formly';
-import LocalStorageModule from 'angular-local-storage';
+import LocalStorageModule from 'angular-storage';
 import i18n from 'angular-translate';
 import 'angular-translate-storage-cookie';
 import ngMaterialTable from 'angular-material-data-table';
