@@ -1,6 +1,6 @@
-export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvider, exceptionHandlerProvider) => {
+export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvider, exceptionHandlerProvider, localStorageServiceProvider) => {
   'ngInject';
-  let config = {
+  const config = {
     appErrorPrefix: '[webapp Error] ',
     appTitle: 'webapp'
   };
@@ -11,4 +11,6 @@ export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvi
   $logProvider.debugEnabled(__DEV__);
   exceptionHandlerProvider.configure(config.appErrorPrefix);
   routerHelperProvider.configure({docTitle: config.appTitle + ': ', defaultRoute: '/'});
+  localStorageServiceProvider.setStorageType('sessionStorage');
+  localStorageServiceProvider.setDefaultToCookie(false);
 };
