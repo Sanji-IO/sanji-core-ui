@@ -96,7 +96,7 @@ const types = [
   },
   {
     name: 'input',
-    template: `<input ng-model="model[options.key]">`,
+    template: `<input ng-model="model[options.key]" ng-min="to.min" ng-max="to.max">`,
     defaultOptions: {
       templateOptions: {
         label: ''
@@ -117,7 +117,7 @@ const types = [
                   </md-button>
                 </md-input-container>
               </div>`,
-    controller: function($scope, _) {
+    controller: function($scope) {
       'ngInject';
       $scope.fileSelect = (file, key) => {
         if (!file) {
@@ -128,7 +128,7 @@ const types = [
           $scope.formOptions.files.push({key: key, file: file});
         }
         else {
-          let idx = _.findIndex($scope.formOptions.files, {key: key});
+          let idx = $scope.formOptions.files.findIndex(item => item.key === key);
           if (-1 === idx) {
             $scope.formOptions.files.push({key: key, file: file});
           }

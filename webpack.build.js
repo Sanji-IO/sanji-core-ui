@@ -1,10 +1,8 @@
-'use strict';
-
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var bourbon = require('node-bourbon').includePaths;
-var config = require('./webpack.config.js');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const bourbon = require('node-bourbon').includePaths;
+const config = require('./webpack.config.js');
 
 config.devtool = 'source-map';
 config.entry = {
@@ -43,7 +41,8 @@ config.externals = [
   'webfontloader'
 ];
 
-config.module.loaders = [
+config.module.rules = [
+  {test: /\.js$/, loader: 'ng-annotate', exclude: /(node_modules)/, enforce: 'post'},
   {
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract({
@@ -51,12 +50,7 @@ config.module.loaders = [
       loader: 'css!postcss!sass?includePaths[]=' + bourbon
     })
   }
-].concat(config.module.loaders);
-
-config.module.postLoaders = [
-  {test: /\.js$/, loader: 'ng-annotate', exclude: /(node_modules)/}
-];
-config.postcss = [ autoprefixer({ browsers: ['last 2 versions'] }) ];
+].concat(config.module.rules);
 
 config.plugins.push(
   new ExtractTextPlugin('sanji-core-ui.css'),
@@ -64,12 +58,18 @@ config.plugins.push(
   new webpack.LoaderOptionsPlugin({
     minimize: true,
     debug: false,
-    quiet: true
+    quiet: true,
+    options:{
+      postcss: [
+        autoprefixer({ browsers: ['last 2 versions'] })
+      ]
+    }
   }),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       screw_ie8: true,
-      warnings: false
+      warnings: false,
+      dead_code: true
     }
   })
 );
