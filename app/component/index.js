@@ -18,6 +18,7 @@ import 'angular-translate-storage-cookie';
 import ngMaterialTable from 'angular-material-data-table';
 import sjWindow from 'angular-sanji-window';
 import sjSparklines from 'angular-sparklines';
+import ngFileSaver from 'angular-file-saver';
 import ocLazyLoad from 'oclazyload';
 import {sjUtils} from 'sanji-utils-ui';
 import 'ngletteravatar';
@@ -40,7 +41,7 @@ webFont.load({
   }
 });
 
-let app = angular.module('sanji.core', [
+const app = angular.module('sanji.core', [
   ngSanitize,
   ngCookies,
   ngMaterial,
@@ -49,6 +50,7 @@ let app = angular.module('sanji.core', [
   ngMaterialTable,
   'angularMoment',
   'angular.filter',
+  ngFileSaver,
   sjSparklines,
   formly,
   LocalStorageModule,
