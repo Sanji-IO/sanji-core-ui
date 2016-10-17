@@ -21,12 +21,12 @@
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-es2015": "^6.0.0",
     "commitizen": "^2.8.0",
     "cross-env": "^3.1.0",
-    "css-loader": "^0.24.0",
+    "css-loader": "^0.25.0",
     "cz-conventional-changelog": "^1.1.5",
     "eslint": "^3.3.0",
     "eslint-loader": "^1.3.0",
@@ -35,11 +35,11 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "json-loader": "^0.5.4",
-    "ng-annotate-loader": "^0.1.0",
-    "ng-cache-loader": "^0.0.15",
+    "ng-annotate-loader": "^0.2.0",
+    "ng-cache-loader": "^0.0.21",
     "node-bourbon": "^4.2.3",
     "node-sass": "^3.8.0",
-    "postcss-loader": "^0.10.0",
+    "postcss-loader": "^1.0.0",
     "progress-bar-webpack-plugin": "^1.9.0",
     "publish-latest": "~1.1.2",
     "raw-loader": "^0.5.1",
@@ -80,7 +80,7 @@
     "angular-ui-router": "1.0.0-beta.1",
     "jquery": "~2.2.0",
     "ng-file-upload": "~12.2.0",
-    "socket.io-client": "~1.4.0",
+    "socket.io-client": "~1.5.0",
     "toastr": "~2.1.2"
   },
   "dependencies": {
@@ -109,7 +109,7 @@
     "ngletteravatar": "~4.0.0",
     "oclazyload": "~1.0.9",
     "path-to-regexp": "~1.6.0",
-    "sanji-utils-ui": "~1.2.16",
+    "sanji-utils-ui": "~1.2.17",
     "webfontloader": "~1.6.24"
   }
 }
