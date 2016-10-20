@@ -96,7 +96,7 @@ const types = [
   },
   {
     name: 'input',
-    template: `<input ng-model="model[options.key]" ng-min="to.min" ng-max="to.max">`,
+    template: `<input ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
     defaultOptions: {
       templateOptions: {
         label: ''
@@ -255,7 +255,7 @@ const types = [
       validators: {
         ip: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateIp(value);
           },
           message: '"FORM_IP_ERROR_MSG"'
@@ -272,7 +272,7 @@ const types = [
       validators: {
         latitude: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateLatitude(value);
           },
           message: '"FORM_LATITUDE_ERROR_MSG"'
@@ -289,7 +289,7 @@ const types = [
       validators: {
         longitude: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateLongitude(value);
           },
           message: '"FORM_LONITUDE_ERROR_MSG"'
@@ -307,7 +307,7 @@ const types = [
       validators: {
         password: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validatePassword(value);
           },
           message: '"FORM_PASSWORD_ERROR_MSG"'
@@ -324,7 +324,7 @@ const types = [
       validators: {
         aliasName: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateAliasName(value);
           },
           message: '"FORM_ALIASNAME_ERROR_MSG"'
@@ -341,7 +341,7 @@ const types = [
       validators: {
         hostname: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateHostName(value);
           },
           message: '"FORM_HOSTNAME_ERROR_MSG"'
@@ -358,7 +358,7 @@ const types = [
       validators: {
         port: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validatePort(value);
           },
           message: '"FORM_PORT_ERROR_MSG"'
@@ -375,7 +375,7 @@ const types = [
       validators: {
         mac: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateMac(value);
           },
           message: '"FORM_MAC_ERROR_MSG"'
@@ -395,7 +395,7 @@ const types = [
       validators: {
         float: {
           expression: function($viewValue, $modelValue) {
-            var value = $modelValue || $viewValue;
+            const value = $modelValue || $viewValue;
             return !value || validateFloat(value);
           },
           message: '"FORM_FLOAT_ERROR_MSG"'
@@ -410,8 +410,8 @@ const types = [
         validators: {
           fieldMatch: {
             expression: (viewValue, modelValue, fieldScope) => {
-              var value = modelValue || viewValue;
-              var model = fieldScope.model;
+              const value = modelValue || viewValue;
+              const model = fieldScope.model;
               return value === model[options.data.fieldToMatch];
             },
             message: options.data.matchFieldMessage || '"Must match!"'
@@ -514,7 +514,7 @@ function validateIp(value) {
 
 function setType(formlyConfig, types) {
   let i;
-  let length = types.length;
+  const length = types.length;
   for (i = 0; i < length; i++) {
     formlyConfig.setType(types[i]);
   }
@@ -522,7 +522,7 @@ function setType(formlyConfig, types) {
 
 function setWrapper(formlyConfig, wrappers) {
   let i;
-  let length = wrappers.length;
+  const length = wrappers.length;
   for (i = 0; i < length; i++) {
     formlyConfig.setWrapper(wrappers[i]);
   }
@@ -537,14 +537,14 @@ export default app => {
     formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;
   });
   // @ngInject
-  app.run((formlyConfig, formlyValidationMessages) => {
+  app.run((formlyConfig, formlyValidationMessages, $filter) => {
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
-    formlyValidationMessages.addStringMessage('required', 'FORM_REQUIRED_ERROR_MSG');
-    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', '', 'FORM_MIN_ERROR_MSG2', 'FORM_MIN_ERROR_MSG');
-    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', '', 'FORM_MAX_ERROR_MSG2', 'FORM_MAX_ERROR_MSG');
-    formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'FORM_MINLEN_ERROR_MSG2', 'FORM_MINLEN_ERROR_MSG');
-    formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', 'FORM_MAXLEN_ERROR_MSG2', 'FORM_MAXLEN_ERROR_MSG');
-    formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', 'FORM_PATTERN_ERROR_MSG');
+    formlyValidationMessages.addStringMessage('required', $filter('translate')('FORM_REQUIRED_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', '', $filter('translate')('FORM_MIN_ERROR_MSG2'), $filter('translate')('FORM_MIN_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', '', $filter('translate')('FORM_MAX_ERROR_MSG2'), $filter('translate')('FORM_MAX_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', $filter('translate')('FORM_MINLEN_ERROR_MSG2'), $filter('translate')('FORM_MINLEN_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', $filter('translate')('FORM_MAXLEN_ERROR_MSG2'), $filter('translate')('FORM_MAXLEN_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', $filter('translate')('FORM_PATTERN_ERROR_MSG'));
   });
 };
