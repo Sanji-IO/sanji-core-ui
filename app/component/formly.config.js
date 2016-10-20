@@ -96,7 +96,7 @@ const types = [
   },
   {
     name: 'input',
-    template: `<input ng-model="model[options.key]" min="{{to.min}}" max="{{to.max}}">`,
+    template: `<input ng-model="model[options.key]" ng-minlength="to.min" ng-maxlength="to.max">`,
     defaultOptions: {
       templateOptions: {
         label: ''
