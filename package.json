@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "1.17.6",
+  "version": "1.17.7",
   "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
@@ -64,25 +64,6 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
-  "peerDependencies": {
-    "angular": "~1.5.0",
-    "angular-busy": "~4.1.3",
-    "angular-cookies": "~1.5.0",
-    "angular-http-auth": "~1.3.0",
-    "angular-storage": "~0.0.15",
-    "angular-animate": "~1.5.0",
-    "angular-aria": "~1.5.0",
-    "angular-material": "~1.1.0",
-    "angular-material-data-table": "~0.10.1",
-    "angular-material-icons": "^0.7.0",
-    "angular-sanji-window": "~2.1.0",
-    "angular-socket-io": "~0.7.0",
-    "angular-ui-router": "1.0.0-beta.1",
-    "jquery": "~2.2.0",
-    "ng-file-upload": "~12.2.0",
-    "socket.io-client": "~1.5.0",
-    "toastr": "~2.1.2"
-  },
   "dependencies": {
     "angular": "~1.5.0",
     "angular-animate": "~1.5.0",
