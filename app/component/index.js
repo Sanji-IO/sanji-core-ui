@@ -74,6 +74,12 @@ app.filter('trustAsResourceUrl', ['$sce', function($sce) {
   };
 }]);
 app.run(router);
+app.run($state => {
+  'ngInject';
+  if (__RELEASE__) {
+    $state.defaultErrorHandler(function() { /* do nothing */});
+  }
+});
 
 formlyConfig(app);
 apiCheck.globalConfig.disabled = __RELEASE__;
