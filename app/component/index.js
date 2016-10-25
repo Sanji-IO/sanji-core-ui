@@ -33,6 +33,7 @@ import utils from './utils.config';
 import toastr from './toastr.config';
 import router from './router.config';
 import formlyConfig from './formly.config';
+import DownloadHelper from './helper/download.helper';
 
 // default material font
 webFont.load({
@@ -73,6 +74,7 @@ app.filter('trustAsResourceUrl', ['$sce', function($sce) {
     return $sce.trustAsResourceUrl(val);
   };
 }]);
+app.service('downloadHelper', DownloadHelper);
 app.run(router);
 app.run($state => {
   'ngInject';
