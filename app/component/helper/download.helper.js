@@ -12,7 +12,7 @@ class DownloadHelperService {
 
   generatedIframe(token, url) {
     this.iframe = document.createElement('iframe');
-    this.$cookies.put('Authorization', token);
+    this.$cookies.put('token', token);
 
     this.iframe.src = url;
     this.iframe.style.display = 'none';
@@ -20,7 +20,7 @@ class DownloadHelperService {
   }
 
   removeIframe() {
-    this.$cookies.remove('Authorization');
+    this.$cookies.remove('token');
     document.body.removeChild(this.iframe);
   }
 }
