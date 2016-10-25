@@ -15,6 +15,7 @@ class DownloadHelperService {
     this.$cookies.put('Authorization', token);
 
     this.iframe.src = url;
+    this.iframe.style.display = 'none';
     document.body.appendChild(this.iframe);
   }
 
