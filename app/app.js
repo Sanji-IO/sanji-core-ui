@@ -6,7 +6,7 @@ import 'angular-material-data-table.css';
 import 'toastr.css';
 import './app.scss';
 import angular from 'angular';
-import {sjCore} from './component';
+import { sjCore } from './component';
 
 angular.module('webapp', [sjCore]);
 
