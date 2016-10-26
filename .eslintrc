@@ -14,7 +14,6 @@
   },
   "globals": {
     "angular": true,
-    "Offline": true,
     "sinon": true,
     "expect": true,
     "__DEV__": true,
