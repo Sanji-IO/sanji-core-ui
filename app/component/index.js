@@ -1,5 +1,6 @@
+
 // Vendors
-import 'offline-js';
+import Offline from 'offline-js';
 import 'jquery';
 import 'jquery-sparkline';
 import webFont from 'webfontloader';
@@ -49,10 +50,9 @@ Offline.options = {
   // Should we automatically retest periodically when the connection is down (set to false to disable).
   reconnect: {
     // How many seconds should we wait before rechecking.
-    initialDelay: 10,
-
+    initialDelay: 3,
     // How long should we wait between retries.
-    delay: 10
+    delay: 3
   },
   // Should we store and attempt to remake requests which fail while the connection is down.
   requests: false
@@ -92,11 +92,14 @@ app.filter('trustAsResourceUrl', ['$sce', function($sce) {
 }]);
 app.service('downloadHelper', DownloadHelper);
 app.run(router);
-app.run($state => {
+app.run(($state, socket) => {
   'ngInject';
   if (__RELEASE__) {
     $state.defaultErrorHandler(function() { /* do nothing */});
   }
+  socket.on('disconnect', () => {
+    Offline.check();
+  });
 });
 
 formlyConfig(app);
