@@ -1,6 +1,7 @@
+/* global Offline */
 
 // Vendors
-import Offline from 'offline-js';
+import 'offline-js';
 import 'jquery';
 import 'jquery-sparkline';
 import webFont from 'webfontloader';
