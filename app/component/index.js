@@ -1,4 +1,5 @@
 // Vendors
+import 'offline-js';
 import 'jquery';
 import 'jquery-sparkline';
 import webFont from 'webfontloader';
@@ -41,6 +42,21 @@ webFont.load({
     families: ['Roboto']
   }
 });
+
+Offline.options = {
+  // Should we check the connection status immediatly on page load.
+  checkOnLoad: true,
+  // Should we automatically retest periodically when the connection is down (set to false to disable).
+  reconnect: {
+    // How many seconds should we wait before rechecking.
+    initialDelay: 10,
+
+    // How long should we wait between retries.
+    delay: 10
+  },
+  // Should we store and attempt to remake requests which fail while the connection is down.
+  requests: false
+};
 
 const app = angular.module('sanji.core', [
   ngSanitize,
