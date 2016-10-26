@@ -1,6 +1,4 @@
 // Vendors
-import 'offline-theme-chrome-indicator.css';
-import 'offline-language-english-indicator.css';
 import 'offline-js';
 import 'jquery';
 import 'jquery-sparkline';
