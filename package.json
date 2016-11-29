@@ -87,7 +87,7 @@
     "jquery": "~2.2.0",
     "jquery-sparkline": "~2.3.0",
     "lodash": "^4.6.0",
-    "mobx": "~2.6.3",
+    "ng-mobx": "~1.0.0",
     "ngletteravatar": "~4.0.0",
     "oclazyload": "~1.0.9",
     "offline-js": "~0.7.18",

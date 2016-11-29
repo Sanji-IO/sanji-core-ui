@@ -28,6 +28,7 @@ import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
 import 'angular-cron-jobs';
+import 'ng-mobx';
 
 import './404.html';
 import theme from './theme.config';
@@ -77,6 +78,7 @@ const app = angular.module('sanji.core', [
   ocLazyLoad,
   'ngLetterAvatar',
   'angular-cron-jobs',
+  'ng-mobx',
   sjUtils
 ]);
 app.constant('pathToRegexp', pathToRegexp);
