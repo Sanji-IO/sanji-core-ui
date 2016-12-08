@@ -24,11 +24,11 @@ import sjSparklines from 'angular-sparklines';
 import ngFileSaver from 'angular-file-saver';
 import ocLazyLoad from 'oclazyload';
 import {sjUtils} from 'sanji-utils-ui';
+import {sjRedux} from 'sanji-redux-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
 import 'angular-cron-jobs';
-import 'ng-mobx';
 
 import './404.html';
 import theme from './theme.config';
@@ -78,7 +78,7 @@ const app = angular.module('sanji.core', [
   ocLazyLoad,
   'ngLetterAvatar',
   'angular-cron-jobs',
-  'ng-mobx',
+  sjRedux,
   sjUtils
 ]);
 app.constant('pathToRegexp', pathToRegexp);
