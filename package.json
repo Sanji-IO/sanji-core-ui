@@ -91,7 +91,7 @@
     "oclazyload": "~1.0.9",
     "offline-js": "~0.7.18",
     "path-to-regexp": "~1.7.0",
-    "sanji-redux-ui": "~1.0.0",
+    "sanji-redux-ui": "~1.1.1",
     "sanji-utils-ui": "~1.2.17",
     "webfontloader": "~1.6.24"
   }

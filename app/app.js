@@ -22,7 +22,7 @@ angular.module('webapp', [sjCore])
   'ngInject';
   reduxHelperProvider.configure({
     category
-  });
+  }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 })
 .run(($ngRedux, reduxHelper) => {
   'ngInject';
