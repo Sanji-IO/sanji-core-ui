@@ -34,11 +34,16 @@ config.externals = [
   'angular-moment',
   'angular-cron-jobs',
   'angular-filter',
+  'angular-file-saver',
   'oclazyload',
   'sanji-utils-ui',
   'ngletteravatar',
-  'angular-local-storage',
-  'webfontloader'
+  'angular-storage',
+  'webfontloader',
+  'redux',
+  'redux-thunk',
+  'ng-redux',
+  'offline-js'
 ];
 
 config.module.rules = [
