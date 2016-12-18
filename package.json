@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
