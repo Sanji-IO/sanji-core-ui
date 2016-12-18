@@ -531,7 +531,7 @@ function setWrapper(formlyConfig, wrappers) {
 export default app => {
   // @ngInject
   app.config(formlyConfigProvider => {
-    formlyConfigProvider.disableWarnings = __RELEASE__;
+    formlyConfigProvider.disableWarnings = (process.env.NODE_ENV === 'production');
     formlyConfigProvider.extras.removeChromeAutoComplete = true;
     formlyConfigProvider.extras.explicitAsync = true;
     formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;

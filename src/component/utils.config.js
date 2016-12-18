@@ -5,10 +5,9 @@ export default ($httpProvider, $compileProvider, $logProvider, routerHelperProvi
     appTitle: 'webapp'
   };
 
-  // __DEV__ is webpack defined variable
   $httpProvider.useApplyAsync(true);
-  $compileProvider.debugInfoEnabled(__DEV__);
-  $logProvider.debugEnabled(__DEV__);
+  $compileProvider.debugInfoEnabled(process.env.NODE_ENV === 'development');
+  $logProvider.debugEnabled(process.env.NODE_ENV === 'development');
   exceptionHandlerProvider.configure(config.appErrorPrefix);
   routerHelperProvider.configure({docTitle: config.appTitle + ': ', defaultRoute: '/'});
   storeProvider.setStore('sessionStorage');

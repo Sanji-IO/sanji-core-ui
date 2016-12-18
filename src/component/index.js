@@ -97,7 +97,7 @@ app.service('downloadHelper', DownloadHelper);
 app.run(router);
 app.run(($state, socket) => {
   'ngInject';
-  if (__RELEASE__) {
+  if (process.env.NODE_ENV === 'production') {
     $state.defaultErrorHandler(function() { /* do nothing */});
   }
   socket.on('disconnect', () => {
@@ -106,7 +106,7 @@ app.run(($state, socket) => {
 });
 
 formlyConfig(app);
-apiCheck.globalConfig.disabled = __RELEASE__;
+apiCheck.globalConfig.disabled = (process.env.NODE_ENV === 'production');
 
 const sjCore = app.name;
 
