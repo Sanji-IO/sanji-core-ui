@@ -29,6 +29,8 @@
   "FORM_LABEL_HOUR": "小時",
   "FORM_LABEL_MINUTE": "分鐘",
   "FORM_LABEL_TEXTAREA": "文字區塊",
+  "FORM_LABEL_HOST": "主機域名",
+  "FORM_HOST_ERROR_MSG": "主機域名格式錯誤",
   "FORM_FLOAT_ERROR_MSG": "浮點數格式錯誤",
   "FORM_MAC_ERROR_MSG": "MAC 格式錯誤",
   "FORM_FLOAT_ERROR_MSG": "埠格式錯誤",

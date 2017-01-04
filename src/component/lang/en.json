@@ -29,6 +29,8 @@
   "FORM_LABEL_HOUR": "Hour",
   "FORM_LABEL_MINUTE": "Minute",
   "FORM_LABEL_TEXTAREA": "Textarea",
+  "FORM_LABEL_HOST": "Host",
+  "FORM_HOST_ERROR_MSG": "Invalid host format",
   "FORM_FLOAT_ERROR_MSG": "Invalid float format",
   "FORM_MAC_ERROR_MSG": "Invalid MAC format",
   "FORM_FLOAT_ERROR_MSG": "Invalid port format",

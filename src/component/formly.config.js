@@ -264,6 +264,24 @@ const types = [
     }
   },
   {
+    name: 'domain',
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_HOST',
+        placeholder: '127.0.0.1'
+      },
+      validators: {
+        ipOrDomain: {
+          expression: function($viewValue, $modelValue) {
+            const value = $modelValue || $viewValue;
+            return !value || validateIp(value) || validateHostName(value);
+          },
+          message: '"FORM_HOST_ERROR_MSG"'
+        }
+      }
+    }
+  },
+  {
     name: 'latitude',
     defaultOptions: {
       templateOptions: {
@@ -474,7 +492,7 @@ function validatePort(value) {
 }
 
 function validateHostName(value) {
-  return /^(?![0-9]+$)(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$/.test(value);
+  return /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(value);
 }
 
 function validateAliasName(value) {
