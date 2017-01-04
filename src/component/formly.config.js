@@ -541,8 +541,8 @@ export default app => {
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
     formlyValidationMessages.addStringMessage('required', $filter('translate')('FORM_REQUIRED_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', '', $filter('translate')('FORM_MIN_ERROR_MSG2'), $filter('translate')('FORM_MIN_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', '', $filter('translate')('FORM_MAX_ERROR_MSG2'), $filter('translate')('FORM_MAX_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', $filter('translate')('FORM_MIN_ERROR_MSG2'), '', $filter('translate')('FORM_MIN_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', $filter('translate')('FORM_MAX_ERROR_MSG2'), '', $filter('translate')('FORM_MAX_ERROR_MSG'));
     formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', $filter('translate')('FORM_MINLEN_ERROR_MSG2'), $filter('translate')('FORM_MINLEN_ERROR_MSG'));
     formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', $filter('translate')('FORM_MAXLEN_ERROR_MSG2'), $filter('translate')('FORM_MAXLEN_ERROR_MSG'));
     formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', $filter('translate')('FORM_PATTERN_ERROR_MSG'));
