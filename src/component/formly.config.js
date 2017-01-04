@@ -271,7 +271,7 @@ const types = [
         placeholder: '127.0.0.1'
       },
       validators: {
-        ipOrDomain: {
+        domain: {
           expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateIp(value) || validateHostName(value);
