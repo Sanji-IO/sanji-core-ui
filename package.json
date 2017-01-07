@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
@@ -68,7 +68,7 @@
     "angular": "~1.5.0",
     "angular-animate": "~1.5.0",
     "angular-aria": "~1.5.0",
-    "angular-cron-jobs": "~3.2.0",
+    "angular-cron-gen": "~0.0.21",
     "angular-file-saver": "~1.1.2",
     "angular-filter": "~0.5.7",
     "angular-formly": "~8.4.0",

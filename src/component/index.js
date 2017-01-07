@@ -28,7 +28,7 @@ import {sjRedux} from 'sanji-redux-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
-import 'angular-cron-jobs';
+import ngCronGen from 'angular-cron-gen';
 
 import './404.html';
 import theme from './theme.config';
@@ -77,7 +77,7 @@ const app = angular.module('sanji.core', [
   sjWindow,
   ocLazyLoad,
   'ngLetterAvatar',
-  'angular-cron-jobs',
+  ngCronGen,
   sjRedux,
   sjUtils
 ]);
@@ -103,6 +103,10 @@ app.run(($state, socket) => {
   socket.on('disconnect', () => {
     Offline.check();
   });
+});
+app.run($templateCache => {
+  'ngInject';
+  $templateCache.put('sanji-cron.tpl.html', require('./template/cron.tpl.html'));
 });
 
 formlyConfig(app);
