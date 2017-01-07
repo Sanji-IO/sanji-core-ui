@@ -13,7 +13,7 @@
   <base href="/">
 </head>
 
-<body>
+<body ng-controller="AppController as $ctrl">
   <!--[if lt IE 8]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -26,7 +26,15 @@
     </md-toolbar>
 
     <div layout="row" layout-align="center center">
-      <span class="md-caption">from the Sanji Team</span>
+      <cron-gen ng-model="$ctrl.cronExpression" template-url="sanji-cron.tpl.html" ng-disabled="$ctrl.isCronDisabled" options="$ctrl.cronOptions">
+      </cron-gen>
+    </div>
+    <div>
+      <div>
+        Generated Cron Expression:
+        <span><b>{{$ctrl.cronExpression}}</b></span>
+      </div>
+      <p class="md-caption">from the Sanji Team</p>
     </div>
   </div>
 
