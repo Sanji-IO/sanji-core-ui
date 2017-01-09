@@ -17,7 +17,7 @@ const types = [
               </div>`,
     controller: function($scope) {
       'ngInject';
-      let date = new Date($scope.model[$scope.options.key]);
+      let date = ($scope.model[$scope.options.key]) ? new Date($scope.model[$scope.options.key]) : new Date();
       $scope.options.templateOptions.date = date;
       $scope.options.templateOptions.hour = date.getHours();
       $scope.options.templateOptions.minute = date.getMinutes();
