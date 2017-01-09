@@ -3,7 +3,9 @@ const WebpackDevServer = require('webpack-dev-server');
 const config = require('../webpack.dev');
 new WebpackDevServer(webpack(config), {
   historyApiFallback: true,
-  stats: 'errors-only'
+  stats: {
+    colors: true,
+  }
 })
 .listen(8080, 'localhost', function(err) {
   if (err) {

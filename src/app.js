@@ -17,23 +17,6 @@ const category = (state = {}, {type, payload}) => {
       return state;
   }
 };
-class AppController {
-  constructor() {
-    this.cronExpression = '0 8 9 9 1/8 ? *';
-    this.cronOptions = {
-      hideMinutesTab: false, // Whether to hide the minutes tab
-      hideHourlyTab: false, // Whether to hide the hourly tab
-      hideDailyTab: false, // Whether to hide the daily tab
-      hideWeeklyTab: false, // Whether to hide the weekly tab
-      hideMonthlyTab: false, // Whether to hide the monthly tab
-      hideYearlyTab: false, // Whether to hide the yearly tab
-      hideAdvancedTab: true, // Whether to hide the advanced tab
-      use24HourTime: false, // Whether to show AM/PM on the time selectors
-      hideSeconds: true // Whether to show/hide the seconds time picker
-    };
-    this.isCronDisabled = false;
-  }
-}
 angular.module('webapp', [sjCore])
 .config(reduxHelperProvider => {
   'ngInject';
@@ -41,7 +24,6 @@ angular.module('webapp', [sjCore])
     category
   }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 })
-.controller('AppController', AppController)
 .run(($ngRedux, reduxHelper) => {
   'ngInject';
   const test = (state = [], {type, payload}) => {
