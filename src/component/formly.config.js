@@ -108,7 +108,7 @@ const types = [
     template: `<div layout>
                 <md-input-container style="width: 100%">
                   <label translate="{{to.label}}"></label>
-                  <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly>
+                  <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly ng-required="to.required">
                 </md-input-container>
                 <md-input-container style="margin-top: 6px;">
                   <md-button class="md-raised" ngf-select="fileSelect($file, options.key)" ng-model="$file"
