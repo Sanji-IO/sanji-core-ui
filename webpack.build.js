@@ -47,11 +47,11 @@ config.externals = [
 ];
 
 config.module.rules = [
-  {test: /\.js$/, use: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post'},
+  { test: /\.js$/, use: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post' },
   {
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract({
-      notExtractLoader: 'style-loader',
+      fallbackLoader: 'style-loader',
       loader: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
     })
   }
@@ -63,7 +63,7 @@ config.plugins.push(
     minimize: true,
     debug: false,
     quiet: true,
-    options:{
+    options: {
       postcss: [
         autoprefixer({ browsers: ['last 2 versions'] })
       ]
