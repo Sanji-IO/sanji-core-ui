@@ -453,7 +453,7 @@ const wrappers = [
     template: `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
                 <md-select ng-model="model[options.key]" aria-label="select"
-                  ng-required="{{to.required}}" ng-disabled="{{to.disabled}}">
+                  ng-required="to.required" ng-disabled="to.disabled">
                   <formly-transclude></formly-transclude>
                 </md-select>
                 <div ng-messages="fc.$error" ng-show="showError">
