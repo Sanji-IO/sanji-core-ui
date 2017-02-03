@@ -15,7 +15,7 @@ const types = [
                   <input type="number" ng-model="to.minute" ng-required="to.required">
                 </md-input-container>
               </div>`,
-    controller: function($scope) {
+    controller: function ($scope) {
       'ngInject';
       let date = ($scope.model[$scope.options.key]) ? new Date($scope.model[$scope.options.key]) : new Date();
       $scope.options.templateOptions.date = date;
@@ -117,7 +117,7 @@ const types = [
                   </md-button>
                 </md-input-container>
               </div>`,
-    controller: function($scope) {
+    controller: function ($scope) {
       'ngInject';
       $scope.fileSelect = (file, key) => {
         if (!file) {
@@ -125,12 +125,12 @@ const types = [
         }
         if (undefined === $scope.formOptions.files) {
           $scope.formOptions.files = [];
-          $scope.formOptions.files.push({key: key, file: file});
+          $scope.formOptions.files.push({ key: key, file: file });
         }
         else {
           let idx = $scope.formOptions.files.findIndex(item => item.key === key);
           if (-1 === idx) {
-            $scope.formOptions.files.push({key: key, file: file});
+            $scope.formOptions.files.push({ key: key, file: file });
           }
           else {
             $scope.formOptions.files[idx].file = file;
@@ -254,7 +254,7 @@ const types = [
       },
       validators: {
         ip: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateIp(value);
           },
@@ -272,7 +272,7 @@ const types = [
       },
       validators: {
         domain: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateIp(value) || validateHostName(value);
           },
@@ -289,7 +289,7 @@ const types = [
       },
       validators: {
         latitude: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateLatitude(value);
           },
@@ -306,7 +306,7 @@ const types = [
       },
       validators: {
         longitude: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateLongitude(value);
           },
@@ -324,7 +324,7 @@ const types = [
       },
       validators: {
         password: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validatePassword(value);
           },
@@ -341,7 +341,7 @@ const types = [
       },
       validators: {
         aliasName: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateAliasName(value);
           },
@@ -358,7 +358,7 @@ const types = [
       },
       validators: {
         hostname: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateHostName(value);
           },
@@ -375,7 +375,7 @@ const types = [
       },
       validators: {
         port: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validatePort(value);
           },
@@ -392,7 +392,7 @@ const types = [
       },
       validators: {
         mac: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateMac(value);
           },
@@ -412,7 +412,7 @@ const types = [
       },
       validators: {
         float: {
-          expression: function($viewValue, $modelValue) {
+          expression: function ($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateFloat(value);
           },
@@ -452,7 +452,8 @@ const wrappers = [
     types: ['select'],
     template: `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
-                <md-select ng-model="model[options.key]" aria-label="select" ng-required="{{to.required}}">
+                <md-select ng-model="model[options.key]" aria-label="select"
+                  ng-required="{{to.required}}" ng-disabled="{{to.disabled}}">
                   <formly-transclude></formly-transclude>
                 </md-select>
                 <div ng-messages="fc.$error" ng-show="showError">
