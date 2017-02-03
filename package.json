@@ -88,7 +88,7 @@
     "jquery-sparkline": "~2.4.0",
     "lodash": "^4.17.4",
     "ngletteravatar": "~4.0.0",
-    "oclazyload": "~1.0.9",
+    "oclazyload": "~1.1.0",
     "offline-js": "~0.7.18",
     "path-to-regexp": "~1.7.0",
     "sanji-redux-ui": "~1.1.2",
