@@ -23,8 +23,8 @@ import sjWindow from 'angular-sanji-window';
 import sjSparklines from 'angular-sparklines';
 import ngFileSaver from 'angular-file-saver';
 import ocLazyLoad from 'oclazyload';
-import {sjUtils} from 'sanji-utils-ui';
-import {sjRedux} from 'sanji-redux-ui';
+import { sjUtils } from 'sanji-utils-ui';
+import { sjRedux } from 'sanji-redux-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
@@ -88,17 +88,21 @@ app.config(theme);
 app.config(lang);
 app.config(utils);
 app.config(toastr);
-app.filter('trustAsResourceUrl', ['$sce', function($sce) {
-  return function(val) {
-    return $sce.trustAsResourceUrl(val);
-  };
-}]);
+app.filter('trustAsResourceUrl', [
+  '$sce',
+  function($sce) {
+    return function(val) {
+      return $sce.trustAsResourceUrl(val);
+    };
+  }
+]);
 app.service('downloadHelper', DownloadHelper);
 app.run(router);
 app.run(($state, socket) => {
   'ngInject';
   if (process.env.NODE_ENV === 'production') {
-    $state.defaultErrorHandler(function() { /* do nothing */});
+    $state.defaultErrorHandler(function() {/* do nothing */
+    });
   }
   socket.on('disconnect', () => {
     Offline.check();
@@ -106,8 +110,8 @@ app.run(($state, socket) => {
 });
 
 formlyConfig(app);
-apiCheck.globalConfig.disabled = (process.env.NODE_ENV === 'production');
+apiCheck.globalConfig.disabled = process.env.NODE_ENV === 'production';
 
 const sjCore = app.name;
 
-export {sjCore};
+export { sjCore };
