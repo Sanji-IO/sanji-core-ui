@@ -1,7 +1,8 @@
 const types = [
   {
     name: 'datetimepicker',
-    template: `<div layout>
+    template: (
+      `<div layout>
                 <md-datepicker style="margin-top: 15px;"
                   ng-model="to.date"
                   md-placeholder="{{to.datePlaceholder | translate}}"
@@ -14,25 +15,25 @@ const types = [
                   <label translate="{{to.minLabel}}"></label>
                   <input type="number" ng-model="to.minute" ng-required="to.required">
                 </md-input-container>
-              </div>`,
-    controller: function ($scope) {
+              </div>`
+    ),
+    controller: function($scope) {
       'ngInject';
-      let date = ($scope.model[$scope.options.key]) ? new Date($scope.model[$scope.options.key]) : new Date();
+      let date = $scope.model[$scope.options.key] ? new Date($scope.model[$scope.options.key]) : new Date();
       $scope.options.templateOptions.date = date;
       $scope.options.templateOptions.hour = date.getHours();
       $scope.options.templateOptions.minute = date.getMinutes();
-      $scope.$watchGroup([
-        'options.templateOptions.date',
-        'options.templateOptions.hour',
-        'options.templateOptions.minute'
-      ], (newVals, oldVals, scope) => {
-        let date = newVals[0];
-        if (date) {
-          date.setHours(newVals[1]);
-          date.setMinutes(newVals[2]);
-          scope.model[scope.options.key] = date;
+      $scope.$watchGroup(
+        ['options.templateOptions.date', 'options.templateOptions.hour', 'options.templateOptions.minute'],
+        (newVals, oldVals, scope) => {
+          let date = newVals[0];
+          if (date) {
+            date.setHours(newVals[1]);
+            date.setMinutes(newVals[2]);
+            scope.model[scope.options.key] = date;
+          }
         }
-      });
+      );
     },
     defaultOptions: {
       templateOptions: {
@@ -44,8 +45,10 @@ const types = [
   },
   {
     name: 'textarea',
-    template: `<textarea ng-model="model[options.key]"
-                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`,
+    template: (
+      `<textarea ng-model="model[options.key]"
+                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`
+    ),
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_TEXTAREA'
@@ -54,11 +57,13 @@ const types = [
   },
   {
     name: 'switch',
-    template: `<md-switch class="md-primary"
+    template: (
+      `<md-switch class="md-primary"
                 aria-label="Switch"
                 ng-model="model[options.key]">
                   <span translate="{{to.label}}"></span>
-              </md-switch>`,
+              </md-switch>`
+    ),
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_SWITCH'
@@ -81,13 +86,15 @@ const types = [
   },
   {
     name: 'range',
-    template: `<md-slider
+    template: (
+      `<md-slider
               style="padding: 0 20px;"
               ng-model="model[options.key]"
               ng-min="to.min"
               ng-max="to.max"
               aria-label="slider"
-              class="md-primary"></md-slider>`,
+              class="md-primary"></md-slider>`
+    ),
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_RANGE'
@@ -105,8 +112,13 @@ const types = [
   },
   {
     name: 'file',
-    template: `<div layout>
-                <md-input-container style="width: 100%">
+    template: (
+      `<div layout>
+                <md-input-container ng-if="model[options.key] && !$file.name" style="width: 100%">
+                  <label translate="{{to.label}}"></label>
+                  <input style="color: rgba(0,0,0,0.87);" ng-model="model[options.key]" readonly ng-required="to.required">
+                </md-input-container>
+                <md-input-container ng-if="!model[options.key] || $file.name" style="width: 100%">
                   <label translate="{{to.label}}"></label>
                   <input style="color: rgba(0,0,0,0.87);" ng-model="$file.name" readonly ng-required="to.required">
                 </md-input-container>
@@ -116,8 +128,9 @@ const types = [
                     <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
-              </div>`,
-    controller: function ($scope) {
+              </div>`
+    ),
+    controller: function($scope) {
       'ngInject';
       $scope.fileSelect = (file, key) => {
         if (!file) {
@@ -126,13 +139,11 @@ const types = [
         if (undefined === $scope.formOptions.files) {
           $scope.formOptions.files = [];
           $scope.formOptions.files.push({ key: key, file: file });
-        }
-        else {
+        } else {
           let idx = $scope.formOptions.files.findIndex(item => item.key === key);
           if (-1 === idx) {
             $scope.formOptions.files.push({ key: key, file: file });
-          }
-          else {
+          } else {
             $scope.formOptions.files[idx].file = file;
           }
         }
@@ -189,13 +200,15 @@ const types = [
   },
   {
     name: 'radio',
-    template: `<md-radio-group ng-model="model[options.key]">
+    template: (
+      `<md-radio-group ng-model="model[options.key]">
                   <md-radio-button class="md-primary" aria-label="{{item.label}}"
                   ng-repeat="item in to.options track by $index"
                   ng-value="item.value">
                     <span translate="{{item.label}}"></span>
                   </md-radio-button>
-              </md-radio-group>`,
+              </md-radio-group>`
+    ),
     defaultOptions: {
       templateOptions: {
         options: [
@@ -209,20 +222,24 @@ const types = [
   },
   {
     name: 'datepicker',
-    template: `<md-datepicker
+    template: (
+      `<md-datepicker
                 ng-model="model[options.key]"
                 md-placeholder="{{to.placeholder}}"
                 md-min-date="to.min"
                 md-max-date="to.max"
                 ng-required="to.required"></md-datepicker>`
+    )
   },
   {
     name: 'select',
-    template: `<md-option
+    template: (
+      `<md-option
                 ng-repeat="item in to.options track by $index"
                 ng-value="item.value || item">
                   <span translate="{{item.label || item}}"></span>
-                </md-option>`,
+                </md-option>`
+    ),
     defaultOptions: {
       templateOptions: {
         options: [
@@ -236,9 +253,11 @@ const types = [
   },
   {
     name: 'checkbox',
-    template: `<md-checkbox ng-model="model[options.key]" aria-label="{{::to.label}}">
+    template: (
+      `<md-checkbox ng-model="model[options.key]" aria-label="{{::to.label}}">
                 <span translate="{{to.label}}"></span>
-              </md-checkbox>`,
+              </md-checkbox>`
+    ),
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_CHECKBOX'
@@ -254,7 +273,7 @@ const types = [
       },
       validators: {
         ip: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateIp(value);
           },
@@ -272,7 +291,7 @@ const types = [
       },
       validators: {
         domain: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateIp(value) || validateHostName(value);
           },
@@ -289,7 +308,7 @@ const types = [
       },
       validators: {
         latitude: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateLatitude(value);
           },
@@ -306,7 +325,7 @@ const types = [
       },
       validators: {
         longitude: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateLongitude(value);
           },
@@ -324,7 +343,7 @@ const types = [
       },
       validators: {
         password: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validatePassword(value);
           },
@@ -341,7 +360,7 @@ const types = [
       },
       validators: {
         aliasName: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateAliasName(value);
           },
@@ -358,7 +377,7 @@ const types = [
       },
       validators: {
         hostname: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateHostName(value);
           },
@@ -375,7 +394,7 @@ const types = [
       },
       validators: {
         port: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validatePort(value);
           },
@@ -392,7 +411,7 @@ const types = [
       },
       validators: {
         mac: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateMac(value);
           },
@@ -412,7 +431,7 @@ const types = [
       },
       validators: {
         float: {
-          expression: function ($viewValue, $modelValue) {
+          expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateFloat(value);
           },
@@ -444,13 +463,16 @@ const wrappers = [
   {
     name: 'mdLabel',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float', 'textarea'],
-    template: `<label translate="{{to.label}}"></label>
+    template: (
+      `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
+    )
   },
   {
     name: 'mdSelect',
     types: ['select'],
-    template: `<md-input-container class="md-block">
+    template: (
+      `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
                 <md-select ng-model="model[options.key]" aria-label="select"
                   ng-required="to.required" ng-disabled="to.disabled">
@@ -463,11 +485,13 @@ const wrappers = [
                   </div>
                 </div>
               </md-input-container>`
+    )
   },
   {
     name: 'mdInputContainer',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float', 'textarea'],
-    template: `<md-input-container class="md-block">
+    template: (
+      `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
                 <div ng-messages="fc.$error" ng-show="showError">
                   <div ng-repeat="(name, message) in options.validation.messages"
@@ -476,9 +500,9 @@ const wrappers = [
                   </div>
                 </div>
               </md-input-container>`
+    )
   }
 ];
-
 
 function validateFloat(value) {
   return /^[+-]?\d+(\.\d+)?$/.test(value);
@@ -493,7 +517,9 @@ function validatePort(value) {
 }
 
 function validateHostName(value) {
-  return /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(value);
+  return /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(
+    value
+  );
 }
 
 function validateAliasName(value) {
@@ -517,15 +543,17 @@ function validateIp(value) {
     return false;
   }
   // Check ip format
-  if (!(/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/.test(value))) {
+  if (
+    !/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/.test(
+      value
+    )
+  ) {
     return false;
-  }
-  else {
+  } else {
     // Check multicast IP, e.g. 224.0.0.1, 239.255.255.255
-    if ((/2(?:2[4-9]|3\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d?|0)){3}/.test(value))) {
+    if (/2(?:2[4-9]|3\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d?|0)){3}/.test(value)) {
       return false;
-    }
-    else {
+    } else {
       return true;
     }
   }
@@ -550,7 +578,7 @@ function setWrapper(formlyConfig, wrappers) {
 export default app => {
   // @ngInject
   app.config(formlyConfigProvider => {
-    formlyConfigProvider.disableWarnings = (process.env.NODE_ENV === 'production');
+    formlyConfigProvider.disableWarnings = process.env.NODE_ENV === 'production';
     formlyConfigProvider.extras.removeChromeAutoComplete = true;
     formlyConfigProvider.extras.explicitAsync = true;
     formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;
@@ -560,10 +588,40 @@ export default app => {
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
     formlyValidationMessages.addStringMessage('required', $filter('translate')('FORM_REQUIRED_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('min', 'min', $filter('translate')('FORM_MIN_ERROR_MSG2'), '', $filter('translate')('FORM_MIN_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('max', 'max', $filter('translate')('FORM_MAX_ERROR_MSG2'), '', $filter('translate')('FORM_MAX_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', $filter('translate')('FORM_MINLEN_ERROR_MSG2'), $filter('translate')('FORM_MINLEN_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', $filter('translate')('FORM_MAXLEN_ERROR_MSG2'), $filter('translate')('FORM_MAXLEN_ERROR_MSG'));
-    formlyValidationMessages.addTemplateOptionValueMessage('pattern', 'patternValidationMessage', '', '', $filter('translate')('FORM_PATTERN_ERROR_MSG'));
+    formlyValidationMessages.addTemplateOptionValueMessage(
+      'min',
+      'min',
+      $filter('translate')('FORM_MIN_ERROR_MSG2'),
+      '',
+      $filter('translate')('FORM_MIN_ERROR_MSG')
+    );
+    formlyValidationMessages.addTemplateOptionValueMessage(
+      'max',
+      'max',
+      $filter('translate')('FORM_MAX_ERROR_MSG2'),
+      '',
+      $filter('translate')('FORM_MAX_ERROR_MSG')
+    );
+    formlyValidationMessages.addTemplateOptionValueMessage(
+      'minlength',
+      'minlength',
+      '',
+      $filter('translate')('FORM_MINLEN_ERROR_MSG2'),
+      $filter('translate')('FORM_MINLEN_ERROR_MSG')
+    );
+    formlyValidationMessages.addTemplateOptionValueMessage(
+      'maxlength',
+      'maxlength',
+      '',
+      $filter('translate')('FORM_MAXLEN_ERROR_MSG2'),
+      $filter('translate')('FORM_MAXLEN_ERROR_MSG')
+    );
+    formlyValidationMessages.addTemplateOptionValueMessage(
+      'pattern',
+      'patternValidationMessage',
+      '',
+      '',
+      $filter('translate')('FORM_PATTERN_ERROR_MSG')
+    );
   });
 };

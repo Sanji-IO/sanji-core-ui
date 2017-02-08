@@ -51,8 +51,8 @@ config.module.rules = [
   {
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract({
-      fallbackLoader: 'style-loader',
-      loader: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
+      fallback: 'style-loader',
+      use: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
     })
   }
 ].concat(config.module.rules);
@@ -64,9 +64,7 @@ config.plugins.push(
     debug: false,
     quiet: true,
     options: {
-      postcss: [
-        autoprefixer({ browsers: ['last 2 versions'] })
-      ]
+      postcss: [autoprefixer({ browsers: ['last 2 versions'] })]
     }
   }),
   new webpack.optimize.UglifyJsPlugin({
