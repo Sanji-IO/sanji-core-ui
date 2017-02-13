@@ -98,15 +98,12 @@ app.filter('trustAsResourceUrl', [
 ]);
 app.service('downloadHelper', DownloadHelper);
 app.run(router);
-app.run(($state, socket) => {
+app.run($state => {
   'ngInject';
   if (process.env.NODE_ENV === 'production') {
     $state.defaultErrorHandler(function() {/* do nothing */
     });
   }
-  socket.on('disconnect', () => {
-    Offline.check();
-  });
 });
 
 formlyConfig(app);
