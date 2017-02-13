@@ -38,6 +38,7 @@ config.externals = [
   'oclazyload',
   'sanji-utils-ui',
   'sanji-socket-ui',
+  'sanji-redux-ui',
   'ngletteravatar',
   'angular-storage',
   'webfontloader',
@@ -53,7 +54,7 @@ config.module.rules = [
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract({
       fallback: 'style-loader',
-      uske: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
+      use: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
     })
   }
 ].concat(config.module.rules);
