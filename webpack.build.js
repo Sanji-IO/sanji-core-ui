@@ -37,6 +37,8 @@ config.externals = [
   'angular-file-saver',
   'oclazyload',
   'sanji-utils-ui',
+  'sanji-socket-ui',
+  'sanji-redux-ui',
   'ngletteravatar',
   'angular-storage',
   'webfontloader',
