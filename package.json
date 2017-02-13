@@ -92,7 +92,7 @@
     "offline-js": "~0.7.18",
     "path-to-regexp": "~1.7.0",
     "sanji-redux-ui": "~1.1.2",
-    "sanji-utils-ui": "^1.4.0",
+    "sanji-utils-ui": "^2.0.0",
     "webfontloader": "~1.6.27",
     "object-path": "~0.11.3"
   }

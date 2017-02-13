@@ -25,6 +25,7 @@ import ngFileSaver from 'angular-file-saver';
 import ocLazyLoad from 'oclazyload';
 import { sjUtils } from 'sanji-utils-ui';
 import { sjRedux } from 'sanji-redux-ui';
+import { SOCKET_INIT_CONNECT_EVENT } from 'sanji-socket-ui';
 import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
@@ -98,12 +99,18 @@ app.filter('trustAsResourceUrl', [
 ]);
 app.service('downloadHelper', DownloadHelper);
 app.run(router);
-app.run($state => {
+app.run(($state, $rootScope) => {
   'ngInject';
   if (process.env.NODE_ENV === 'production') {
     $state.defaultErrorHandler(function() {/* do nothing */
     });
   }
+
+  $rootScope.$on(SOCKET_INIT_CONNECT_EVENT, (args, ws) => {
+    ws.on('disconnect', () => {
+      Offline.check();
+    });
+  });
 });
 
 formlyConfig(app);
