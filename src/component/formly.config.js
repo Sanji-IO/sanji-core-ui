@@ -9,11 +9,11 @@ const types = [
                   ng-required="to.required"></md-datepicker>
                 <md-input-container flex>
                   <label translate="{{to.hourLabel}}"></label>
-                  <input type="number" ng-model="to.hour" ng-required="to.required">
+                  <input type="number" ng-model="to.hour" ng-required="to.required" min="0" max="23">
                 </md-input-container>
                 <md-input-container flex>
                   <label translate="{{to.minLabel}}"></label>
-                  <input type="number" ng-model="to.minute" ng-required="to.required">
+                  <input type="number" ng-model="to.minute" ng-required="to.required" min="0" max="59">
                 </md-input-container>
               </div>`
     ),
