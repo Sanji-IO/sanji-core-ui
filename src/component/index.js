@@ -30,7 +30,10 @@ import 'ngletteravatar';
 import 'angular-moment';
 import 'angular-filter';
 import 'angular-cron-jobs';
+import 'angular-breadcrumb';
 
+import './breadcrumbs/breadcrumbs.style.scss';
+import './breadcrumbs/breadcrumbs.tpl.html';
 import './404.html';
 import theme from './theme.config';
 import lang from './i18n.config';
@@ -70,6 +73,7 @@ const app = angular.module('sanji.core', [
   ngMaterialTable,
   'angularMoment',
   'angular.filter',
+  'ncy-angular-breadcrumb',
   ngFileSaver,
   sjSparklines,
   formly,
@@ -89,6 +93,12 @@ app.config(theme);
 app.config(lang);
 app.config(utils);
 app.config(toastr);
+app.config($breadcrumbProvider => {
+  'ngInject';
+  $breadcrumbProvider.setOptions({
+    templateUrl: 'breadcrumbs.tpl.html'
+  });
+});
 app.filter('trustAsResourceUrl', [
   '$sce',
   function($sce) {
@@ -102,7 +112,8 @@ app.run(router);
 app.run(($state, $rootScope) => {
   'ngInject';
   if (process.env.NODE_ENV === 'production') {
-    $state.defaultErrorHandler(function() {/* do nothing */
+    $state.defaultErrorHandler(function() {
+      /* do nothing */
     });
   }
 

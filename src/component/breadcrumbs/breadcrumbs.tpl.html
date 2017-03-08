@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="breadcrumbs.tpl.html">
+  <div class="breadcrumbs" layout layout-align="center center">
+    <div flex-gt-sm="80">
+      <span ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract">
+        <a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">
+          {{step.ncyBreadcrumbLabel | translate}}
+        </a>
+        <span ng-switch-when="false">
+          >
+        </span>
+        <span ng-switch-when="true">
+          {{step.ncyBreadcrumbLabel | translate}}
+        </span>
+      </span>
+    </div>
+  </div>
+</script>
