@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
@@ -88,6 +88,7 @@
     "jquery": "~2.2.0",
     "jquery-sparkline": "~2.4.0",
     "lodash": "^4.17.4",
+    "ng-idle": "~1.3.2",
     "ngletteravatar": "~4.0.4",
     "object-path": "~0.11.3",
     "oclazyload": "~1.1.0",

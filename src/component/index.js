@@ -31,6 +31,7 @@ import 'angular-moment';
 import 'angular-filter';
 import 'angular-cron-jobs';
 import 'angular-breadcrumb';
+import ngIdle from 'ng-idle';
 
 import './breadcrumbs/breadcrumbs.style.scss';
 import './breadcrumbs/breadcrumbs.tpl.html';
@@ -74,6 +75,7 @@ const app = angular.module('sanji.core', [
   'angularMoment',
   'angular.filter',
   'ncy-angular-breadcrumb',
+  ngIdle,
   ngFileSaver,
   sjSparklines,
   formly,
