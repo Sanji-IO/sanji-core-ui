@@ -120,9 +120,11 @@ app.run(($state, $rootScope) => {
   }
 
   $rootScope.$on(SOCKET_INIT_CONNECT_EVENT, (args, ws) => {
-    ws.on('disconnect', () => {
-      Offline.check();
-    });
+    if (ws) {
+      ws.on('disconnect', () => {
+        Offline.check();
+      });
+    }
   });
 });
 
