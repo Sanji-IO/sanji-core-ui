@@ -1,8 +1,7 @@
 const types = [
   {
     name: 'datetimepicker',
-    template: (
-      `<div layout>
+    template: `<div layout>
                 <md-datepicker style="margin-top: 15px;"
                   ng-model="to.date"
                   md-placeholder="{{to.datePlaceholder | translate}}"
@@ -15,14 +14,14 @@ const types = [
                   <label translate="{{to.minLabel}}"></label>
                   <input type="number" ng-model="to.minute" ng-required="to.required" min="0" max="59">
                 </md-input-container>
-              </div>`
-    ),
+              </div>`,
     controller: function($scope) {
       'ngInject';
-      let date = $scope.model[$scope.options.key] ? new Date($scope.model[$scope.options.key]) : new Date();
-      $scope.options.templateOptions.date = date;
-      $scope.options.templateOptions.hour = date.getHours();
-      $scope.options.templateOptions.minute = date.getMinutes();
+      if (!$scope.model[$scope.options.key]) {
+        setDateTime(new Date());
+      } else {
+        setDateTime($scope.model[$scope.options.key]);
+      }
       $scope.$watchGroup(
         ['options.templateOptions.date', 'options.templateOptions.hour', 'options.templateOptions.minute'],
         (newVals, oldVals, scope) => {
@@ -30,10 +29,26 @@ const types = [
           if (date) {
             date.setHours(newVals[1]);
             date.setMinutes(newVals[2]);
-            scope.model[scope.options.key] = date;
+            if (date.getTime() !== scope.model[scope.options.key].getTime()) {
+              scope.model[scope.options.key] = date;
+            }
           }
         }
       );
+      $scope.$watch(
+        () => $scope.model[$scope.options.key],
+        (newVal, oldVal) => {
+          if (newVal.getTime() !== oldVal.getTime()) {
+            setDateTime(new Date(newVal));
+          }
+        }
+      );
+
+      function setDateTime(date) {
+        $scope.options.templateOptions.date = date;
+        $scope.options.templateOptions.hour = date.getHours();
+        $scope.options.templateOptions.minute = date.getMinutes();
+      }
     },
     defaultOptions: {
       templateOptions: {
@@ -45,10 +60,8 @@ const types = [
   },
   {
     name: 'textarea',
-    template: (
-      `<textarea ng-model="model[options.key]"
-                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`
-    ),
+    template: `<textarea ng-model="model[options.key]"
+                rows="{{to.rows}}" columns="{{to.columns}}"></textarea>`,
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_TEXTAREA'
@@ -57,13 +70,11 @@ const types = [
   },
   {
     name: 'switch',
-    template: (
-      `<md-switch class="md-primary"
+    template: `<md-switch class="md-primary"
                 aria-label="Switch"
                 ng-model="model[options.key]">
                   <span translate="{{to.label}}"></span>
-              </md-switch>`
-    ),
+              </md-switch>`,
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_SWITCH'
@@ -86,15 +97,13 @@ const types = [
   },
   {
     name: 'range',
-    template: (
-      `<md-slider
+    template: `<md-slider
               style="padding: 0 20px;"
               ng-model="model[options.key]"
               ng-min="to.min"
               ng-max="to.max"
               aria-label="slider"
-              class="md-primary"></md-slider>`
-    ),
+              class="md-primary"></md-slider>`,
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_RANGE'
@@ -112,8 +121,7 @@ const types = [
   },
   {
     name: 'file',
-    template: (
-      `<div layout>
+    template: `<div layout>
                 <md-input-container ng-if="model[options.key] && !$file.name" style="width: 100%">
                   <label translate="{{to.label}}"></label>
                   <input style="color: rgba(0,0,0,0.87);" ng-model="model[options.key]" readonly ng-required="to.required">
@@ -128,8 +136,7 @@ const types = [
                     <span translate="FORM_SELECT_BUTTON"></span>
                   </md-button>
                 </md-input-container>
-              </div>`
-    ),
+              </div>`,
     controller: function($scope) {
       'ngInject';
       $scope.fileSelect = (file, key) => {
@@ -200,15 +207,13 @@ const types = [
   },
   {
     name: 'radio',
-    template: (
-      `<md-radio-group ng-model="model[options.key]">
+    template: `<md-radio-group ng-model="model[options.key]">
                   <md-radio-button class="md-primary" aria-label="{{item.label}}"
                   ng-repeat="item in to.options track by $index"
                   ng-value="item.value">
                     <span translate="{{item.label}}"></span>
                   </md-radio-button>
-              </md-radio-group>`
-    ),
+              </md-radio-group>`,
     defaultOptions: {
       templateOptions: {
         options: [
@@ -222,24 +227,20 @@ const types = [
   },
   {
     name: 'datepicker',
-    template: (
-      `<md-datepicker
+    template: `<md-datepicker
                 ng-model="model[options.key]"
                 md-placeholder="{{to.placeholder}}"
                 md-min-date="to.min"
                 md-max-date="to.max"
                 ng-required="to.required"></md-datepicker>`
-    )
   },
   {
     name: 'select',
-    template: (
-      `<md-option
+    template: `<md-option
                 ng-repeat="item in to.options track by $index"
                 ng-value="item.value || item">
                   <span translate="{{item.label || item}}"></span>
-                </md-option>`
-    ),
+                </md-option>`,
     defaultOptions: {
       templateOptions: {
         options: [
@@ -253,11 +254,9 @@ const types = [
   },
   {
     name: 'checkbox',
-    template: (
-      `<md-checkbox ng-model="model[options.key]" aria-label="{{::to.label}}">
+    template: `<md-checkbox ng-model="model[options.key]" aria-label="{{::to.label}}">
                 <span translate="{{to.label}}"></span>
-              </md-checkbox>`
-    ),
+              </md-checkbox>`,
     defaultOptions: {
       templateOptions: {
         label: 'FORM_LABEL_CHECKBOX'
@@ -463,16 +462,13 @@ const wrappers = [
   {
     name: 'mdLabel',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'range', 'url', 'float', 'textarea'],
-    template: (
-      `<label translate="{{to.label}}"></label>
+    template: `<label translate="{{to.label}}"></label>
               <formly-transclude></formly-transclude>`
-    )
   },
   {
     name: 'mdSelect',
     types: ['select'],
-    template: (
-      `<md-input-container class="md-block">
+    template: `<md-input-container class="md-block">
                 <label translate="{{to.label}}"></label>
                 <md-select ng-model="model[options.key]" aria-label="select"
                   ng-required="to.required" ng-disabled="to.disabled">
@@ -485,13 +481,11 @@ const wrappers = [
                   </div>
                 </div>
               </md-input-container>`
-    )
   },
   {
     name: 'mdInputContainer',
     types: ['input', 'number', 'date', 'datetime', 'email', 'password', 'file', 'url', 'float', 'textarea'],
-    template: (
-      `<md-input-container class="md-block">
+    template: `<md-input-container class="md-block">
                 <formly-transclude></formly-transclude>
                 <div ng-messages="fc.$error" ng-show="showError">
                   <div ng-repeat="(name, message) in options.validation.messages"
@@ -500,7 +494,6 @@ const wrappers = [
                   </div>
                 </div>
               </md-input-container>`
-    )
   }
 ];
 
