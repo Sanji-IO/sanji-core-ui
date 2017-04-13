@@ -38,6 +38,9 @@ const types = [
       $scope.$watch(
         () => $scope.model[$scope.options.key],
         (newVal, oldVal) => {
+          if (!newVal || !oldVal) {
+            return;
+          }
           if (newVal.getTime() !== oldVal.getTime()) {
             setDateTime(new Date(newVal));
           }
