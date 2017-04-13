@@ -18,7 +18,9 @@ const types = [
     controller: function($scope) {
       'ngInject';
       if (!$scope.model[$scope.options.key]) {
-        setDateTime(new Date());
+        const current = new Date();
+        $scope.model[$scope.options.key] = current;
+        setDateTime(current);
       } else {
         setDateTime($scope.model[$scope.options.key]);
       }
