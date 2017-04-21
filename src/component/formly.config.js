@@ -43,6 +43,9 @@ const types = [
           if (!newVal || !oldVal) {
             return;
           }
+          if (typeof newVal === 'string') {
+            newVal = new Date(newVal);
+          }
           if (newVal.getTime() !== oldVal.getTime()) {
             setDateTime(new Date(newVal));
           }
