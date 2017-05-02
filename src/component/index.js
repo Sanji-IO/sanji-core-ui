@@ -109,6 +109,7 @@ app.filter('trustAsResourceUrl', [
     };
   }
 ]);
+app.value('EventEmitter', payload => ({ $event: payload }));
 app.service('downloadHelper', DownloadHelper);
 app.run(router);
 app.run(($state, $rootScope) => {
