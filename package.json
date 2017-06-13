@@ -2,7 +2,7 @@
   "name": "sanji-core-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-core-ui",
-  "version": "3.1.15",
+  "version": "3.1.16",
   "main": "dist/sanji-core-ui.js",
   "config": {
     "commitizen": {
@@ -45,7 +45,7 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.1.0",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^6.3.6",
     "style-loader": "^0.13.0",
     "toastr": "^2.1.2",
     "url-loader": "^0.5.7",
@@ -76,6 +76,7 @@
     "angular-material": "~1.1.1",
     "angular-material-data-table": "~0.10.10",
     "angular-material-icons": "~0.7.1",
+    "angular-material-zippy": "~1.0.6",
     "angular-messages": "~1.5.0",
     "angular-moment": "~1.0.1",
     "angular-sanitize": "~1.5.0",
@@ -95,7 +96,7 @@
     "offline-js": "~0.7.18",
     "path-to-regexp": "~1.7.0",
     "sanji-redux-ui": "~1.1.2",
-    "sanji-utils-ui": "^2.0.1",
+    "sanji-utils-ui": "^2.0.2",
     "webfontloader": "~1.6.27"
   }
 }

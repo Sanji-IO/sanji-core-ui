@@ -32,6 +32,7 @@ import 'angular-filter';
 import 'angular-cron-jobs';
 import 'angular-breadcrumb';
 import ngIdle from 'ng-idle';
+import { mdZippyModule } from 'angular-material-zippy';
 
 import './breadcrumbs/breadcrumbs.style.scss';
 import './breadcrumbs/breadcrumbs.tpl.html';
@@ -86,7 +87,8 @@ const app = angular.module('sanji.core', [
   'ngLetterAvatar',
   'angular-cron-jobs',
   sjRedux,
-  sjUtils
+  sjUtils,
+  mdZippyModule
 ]);
 app.constant('pathToRegexp', pathToRegexp);
 app.constant('apiCheck', apiCheck);
