@@ -22,6 +22,7 @@ config.externals = [
   'angular-formly',
   'angular-material',
   'angular-material-icons',
+  'angular-material-zippy',
   'angular-ui-router',
   'angular-messages',
   'angular-sanji-window',
