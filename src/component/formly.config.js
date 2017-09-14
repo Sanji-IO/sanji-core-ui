@@ -1,5 +1,14 @@
 const types = [
   {
+    name: 'cloud_connection',
+    template: `<connect-status data="model[options.key]" event-name="{{to.event}}" key="{{options.key}}"></connect-status>`,
+    defaultOptions: {
+      templateOptions: {
+        event: ''
+      }
+    }
+  },
+  {
     name: 'datetimepicker',
     template: `<div layout>
                 <md-datepicker style="margin-top: 15px;"
