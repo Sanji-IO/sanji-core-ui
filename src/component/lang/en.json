@@ -52,5 +52,6 @@
   "FORM_MIN_ERROR_MSG2": "The min value allowed is",
   "FORM_MAX_ERROR_MSG": "Too big",
   "FORM_MAX_ERROR_MSG2": "The max value allowed is",
-  "FORM_PATTERN_ERROR_MSG": "Invalid input format"
+  "FORM_PATTERN_ERROR_MSG": "Invalid input format",
+  "FORM_LABEL_CLOUD_CONNECTION_STATUS": "Connection Status"
 }
