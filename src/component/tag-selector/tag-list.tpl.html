@@ -1,0 +1,85 @@
+<script type ="text/ng-template" id="sanji-tag-selector-list.tpl.html">
+  <md-dialog aria-label="Edit upload tag setting" class="sanji-tag-selector-dialog">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="TAG_SELECTOR_DIALOG_UPLOAD_EDIT_DIALOG_TITLE"></h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="$ctrl.cancel()">
+          <ng-md-icon icon="close"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding">
+      <!-- <form layout="column" novalidate>
+        <md-input-container>
+          <label translate="TAG_SELECTOR_DIALOG_FORM_EQUIPMENT_TYPE"></label>
+          <md-select ng-model="$ctrl.selectedType"
+            md-on-close="$ctrl.changeSelectedDevice($ctrl.selectedType)">
+            <md-option ng-repeat="type in $ctrl.types track by $index" ng-value="type">
+              {{type}}
+            </md-option>
+          </md-select>
+        </md-input-container> -->
+        <md-input-container>
+          <label translate="TAG_SELECTOR_DIALOG_FORM_EQUIPMENT"></label>
+          <md-select ng-model="$ctrl.selectedDevice"
+            md-on-close="$ctrl.changeTableContent($ctrl.selectedDevice)">
+            <md-option ng-repeat="device in $ctrl.devices track by $index" ng-value="device">
+              {{device.equipmentName}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </form>
+
+      <div class="sanji-tag-selector-list">
+        <md-toolbar class="md-table-toolbar md-default" ng-if="0===$ctrl.selectedTags.length">
+          <div class="md-toolbar-tools">
+            <span translate="TAG_SELECTOR_DIALOG_TAG_LIST"></span>
+          </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar alternate" ng-if="0 < $ctrl.selectedTags.length">
+          <div class="md-toolbar-tools">
+            <span>{{$ctrl.selectedTags.length}} {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED' | translate}}</span>
+            <div flex></div>
+          </div>
+        </md-toolbar>
+
+        <md-table-container>
+          <table md-table md-row-select multiple ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selected" md-progress="$ctrl.table[$ctrl.selectedDevice.equipmentName].promise">
+            <thead md-head md-order="$ctrl.table[$ctrl.selectedDevice.equipmentName].query.order">
+              <tr md-row>
+                <th md-column md-order-by="name"><span translate="TAG_SELECTOR_DIALOG_TABLE_NAME"></span></th>
+                <th md-column>
+                  <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_ON_CHANGE"></span>
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange" ng-change="$ctrl.toggleAllLogOnChange($ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange)"
+                    aria-label="toggle all log on change"></md-switch>
+                </th>
+                <th md-column><span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span></th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row md-auto-select md-on-select="$ctrl.changeSelectedItem()" md-on-deselect="$ctrl.changeSelectedItem()" md-select="tag" md-select-id="name" ng-repeat="tag in $ctrl.tags | orderBy: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.order | limitTo: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit : ($ctrl.table[$ctrl.selectedDevice.equipmentName].query.page - 1) * $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit track by tag.name">
+                <td md-cell>{{tag.name}}</td>
+                <td md-cell>
+                  <md-switch class="md-primary" ng-model="tag.logOnChange" ng-click="$ctrl.changeLogOnChange($event)" aria-label="log on change switcher"></md-switch>
+                </td>
+                <td md-cell>{{tag.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+
+          <md-table-pagination md-limit="$ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit" md-page="$ctrl.table[$ctrl.selectedDevice.equipmentName].query.page"
+            md-total="{{$ctrl.tags.length}}" md-boundary-links md-page-select></md-table-pagination>
+      </div>
+
+      <div layout layout-align="end center">
+        <md-button type="button" aria-label="Submit" class="md-raised md-primary" ng-click="$ctrl.save($ctrl.profile)">
+          <sapn translate="TAG_SELECTOR_DIALOG_FORM_SAVE">
+            </span>
+        </md-button>
+      </div>
+    </md-dialog-content>
+  </md-dialog>
+</script>

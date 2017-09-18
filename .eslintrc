@@ -16,7 +16,8 @@
     "angular": true,
     "sinon": true,
     "expect": true,
-    "__BASE_PATH__": true
+    "__BASE_PATH__": true,
+    "__API_TOKEN__": true
   },
   "rules": {
     "indent": [
@@ -34,14 +35,8 @@
         "allowTemplateLiterals": true
       }
     ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
     "no-console": 0
   }
 }

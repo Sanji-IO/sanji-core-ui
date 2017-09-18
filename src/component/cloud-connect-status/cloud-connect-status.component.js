@@ -5,8 +5,8 @@ const ConnectStatusComponent = {
     key: '@'
   },
   template: `
-    <md-input-container class="md-icon-float md-icon-right md-block">
-      <p>Connection Status</p>
+    <md-input-container class="md-icon-float md-icon-Right md-block">
+      <p translate="FORM_LABEL_CLOUD_CONNECTION_STATUS"></p>
       <md-icon ng-if="$ctrl.data" ng-md-icon icon="cloud_done" style="color: green"></md-icon>
       <md-icon ng-if="!$ctrl.data" ng-md-icon icon="cloud_off" style="color: red"></md-icon>
     </md-input-container>

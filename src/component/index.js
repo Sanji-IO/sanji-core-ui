@@ -44,6 +44,7 @@ import toastr from './toastr.config';
 import router from './router.config';
 import formlyConfig from './formly.config';
 import DownloadHelper from './helper/download.helper';
+import TagSelectorComponent from './tag-selector/tag-selector.component';
 
 // default material font
 webFont.load({
@@ -113,6 +114,7 @@ app.filter('trustAsResourceUrl', [
 ]);
 app.value('EventEmitter', payload => ({ $event: payload }));
 app.service('downloadHelper', DownloadHelper);
+app.component('tagSelector', TagSelectorComponent);
 app.run(router);
 app.run(($state, $rootScope) => {
   'ngInject';

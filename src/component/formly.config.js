@@ -1,5 +1,16 @@
 const types = [
   {
+    name: 'tag_selector',
+    template: `<tag-selector data="model[options.key]" on-update="setData($event)"></tag-selector>`,
+    controller: function($scope) {
+      'ngInject';
+
+      $scope.setData = function(event) {
+        $scope.model[$scope.options.key] = event.data;
+      };
+    }
+  },
+  {
     name: 'cloud_connection',
     template: `<connect-status data="model[options.key]" event-name="{{to.event}}" key="{{options.key}}"></connect-status>`,
     defaultOptions: {
