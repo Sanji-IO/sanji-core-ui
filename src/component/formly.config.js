@@ -1,7 +1,10 @@
 const types = [
   {
     name: 'tag_selector',
-    template: `<tag-selector data="model[options.key]" on-update="setData($event)"></tag-selector>`,
+    template: `<tag-selector data="model[options.key]"
+                base-path="{{to.basePath}}"
+                api-token="{{to.apiToken}}"
+                on-update="setData($event)"></tag-selector>`,
     controller: function($scope) {
       'ngInject';
 

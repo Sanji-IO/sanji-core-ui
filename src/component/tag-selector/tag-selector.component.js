@@ -5,6 +5,8 @@ import TagListController from './tag-list.controller';
 const TagSelectorComponent = {
   bindings: {
     data: '<',
+    basePath: '@?',
+    apiToken: '@?',
     onUpdate: '&'
   },
   template: `
@@ -21,11 +23,9 @@ const TagSelectorComponent = {
 
     showTagList(event) {
       const restConfig = {
-        basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
+        basePath: this.basePath || null,
+        headers: { 'mx-api-token': this.apiToken || null }
       };
-      if (process.env.NODE_ENV === 'development') {
-        restConfig.headers = { 'mx-api-token': __API_TOKEN__ };
-      }
       this.rest.get('/mxc/equipments', restConfig).then(res => {
         this.$mdDialog
           .show({
