@@ -1,5 +1,5 @@
 <script type ="text/ng-template" id="sanji-tag-selector-list.tpl.html">
-  <md-dialog aria-label="Edit upload tag setting" class="sanji-tag-selector-dialog">
+  <md-dialog aria-label="Edit upload tag setting">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2 translate="TAG_SELECTOR_DIALOG_UPLOAD_EDIT_DIALOG_TITLE"></h2>
@@ -38,7 +38,7 @@
           </div>
         </md-toolbar>
 
-        <md-toolbar class="md-table-toolbar alternate" ng-if="0 < $ctrl.selectedTags.length">
+        <md-toolbar class="md-table-toolbar" style="color: #1e88e5;font-size: 16px;background-color: #e3f2fd;" ng-if="0 < $ctrl.selectedTags.length">
           <div class="md-toolbar-tools">
             <span>{{$ctrl.selectedTags.length}} {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED' | translate}}</span>
             <div flex></div>

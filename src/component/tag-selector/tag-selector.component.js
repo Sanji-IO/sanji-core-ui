@@ -1,5 +1,4 @@
 import './tag-list.tpl.html';
-import './tag-list.style.scss';
 import TagListController from './tag-list.controller';
 
 const TagSelectorComponent = {

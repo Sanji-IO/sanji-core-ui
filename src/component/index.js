@@ -44,6 +44,7 @@ import toastr from './toastr.config';
 import router from './router.config';
 import formlyConfig from './formly.config';
 import DownloadHelper from './helper/download.helper';
+import TagSelectorI18nConfig from './tag-selector/tag-selector.i18n';
 import TagSelectorComponent from './tag-selector/tag-selector.component';
 
 // default material font
@@ -104,6 +105,7 @@ app.config($breadcrumbProvider => {
     templateUrl: 'breadcrumbs.tpl.html'
   });
 });
+app.config(TagSelectorI18nConfig);
 app.filter('trustAsResourceUrl', [
   '$sce',
   function($sce) {
