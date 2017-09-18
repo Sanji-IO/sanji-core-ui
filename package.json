@@ -59,9 +59,7 @@
   "bugs": {
     "url": "https://github.com/Sanji-IO/sanji-core-ui/issues"
   },
-  "keywords": [
-    "sanji"
-  ],
+  "keywords": ["sanji"],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
   "dependencies": {

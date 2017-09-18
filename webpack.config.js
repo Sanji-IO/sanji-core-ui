@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
+const API_TOKEN = process.env.API_TOKEN;
+const DEV_BASE_PATH = process.env.BASE_PATH;
 const nodeRoot = path.join(__dirname, 'node_modules');
 const appRoot = path.join(__dirname, 'src');
 const config = {
@@ -39,7 +41,9 @@ const config = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV || 'development')
-      }
+      },
+      __BASE_PATH__: JSON.stringify(DEV_BASE_PATH || 'http://localhost:8000'),
+      __API_TOKEN__: JSON.stringify(API_TOKEN || '')
     })
   ]
 };
