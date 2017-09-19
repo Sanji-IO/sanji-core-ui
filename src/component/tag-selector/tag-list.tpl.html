@@ -52,7 +52,7 @@
                 <th md-column md-order-by="name"><span translate="TAG_SELECTOR_DIALOG_TABLE_NAME"></span></th>
                 <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_ON_CHANGE"></span>
-                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange" ng-change="$ctrl.toggleAllLogOnChange($ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange)"
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange" ng-change="$ctrl.toggleAllLogOnChange($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange)"
                     aria-label="toggle all log on change"></md-switch>
                 </th>
                 <th md-column><span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span></th>
