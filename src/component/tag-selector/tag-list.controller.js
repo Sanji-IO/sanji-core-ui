@@ -103,6 +103,10 @@ export default class TagListController {
     event.stopPropagation();
   }
 
+  toggleAllLogOnChange(device, status) {
+    device.equipmentTags.forEach(tag => (tag.logOnChange = status));
+  }
+
   cancel() {
     this.$mdDialog.cancel();
   }

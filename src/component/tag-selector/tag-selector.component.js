@@ -35,7 +35,7 @@ const TagSelectorComponent = {
             targetEvent: event,
             locals: {
               devices: res.data,
-              data: []
+              data: this.data || []
             },
             clickOutsideToClose: true
           })
