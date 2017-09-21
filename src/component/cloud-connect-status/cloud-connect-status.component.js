@@ -19,7 +19,11 @@ const ConnectStatusComponent = {
 
     $onInit() {
       const mySocket = this.sjio.getSocket();
-      this.unSocketHandler = mySocket.on(`sj:socket:${this.event}`, res => (this.data = res.data[this.key]));
+      this.unSocketHandler = mySocket.on('sj:webapp:message', res => {
+        if (res.data && res.data.event === this.event) {
+          this.data = res.data[this.key];
+        }
+      });
     }
 
     $onDestroy() {

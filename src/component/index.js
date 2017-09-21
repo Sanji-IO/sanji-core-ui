@@ -46,6 +46,7 @@ import formlyConfig from './formly.config';
 import DownloadHelper from './helper/download.helper';
 import TagSelectorI18nConfig from './tag-selector/tag-selector.i18n';
 import TagSelectorComponent from './tag-selector/tag-selector.component';
+import CloudConnectStatusComponent from './cloud-connect-status/cloud-connect-status.component';
 
 // default material font
 webFont.load({
@@ -117,6 +118,7 @@ app.filter('trustAsResourceUrl', [
 app.value('EventEmitter', payload => ({ $event: payload }));
 app.service('downloadHelper', DownloadHelper);
 app.component('tagSelector', TagSelectorComponent);
+app.component('cloudConnectStatus', CloudConnectStatusComponent);
 app.run(router);
 app.run(($state, $rootScope) => {
   'ngInject';
