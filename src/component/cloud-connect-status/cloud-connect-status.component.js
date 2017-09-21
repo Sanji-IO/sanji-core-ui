@@ -22,7 +22,6 @@ const ConnectStatusComponent = {
       this.unSocketHandler = mySocket.on('sj:webapp:message', res => {
         if (res.data && res.data.event === this.event) {
           this.data = res.data[this.key];
-          console.log('cloud_status', this.data);
         }
       });
     }
