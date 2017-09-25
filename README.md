@@ -67,6 +67,15 @@ example:
 
 ### Build-in Field Type
 
+Type name: `cloud_connection`
+templateOptions:
+- **event**: event name for subscribing data which push from server to client.
+
+Type name: `tag_selector`
+templateOptions:
+- **basePath**: client request url base path.
+- **apiToken**: API token string.
+
 Type name: `input`
 templateOptions:
 - **required**: value is `true` or `false`.
