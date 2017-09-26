@@ -46,7 +46,8 @@ config.externals = [
   'redux',
   'redux-thunk',
   'ng-redux',
-  'offline-js'
+  'offline-js',
+  'nanoid'
 ];
 
 config.module.rules = [

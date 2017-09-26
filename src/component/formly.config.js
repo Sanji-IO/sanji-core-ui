@@ -1,3 +1,5 @@
+import nanoid from 'nanoid';
+
 const types = [
   {
     name: 'tag_selector',
@@ -18,7 +20,7 @@ const types = [
     template: `<cloud-connect-status data="model[options.key]" event-name="{{to.event}}" key="{{options.key}}"></cloud-connect-status>`,
     defaultOptions: {
       templateOptions: {
-        event: ''
+        event: nanoid(10)
       }
     }
   },
