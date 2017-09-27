@@ -77,8 +77,7 @@ templateOptions:
   data: {
     status: true
   },
-  event: 'cloud:connection',
-  key: 'status'
+  event: 'cloud:connection'
 }
 ```
 
