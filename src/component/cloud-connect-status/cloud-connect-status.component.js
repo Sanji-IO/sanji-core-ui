@@ -15,19 +15,22 @@ const ConnectStatusComponent = {
     constructor(sjio) {
       'ngInject';
       this.sjio = sjio;
+      this.mySocket = null;
     }
 
     $onInit() {
-      const mySocket = this.sjio.getSocket();
-      this.unSocketHandler = mySocket.on('sj:webapp:message', res => {
-        if (res.data && res.event === this.event) {
-          this.data = res.data[this.key];
-        }
-      });
+      this.mySocket = this.sjio.getSocket();
+      this.mySocket.on('sj:webapp:message', this.handle.bind(this));
     }
 
     $onDestroy() {
-      this.unSocketHandler();
+      this.mySocket.removeListener('sj:webapp:message', this.handle);
+    }
+
+    handle(res) {
+      if (res.data && res.event === this.event) {
+        this.data = res.data[this.key];
+      }
     }
   }
 };
