@@ -22,9 +22,11 @@ const TagSelectorComponent = {
 
     showTagList(event) {
       const restConfig = {
-        basePath: this.basePath || null,
-        headers: { 'mx-api-token': this.apiToken || null }
+        basePath: this.basePath || null
       };
+      if (this.apiToken) {
+        this.restConfig.headers = { 'mx-api-token': this.apiToken };
+      }
       this.rest.get('/mxc/equipments', restConfig).then(res => {
         this.$mdDialog
           .show({
