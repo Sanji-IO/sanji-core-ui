@@ -45,7 +45,11 @@
                   <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange" ng-change="$ctrl.toggleAllLogOnChange($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange)"
                     aria-label="toggle all log on change"></md-switch>
                 </th>
-                <th md-column><span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span></th>
+                <th md-column>
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
+                    aria-label="toggle all log unit"></md-switch>
+                  <span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span>
+                </th>
                 <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_UNIT"></span>
                   <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit" ng-change="$ctrl.toggleAllLogUnit($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit)"
@@ -66,11 +70,9 @@
                 </td>
                 <td md-cell>{{tag.description}}</td>
                 <td md-cell>
-                  <md-switch class="md-primary" ng-model="tag.logUnit" ng-click="$ctrl.stopPropagation($event)" aria-label="log unit switcher"></md-switch>
                   <span>{{tag.unit || ''}}</span>
                 </td>
                 <td md-cell>
-                  <md-switch class="md-primary" ng-model="tag.logDataType" ng-click="$ctrl.stopPropagation($event)" aria-label="log data type switcher"></md-switch>
                   <span>{{tag.dataType}}</span>
                 </td>
               </tr>

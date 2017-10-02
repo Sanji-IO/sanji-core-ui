@@ -25,6 +25,7 @@ export default class TagListController {
       equip.equipmentTags.forEach(tag => {
         tag.logOnChange = false;
         tag.isSelected = false;
+        tag.logDescription = false;
         tag.logUnit = false;
         tag.logDataType = false;
       });
@@ -34,6 +35,7 @@ export default class TagListController {
         if (item.equipmentName === equip.equipmentName) {
           const tempTag = equip.equipmentTags.find(tag => tag.name === item.name);
           tempTag.logOnChange = item.logOnChange;
+          tempTag.logDescription = item.logDescription;
           tempTag.logUnit = item.logUnit;
           tempTag.logDataType = item.logDataType;
           tempTag.isSelected = true;
@@ -46,6 +48,7 @@ export default class TagListController {
     devices.forEach(device => {
       this.table[device.equipmentName] = {};
       this.table[device.equipmentName].selectedAllLogOnChange = false;
+      this.table[device.equipmentName].selectedAllDescription = false;
       this.table[device.equipmentName].selectedAllUnit = false;
       this.table[device.equipmentName].selectedAllDataType = false;
       this.table[device.equipmentName].promise = null;
@@ -76,7 +79,9 @@ export default class TagListController {
           equipmentType: device.equipmentType,
           unit: item.unit || '',
           dataType: item.dataType,
+          description: item.description,
           logOnChange: item.logOnChange,
+          logDescription: item.logDescription,
           logUnit: item.logUnit,
           logDataType: item.logDataType
         });
@@ -112,6 +117,10 @@ export default class TagListController {
 
   toggleAllLogOnChange(device, status) {
     device.equipmentTags.forEach(tag => (tag.logOnChange = status));
+  }
+
+  toggleAllLogDescription(device, status) {
+    device.equipmentTags.forEach(tag => (tag.logDescription = status));
   }
 
   toggleAllLogUnit(device, status) {
