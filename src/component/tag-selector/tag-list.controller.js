@@ -7,6 +7,10 @@ export default class TagListController {
     this.selectedDevice = null;
     this.selectedTags = [];
     this.table = {};
+    this.code = {
+      timestamp: new Date().toISOString(),
+      value: ''
+    };
   }
 
   $onInit() {
@@ -121,14 +125,29 @@ export default class TagListController {
 
   toggleAllLogDescription(device, status) {
     device.equipmentTags.forEach(tag => (tag.logDescription = status));
+    if (status) {
+      this.code.description = '';
+    } else {
+      delete this.code.description;
+    }
   }
 
   toggleAllLogUnit(device, status) {
     device.equipmentTags.forEach(tag => (tag.logUnit = status));
+    if (status) {
+      this.code.unit = '';
+    } else {
+      delete this.code.unit;
+    }
   }
 
   toggleAllLogDataType(device, status) {
     device.equipmentTags.forEach(tag => (tag.logDataType = status));
+    if (status) {
+      this.code.dataType = '';
+    } else {
+      delete this.code.dataType;
+    }
   }
 
   cancel() {
