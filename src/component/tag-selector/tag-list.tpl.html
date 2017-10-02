@@ -10,16 +10,6 @@
       </div>
     </md-toolbar>
     <md-dialog-content class="md-padding">
-      <!-- <form layout="column" novalidate>
-        <md-input-container>
-          <label translate="TAG_SELECTOR_DIALOG_FORM_EQUIPMENT_TYPE"></label>
-          <md-select ng-model="$ctrl.selectedType"
-            md-on-close="$ctrl.changeSelectedDevice($ctrl.selectedType)">
-            <md-option ng-repeat="type in $ctrl.types track by $index" ng-value="type">
-              {{type}}
-            </md-option>
-          </md-select>
-        </md-input-container> -->
         <md-input-container>
           <label translate="TAG_SELECTOR_DIALOG_FORM_EQUIPMENT"></label>
           <md-select ng-model="$ctrl.selectedDevice"
@@ -56,15 +46,33 @@
                     aria-label="toggle all log on change"></md-switch>
                 </th>
                 <th md-column><span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span></th>
+                <th md-column>
+                  <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_UNIT"></span>
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit" ng-change="$ctrl.toggleAllLogUnit($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit)"
+                    aria-label="toggle all log unit"></md-switch>
+                </th>
+                <th md-column>
+                  <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_DATATYPE"></span>
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType" ng-change="$ctrl.toggleAllLogDataType($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType)"
+                    aria-label="toggle all log data type"></md-switch>
+                </th>
               </tr>
             </thead>
             <tbody md-body>
               <tr md-row md-auto-select md-on-select="$ctrl.changeSelectedItem()" md-on-deselect="$ctrl.changeSelectedItem()" md-select="tag" md-select-id="name" ng-repeat="tag in $ctrl.tags | orderBy: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.order | limitTo: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit : ($ctrl.table[$ctrl.selectedDevice.equipmentName].query.page - 1) * $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit track by tag.name">
                 <td md-cell>{{tag.name}}</td>
                 <td md-cell>
-                  <md-switch class="md-primary" ng-model="tag.logOnChange" ng-click="$ctrl.changeLogOnChange($event)" aria-label="log on change switcher"></md-switch>
+                  <md-switch class="md-primary" ng-model="tag.logOnChange" ng-click="$ctrl.stopPropagation($event)" aria-label="log on change switcher"></md-switch>
                 </td>
                 <td md-cell>{{tag.description}}</td>
+                <td md-cell>
+                  <md-switch class="md-primary" ng-model="tag.logUnit" ng-click="$ctrl.stopPropagation($event)" aria-label="log unit switcher"></md-switch>
+                  <span>{{tag.unit || ''}}</span>
+                </td>
+                <td md-cell>
+                  <md-switch class="md-primary" ng-model="tag.logDataType" ng-click="$ctrl.stopPropagation($event)" aria-label="log data type switcher"></md-switch>
+                  <span>{{tag.dataType}}</span>
+                </td>
               </tr>
             </tbody>
           </table>
