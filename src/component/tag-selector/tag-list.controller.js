@@ -7,6 +7,10 @@ export default class TagListController {
     this.selectedDevice = null;
     this.selectedTags = [];
     this.table = {};
+    this.code = {
+      timestamp: new Date().toISOString(),
+      value: ''
+    };
   }
 
   $onInit() {
@@ -25,6 +29,7 @@ export default class TagListController {
       equip.equipmentTags.forEach(tag => {
         tag.logOnChange = false;
         tag.isSelected = false;
+        tag.logDescription = false;
         tag.logUnit = false;
         tag.logDataType = false;
       });
@@ -34,6 +39,7 @@ export default class TagListController {
         if (item.equipmentName === equip.equipmentName) {
           const tempTag = equip.equipmentTags.find(tag => tag.name === item.name);
           tempTag.logOnChange = item.logOnChange;
+          tempTag.logDescription = item.logDescription;
           tempTag.logUnit = item.logUnit;
           tempTag.logDataType = item.logDataType;
           tempTag.isSelected = true;
@@ -46,6 +52,7 @@ export default class TagListController {
     devices.forEach(device => {
       this.table[device.equipmentName] = {};
       this.table[device.equipmentName].selectedAllLogOnChange = false;
+      this.table[device.equipmentName].selectedAllDescription = false;
       this.table[device.equipmentName].selectedAllUnit = false;
       this.table[device.equipmentName].selectedAllDataType = false;
       this.table[device.equipmentName].promise = null;
@@ -76,7 +83,9 @@ export default class TagListController {
           equipmentType: device.equipmentType,
           unit: item.unit || '',
           dataType: item.dataType,
+          description: item.description,
           logOnChange: item.logOnChange,
+          logDescription: item.logDescription,
           logUnit: item.logUnit,
           logDataType: item.logDataType
         });
@@ -114,12 +123,31 @@ export default class TagListController {
     device.equipmentTags.forEach(tag => (tag.logOnChange = status));
   }
 
+  toggleAllLogDescription(device, status) {
+    device.equipmentTags.forEach(tag => (tag.logDescription = status));
+    if (status) {
+      this.code.description = '';
+    } else {
+      delete this.code.description;
+    }
+  }
+
   toggleAllLogUnit(device, status) {
     device.equipmentTags.forEach(tag => (tag.logUnit = status));
+    if (status) {
+      this.code.unit = '';
+    } else {
+      delete this.code.unit;
+    }
   }
 
   toggleAllLogDataType(device, status) {
     device.equipmentTags.forEach(tag => (tag.logDataType = status));
+    if (status) {
+      this.code.dataType = '';
+    } else {
+      delete this.code.dataType;
+    }
   }
 
   cancel() {
