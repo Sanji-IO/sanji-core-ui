@@ -67,6 +67,21 @@ example:
 
 ### Build-in Field Type
 
+Type name: `realtime_info`
+templateOptions:
+- **event**: event name for subscribing data which push from server to client.
+- **label**: label name
+
+> Note: Server need to send data which matching following format:
+```
+{
+  data: {
+    value: '32 MB'
+  },
+  event: 'realtime:info'
+}
+```
+
 Type name: `cloud_connection`
 templateOptions:
 - **event**: event name for subscribing data which push from server to client.
