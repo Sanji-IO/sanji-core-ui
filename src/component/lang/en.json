@@ -53,5 +53,6 @@
   "FORM_MAX_ERROR_MSG": "Too big",
   "FORM_MAX_ERROR_MSG2": "The max value allowed is",
   "FORM_PATTERN_ERROR_MSG": "Invalid input format",
-  "FORM_LABEL_CLOUD_CONNECTION_STATUS": "Connection Status"
+  "FORM_LABEL_CLOUD_CONNECTION_STATUS": "Connection Status",
+  "FORM_LABEL_OAUTH_GOOGLE_BUTTON": "Get Access Token"
 }
