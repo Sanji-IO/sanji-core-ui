@@ -4,12 +4,9 @@ const types = [
   {
     name: 'oauth_google_button',
     template: `<oauth-google-button data="model[options.key]"
-                event="{{to.event}}"
-                base-path="{{to.basePath}}"
                 on-update="setData($event)"></oauth-google-button>`,
     defaultOptions: {
       templateOptions: {
-        event: nanoid(10)
       }
     },
     controller: function($scope) {

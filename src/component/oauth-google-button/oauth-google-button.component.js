@@ -1,9 +1,7 @@
 const OauthGoogleButtonComponent = {
   bindings: {
     data: '<',
-    event: '@',
-    onUpdate: '&',
-    basePath: '@'
+    onUpdate: '&'
   },
   template: `
     <div layout="column">
@@ -39,7 +37,7 @@ const OauthGoogleButtonComponent = {
       topPosition = window.screen.height / 2 - (height / 2 + 50);
       //Open the window.
       this.opener = window.open(
-        `${this.basePath}/auth/google`,
+        '/api/v1/auth/google',
         'Login into Google',
         `status=no,height=${height},width=${width},resizable=yes,left=${leftPosition},top=${topPosition},screenX=${leftPosition},screenY=${topPosition},toolbar=no,menubar=no,scrollbars=no,location=no,directories=no`
       );
@@ -48,7 +46,7 @@ const OauthGoogleButtonComponent = {
     handle(res) {
       this.opener.close();
       console.log(res);
-      if (res.data && res.event === this.event) {
+      if (res.data && res.event === 'sj:google:auth:message') {
         this.data = res.data.token;
         this.onUpdate({
           $evnet: {
