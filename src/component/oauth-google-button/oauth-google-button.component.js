@@ -9,7 +9,7 @@ const OauthGoogleButtonComponent = {
         <md-icon ng-md-icon icon="google-plus-box"></md-icon>
         <span translate="FORM_LABEL_OAUTH_GOOGLE_BUTTON"></span>
       </md-button>
-      <p ng-if="$ctrl.data">{{$ctrl.data}}</p>
+      <p ng-if="$ctrl.data" style="word-wrap: break-word;">{{$ctrl.data}}</p>
     </div>
   `,
   controller: class OauthGoogleButtonController {
@@ -45,11 +45,10 @@ const OauthGoogleButtonComponent = {
 
     handle(res) {
       this.opener.close();
-      console.log(res);
       if (res.data && res.event === 'sj:google:auth:message') {
         this.data = res.data.token;
         this.onUpdate({
-          $evnet: {
+          $event: {
             token: this.data
           }
         });
