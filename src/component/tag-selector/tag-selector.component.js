@@ -9,7 +9,7 @@ const TagSelectorComponent = {
     onUpdate: '&'
   },
   template: `
-    <div div layout="column">
+    <div layout="column">
       <md-button class="md-raised" ng-click="$ctrl.showTagList($event)">Select Tags</md-button>
     </div>
   `,
