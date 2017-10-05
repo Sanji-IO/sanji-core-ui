@@ -2,12 +2,24 @@ import nanoid from 'nanoid';
 
 const types = [
   {
+    name: 'realtime_info',
+    template: `<realtime-info data="model[options.key]"
+                event="{{to.event}}"
+                key="{{options.key}}"
+                label="{{to.label | translate}}"></realtime-info>`,
+    defaultOptions: {
+      templateOptions: {
+        event: nanoid(10),
+        label: 'FORM_LABEL_REAL_TIME_LABEL'
+      }
+    }
+  },
+  {
     name: 'oauth_google_button',
     template: `<oauth-google-button data="model[options.key]"
                 on-update="setData($event)"></oauth-google-button>`,
     defaultOptions: {
-      templateOptions: {
-      }
+      templateOptions: {}
     },
     controller: function($scope) {
       'ngInject';
