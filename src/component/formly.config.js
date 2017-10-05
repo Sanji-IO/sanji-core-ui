@@ -2,6 +2,25 @@ import nanoid from 'nanoid';
 
 const types = [
   {
+    name: 'oauth_google_button',
+    template: `<oauth-google-button data="model[options.key]"
+                event="{{to.event}}"
+                base-path="{{to.basePath}}"
+                on-update="setData($event)"></oauth-google-button>`,
+    defaultOptions: {
+      templateOptions: {
+        event: nanoid(10)
+      }
+    },
+    controller: function($scope) {
+      'ngInject';
+
+      $scope.setData = function(event) {
+        $scope.model[$scope.options.key] = event.token;
+      };
+    }
+  },
+  {
     name: 'tag_selector',
     template: `<tag-selector data="model[options.key]"
                 base-path="{{to.basePath}}"
