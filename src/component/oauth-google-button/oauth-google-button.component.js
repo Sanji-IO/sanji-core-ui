@@ -9,7 +9,10 @@ const OauthGoogleButtonComponent = {
         <md-icon ng-md-icon icon="google-plus-box"></md-icon>
         <span translate="FORM_LABEL_OAUTH_GOOGLE_BUTTON"></span>
       </md-button>
-      <p ng-if="$ctrl.data" style="word-wrap: break-word;">{{$ctrl.data}}</p>
+      <div ng-if="$ctrl.data">
+        <p translate="FORM_LABEL_OAUTH_GOOGLE_TOKEN"></p>
+        <p style="word-wrap: break-word;">{{$ctrl.data}}</p>
+      </div>
     </div>
   `,
   controller: class OauthGoogleButtonController {
