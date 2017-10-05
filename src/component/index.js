@@ -47,6 +47,7 @@ import DownloadHelper from './helper/download.helper';
 import TagSelectorI18nConfig from './tag-selector/tag-selector.i18n';
 import TagSelectorComponent from './tag-selector/tag-selector.component';
 import CloudConnectStatusComponent from './cloud-connect-status/cloud-connect-status.component';
+import OauthGoogleButtonComponent from './oauth-google-button/oauth-google-button.component';
 
 // default material font
 webFont.load({
@@ -119,6 +120,7 @@ app.value('EventEmitter', payload => ({ $event: payload }));
 app.service('downloadHelper', DownloadHelper);
 app.component('tagSelector', TagSelectorComponent);
 app.component('cloudConnectStatus', CloudConnectStatusComponent);
+app.component('oauthGoogleButton', OauthGoogleButtonComponent);
 app.run(router);
 app.run(($state, $rootScope) => {
   'ngInject';
