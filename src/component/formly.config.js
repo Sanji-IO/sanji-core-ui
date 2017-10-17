@@ -45,7 +45,7 @@ const types = [
   },
   {
     name: 'cloud_connection',
-    template: `<cloud-connect-status data="model[options.key]" event-name="{{to.event}}" key="{{options.key}}"></cloud-connect-status>`,
+    template: `<cloud-connect-status data="model[options.key]" event="{{to.event}}" key="{{options.key}}"></cloud-connect-status>`,
     defaultOptions: {
       templateOptions: {
         event: nanoid(10)
