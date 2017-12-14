@@ -1,5 +1,5 @@
 <script type ="text/ng-template" id="sanji-tag-selector-list.tpl.html">
-  <md-dialog aria-label="Edit upload tag setting">
+  <md-dialog aria-label="Edit upload tag setting" style="min-width:40%">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2 translate="TAG_SELECTOR_DIALOG_UPLOAD_EDIT_DIALOG_TITLE"></h2>
@@ -22,21 +22,21 @@
       </form>
 
       <div class="sanji-tag-selector-list">
-        <md-toolbar class="md-table-toolbar md-default" ng-if="0===$ctrl.selectedTags.length">
+        <md-toolbar class="md-table-toolbar md-default" ng-if="0===$ctrl.table[$ctrl.selectedDevice.equipmentName].selected.length">
           <div class="md-toolbar-tools">
             <span translate="TAG_SELECTOR_DIALOG_TAG_LIST"></span>
           </div>
         </md-toolbar>
 
-        <md-toolbar class="md-table-toolbar" style="color: #1e88e5;font-size: 16px;background-color: #e3f2fd;" ng-if="0 < $ctrl.selectedTags.length">
+        <md-toolbar class="md-table-toolbar" style="color: #1e88e5;font-size: 16px;background-color: #e3f2fd;" ng-if="0 < $ctrl.table[$ctrl.selectedDevice.equipmentName].selected.length">
           <div class="md-toolbar-tools">
-            <span>{{$ctrl.selectedTags.length}} {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED' | translate}}</span>
+            <span>{{$ctrl.table[$ctrl.selectedDevice.equipmentName].selected.length}} {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED' | translate}}</span>
             <div flex></div>
           </div>
         </md-toolbar>
 
         <md-table-container>
-          <table md-table md-row-select multiple ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selected" md-progress="$ctrl.table[$ctrl.selectedDevice.equipmentName].promise">
+          <table md-table md-row-select multiple ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selected" md-progress="$ctrl.table[$ctrl.selectedDevice.equipmentName].promise" style="width:100%;text-align:left">
             <thead md-head md-order="$ctrl.table[$ctrl.selectedDevice.equipmentName].query.order">
               <tr md-row>
                 <th md-column md-order-by="name"><span translate="TAG_SELECTOR_DIALOG_TABLE_NAME"></span></th>
@@ -46,9 +46,9 @@
                     aria-label="toggle all log on change"></md-switch>
                 </th>
                 <th md-column>
-                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
-                    aria-label="toggle all log unit"></md-switch>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span>
+                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
+                    aria-label="toggle all log unit"></md-switch>            
                 </th>
                 <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_UNIT"></span>
@@ -84,7 +84,10 @@
             md-total="{{$ctrl.tags.length}}" md-boundary-links md-page-select></md-table-pagination>
       </div>
 
-      <div layout layout-align="end center">
+      <div layout layout-align="space-between center"> 
+        <span layout layout-align="start center" style="font-size: 16px;">
+          {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED_TOTAL' | translate}}: {{$ctrl.selectedTags.length}}
+        </span>
         <md-button type="button" aria-label="Submit" class="md-raised md-primary" ng-click="$ctrl.save($ctrl.profile)">
           <sapn translate="TAG_SELECTOR_DIALOG_FORM_SAVE">
             </span>
