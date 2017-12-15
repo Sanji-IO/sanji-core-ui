@@ -38,13 +38,17 @@ export default class TagListController {
       selectedTags.forEach(item => {
         if (item.equipmentName === equip.equipmentName) {
           const tempTag = equip.equipmentTags.find(tag => tag.name === item.name);
-          tempTag.logOnChange = item.logOnChange;
-          tempTag.logDescription = item.logDescription;
-          tempTag.logUnit = item.logUnit;
-          tempTag.logDataType = item.logDataType;
-          tempTag.isSelected = true;
+          if(tempTag){
+            tempTag.logOnChange = item.logOnChange;
+            tempTag.logDescription = item.logDescription;
+            tempTag.logUnit = item.logUnit;
+            tempTag.logDataType = item.logDataType;
+            tempTag.isSelected = true;
+          }
+
         }
       });
+      this.setSelectedTag(equip);
     });
   }
 
@@ -95,7 +99,6 @@ export default class TagListController {
   }
 
   changeTableContent(device) {
-    this.setSelectedTag(device);
     this.selectedTags = this.setResult();
     this.tags = device.equipmentTags;
   }

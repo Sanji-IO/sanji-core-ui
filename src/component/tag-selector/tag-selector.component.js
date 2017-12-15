@@ -20,14 +20,31 @@ const TagSelectorComponent = {
       this.rest = rest;
     }
 
-    showTagList(event) {
+    getEquipments(){
       const restConfig = {
         basePath: this.basePath || null
       };
       if (this.apiToken) {
-        this.restConfig.headers = { 'mx-api-token': this.apiToken };
+        restConfig.headers = { 'mx-api-token': this.apiToken };
       }
-      this.rest.get('/mxc/equipments', restConfig).then(res => {
+
+      return new Promise((resolve, reject) => {
+        this.rest.get('/mxc/equipments', restConfig).then(res => {
+          if(Array.isArray(res.data) && (res.data.length > 0)){            
+            resolve(res.data);
+          }
+          else{
+            reject();
+          }
+        }).catch(err => {
+          reject(err);
+        });
+      });
+
+    }
+
+    showTagList(event) {
+      this.getEquipments().then(resdata => {
         this.$mdDialog
           .show({
             templateUrl: 'sanji-tag-selector-list.tpl.html',
@@ -36,7 +53,7 @@ const TagSelectorComponent = {
             bindToController: true,
             targetEvent: event,
             locals: {
-              devices: res.data,
+              devices: resdata,
               data: this.data || []
             },
             clickOutsideToClose: true
