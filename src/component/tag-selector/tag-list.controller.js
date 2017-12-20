@@ -53,12 +53,12 @@ export default class TagListController {
   }
 
   setTableConfig(devices) {
-    devices.forEach(device => {
+    devices.forEach(device => {      
       this.table[device.equipmentName] = {};
       this.table[device.equipmentName].selectedAllLogOnChange = false;
-      this.table[device.equipmentName].selectedAllDescription = false;
-      this.table[device.equipmentName].selectedAllUnit = false;
-      this.table[device.equipmentName].selectedAllDataType = false;
+      this.table[device.equipmentName].selectedAllLogDescription = false;
+      this.table[device.equipmentName].selectedAllLogUnit = false;
+      this.table[device.equipmentName].selectedAllLogDataType = false;
       this.table[device.equipmentName].promise = null;
       this.table[device.equipmentName].selected = [];
       this.table[device.equipmentName].query = {
@@ -66,11 +66,19 @@ export default class TagListController {
         limit: 10,
         page: 1
       };
+      
     });
   }
 
   setSelectedTag(device) {
-    this.table[device.equipmentName].selected = device.equipmentTags.filter(item => item.isSelected === true);
+    let selectedTagsArray = device.equipmentTags.filter(item => item.isSelected === true);
+
+    this.table[device.equipmentName].selected = selectedTagsArray;
+    if(selectedTagsArray.length > 0){
+      this.table[device.equipmentName].selectedAllLogDescription = selectedTagsArray[0].logDescription;
+      this.table[device.equipmentName].selectedAllLogUnit = selectedTagsArray[0].logUnit;
+      this.table[device.equipmentName].selectedAllLogDataType = selectedTagsArray[0].logDataType;
+    }
   }
 
   setSelectedDevice(device) {
