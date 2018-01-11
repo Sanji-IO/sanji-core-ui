@@ -504,6 +504,9 @@ const types = [
     name: 'matchField',
     defaultOptions: function matchFieldDefaultOptions(options) {
       return {
+        extras: {
+          validateOnModelChange: true
+        },
         validators: {
           fieldMatch: {
             expression: (viewValue, modelValue, fieldScope) => {
