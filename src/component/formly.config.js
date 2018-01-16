@@ -510,15 +510,30 @@ const types = [
         validators: {
           fieldMatch: {
             expression: (viewValue, modelValue, fieldScope) => {
+              const equaled = options.data.equaled !== undefined ? options.data.equaled : true;
               const value = modelValue || viewValue;
               const model = fieldScope.model;
-              return value === model[options.data.fieldToMatch];
+              if(model[options.data.fieldToMatch] === undefined) {
+                return true;
+              }
+              else {
+                return equaled
+                  ? value === model[options.data.fieldToMatch]
+                  : !(value === model[options.data.fieldToMatch]);
+              }
             },
             message: options.data.matchFieldMessage || '"Must match!"'
           }
         }
       };
     }
+  },
+  {
+    name: 'label',
+    template: `
+      <div>
+        <md-subheader></md-subheader> {{ to.label | translate }} </md-subheader>
+      </div>`
   }
 ];
 
