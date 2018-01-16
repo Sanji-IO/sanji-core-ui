@@ -532,7 +532,7 @@ const types = [
     name: 'label',
     template: `
       <div>
-        <md-subheader></md-subheader> {{ to.label | translate }} </md-subheader>
+        <md-subheader>{{ to.label | translate }} </md-subheader>
       </div>`
   }
 ];
