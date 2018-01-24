@@ -1,7 +1,7 @@
 const $inject = ['$cookies', '$timeout', 'session'];
 class DownloadHelperService {
   constructor(...injects) {
-    DownloadHelperService.$inject.forEach((item, index) => this[item] = injects[index]);
+    DownloadHelperService.$inject.forEach((item, index) => (this[item] = injects[index]));
     this.iframe = null;
   }
 

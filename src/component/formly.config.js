@@ -209,7 +209,7 @@ const types = [
           $scope.formOptions.files.push({ key: key, file: file });
         } else {
           let idx = $scope.formOptions.files.findIndex(item => item.key === key);
-          if (-1 === idx) {
+          if (idx === -1) {
             $scope.formOptions.files.push({ key: key, file: file });
           } else {
             $scope.formOptions.files[idx].file = file;
@@ -513,10 +513,9 @@ const types = [
               const equaled = options.data.equaled !== undefined ? options.data.equaled : true;
               const value = modelValue || viewValue;
               const model = fieldScope.model;
-              if(model[options.data.fieldToMatch] === undefined) {
+              if (model[options.data.fieldToMatch] === undefined) {
                 return true;
-              }
-              else {
+              } else {
                 return equaled
                   ? value === model[options.data.fieldToMatch]
                   : !(value === model[options.data.fieldToMatch]);
@@ -589,7 +588,7 @@ function validatePort(value) {
 }
 
 function validateHostName(value) {
-  return /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(
+  return /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/.test(
     value
   );
 }
@@ -611,7 +610,7 @@ function validatePassword(value) {
 }
 
 function validateIp(value) {
-  if ('0.0.0.0' === value) {
+  if (value === '0.0.0.0') {
     return false;
   }
   // Check ip format
@@ -631,19 +630,19 @@ function validateIp(value) {
   }
 }
 
-function setType(formlyConfig, types) {
+function setType(formlyConfig, values) {
   let i;
-  const length = types.length;
+  const length = values.length;
   for (i = 0; i < length; i++) {
-    formlyConfig.setType(types[i]);
+    formlyConfig.setType(values[i]);
   }
 }
 
-function setWrapper(formlyConfig, wrappers) {
+function setWrapper(formlyConfig, values) {
   let i;
-  const length = wrappers.length;
+  const length = values.length;
   for (i = 0; i < length; i++) {
-    formlyConfig.setWrapper(wrappers[i]);
+    formlyConfig.setWrapper(values[i]);
   }
 }
 

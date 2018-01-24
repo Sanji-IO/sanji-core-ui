@@ -20,7 +20,7 @@ const TagSelectorComponent = {
       this.rest = rest;
     }
 
-    getEquipments(){
+    getEquipments() {
       const restConfig = {
         basePath: this.basePath || null
       };
@@ -29,18 +29,19 @@ const TagSelectorComponent = {
       }
 
       return new Promise((resolve, reject) => {
-        this.rest.get('/mxc/equipments', restConfig).then(res => {
-          if(Array.isArray(res.data) && (res.data.length > 0)){            
-            resolve(res.data);
-          }
-          else{
-            reject();
-          }
-        }).catch(err => {
-          reject(err);
-        });
+        this.rest
+          .get('/mxc/equipments', restConfig)
+          .then(res => {
+            if (Array.isArray(res.data) && res.data.length > 0) {
+              resolve(res.data);
+            } else {
+              reject();
+            }
+          })
+          .catch(err => {
+            reject(err);
+          });
       });
-
     }
 
     showTagList(event) {
