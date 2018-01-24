@@ -18,6 +18,7 @@ config.externals = [
   'lodash',
   'angular',
   'api-check',
+  'angular-breadcrumb',
   'angular-formly',
   'angular-material',
   'angular-material-icons',

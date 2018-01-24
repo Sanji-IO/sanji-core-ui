@@ -11,8 +11,6 @@
     ]
   ],
   "plugins": [
-    "lodash",
-    "transform-object-rest-spread",
     [
       "angularjs-annotate",
       {
