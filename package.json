@@ -14,11 +14,9 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.js",
     "commit": "git-cz",
     "start": "cross-env NODE_ENV=development node server/dev-server.js",
-    "postpublish": "publish-latest",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
-    "publish-latest": "~1.1.2",
     "sanji-common-devs-ui": "^7.0.0",
     "semantic-release": "^12.2.4",
     "toastr": "^2.1.4"
@@ -30,14 +28,17 @@
   "bugs": {
     "url": "https://github.com/Sanji-IO/sanji-core-ui/issues"
   },
-  "keywords": ["sanji"],
+  "keywords": [
+    "sanji"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
   "dependencies": {
-    "angular": "~1.6.8",
-    "angular-animate": "~1.6.8",
-    "angular-aria": "~1.6.8",
+    "angular": "~1.5.11",
+    "angular-animate": "~1.5.11",
+    "angular-aria": "~1.5.11",
     "angular-breadcrumb": "~0.5.0",
+    "angular-cookies": "1.5.11",
     "angular-cron-jobs": "~3.2.0",
     "angular-file-saver": "~1.1.3",
     "angular-filter": "~0.5.17",
@@ -46,9 +47,9 @@
     "angular-material-data-table": "~0.10.10",
     "angular-material-icons": "~0.7.1",
     "angular-material-zippy": "~1.0.8",
-    "angular-messages": "~1.6.8",
+    "angular-messages": "~1.5.11",
     "angular-moment": "~1.2.0",
-    "angular-sanitize": "~1.6.8",
+    "angular-sanitize": "~1.5.11",
     "angular-sanji-window": "~2.1.13",
     "angular-sparklines": "~1.0.2",
     "angular-storage": "~0.0.15",
