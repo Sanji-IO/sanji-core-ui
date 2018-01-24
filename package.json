@@ -14,9 +14,11 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.js",
     "commit": "git-cz",
     "start": "cross-env NODE_ENV=development node server/dev-server.js",
+    "postpublish": "publish-latest",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "publish-latest": "^1.1.2",
     "sanji-common-devs-ui": "^7.0.0",
     "semantic-release": "^12.2.4",
     "toastr": "^2.1.4"
