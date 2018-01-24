@@ -647,15 +647,16 @@ function setWrapper(formlyConfig, values) {
 }
 
 export default app => {
-  // @ngInject
   app.config(formlyConfigProvider => {
+    'ngInject';
     formlyConfigProvider.disableWarnings = process.env.NODE_ENV === 'production';
     formlyConfigProvider.extras.removeChromeAutoComplete = true;
     formlyConfigProvider.extras.explicitAsync = true;
     formlyConfigProvider.extras.ngModelAttrsManipulatorPreferBound = true;
   });
-  // @ngInject
+
   app.run((formlyConfig, formlyValidationMessages, $filter) => {
+    'ngInject';
     setType(formlyConfig, types);
     setWrapper(formlyConfig, wrappers);
     formlyValidationMessages.addStringMessage('required', $filter('translate')('FORM_REQUIRED_ERROR_MSG'));
