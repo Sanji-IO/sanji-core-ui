@@ -3,12 +3,12 @@ const WebpackDevServer = require('webpack-dev-server');
 const config = require('../webpack.dev');
 new WebpackDevServer(webpack(config), {
   historyApiFallback: true,
-  stats: 'errors-only'
-})
-.listen(8080, 'localhost', function(err) {
+  stats: {
+    colors: true
+  }
+}).listen(8080, 'localhost', err => {
   if (err) {
     throw err;
   }
   console.log('Listening at localhost:8080');
 });
-

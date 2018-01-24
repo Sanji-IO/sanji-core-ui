@@ -127,7 +127,7 @@ app.run(router);
 app.run(($state, $rootScope) => {
   'ngInject';
   if (process.env.NODE_ENV === 'production') {
-    $state.defaultErrorHandler(function() {
+    $state.defaultErrorHandler(() => {
       /* do nothing */
     });
   }

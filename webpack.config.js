@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
 const API_TOKEN = process.env.API_TOKEN;
 const DEV_BASE_PATH = process.env.BASE_PATH;
@@ -25,7 +24,7 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.js$/, use: 'eslint-loader', exclude: /node_modules/, enforce: 'pre' },
+      { test: /\.js$/, use: 'eslint-loader?fix', exclude: /node_modules/, enforce: 'pre' },
       { test: /\.js$/, use: 'babel-loader?cacheDirectory', exclude: /(node_modules)/ },
       { test: require.resolve('jquery'), use: 'expose-loader?$!expose-loader?jQuery' },
       { test: /\.json$/, use: 'json-loader', exclude: /(node_modules)/ },
@@ -37,7 +36,6 @@ const config = {
     ]
   },
   plugins: [
-    new ProgressBarPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV || 'development')
