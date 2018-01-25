@@ -27,7 +27,6 @@ const config = {
       { test: /\.js$/, use: 'eslint-loader', exclude: /node_modules/, enforce: 'pre' },
       { test: /\.js$/, use: 'babel-loader', exclude: /(node_modules)/ },
       { test: require.resolve('jquery'), use: 'expose-loader?$!expose-loader?jQuery' },
-      { test: /\.json$/, use: 'json-loader', exclude: /(node_modules)/ },
       {
         test: /\.html$/,
         use: 'ng-cache-loader?prefix=[dir]/[dir]',

@@ -10,18 +10,19 @@
     }
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\"",
     "prebuild": "rimraf dist && mkdir dist",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.js",
     "commit": "git-cz",
     "start": "cross-env NODE_ENV=development node server/dev-server.js",
-    "postpublish": "publish-latest",
+    "prepublishOnly": "yarn build",
+    "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
-    "publish-latest": "^1.1.2",
     "sanji-common-devs-ui": "^7.0.0",
     "semantic-release": "^12.2.4",
-    "toastr": "^2.1.4"
+    "travis-deploy-once": "^4.3.3"
   },
   "repository": {
     "type": "git",
@@ -30,27 +31,33 @@
   "bugs": {
     "url": "https://github.com/Sanji-IO/sanji-core-ui/issues"
   },
-  "keywords": ["sanji"],
+  "keywords": [
+    "sanji"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-core-ui",
   "dependencies": {
-    "angular": "~1.5.11",
-    "angular-animate": "~1.5.11",
-    "angular-aria": "~1.5.11",
+    "@uirouter/angularjs": "^1.0.13",
+    "angular": "~1.6.8",
+    "angular-animate": "~1.6.8",
+    "angular-aria": "~1.6.8",
     "angular-breadcrumb": "~0.5.0",
-    "angular-cookies": "1.5.11",
+    "angular-busy": "^4.1.4",
+    "angular-cookies": "1.6.8",
     "angular-cron-jobs": "~3.2.0",
     "angular-file-saver": "~1.1.3",
     "angular-filter": "~0.5.17",
     "angular-formly": "~8.4.1",
+    "angular-http-auth": "^1.5.0",
     "angular-material": "~1.1.6",
     "angular-material-data-table": "~0.10.10",
     "angular-material-icons": "~0.7.1",
     "angular-material-zippy": "~1.0.8",
-    "angular-messages": "~1.5.11",
+    "angular-messages": "~1.6.8",
     "angular-moment": "~1.2.0",
-    "angular-sanitize": "~1.5.11",
-    "angular-sanji-window": "~2.1.13",
+    "angular-sanitize": "~1.6.8",
+    "angular-sanji-window": "~2.2.1",
+    "angular-socket-io": "^0.7.0",
     "angular-sparklines": "~1.0.2",
     "angular-storage": "~0.0.15",
     "angular-translate": "~2.17.0",
@@ -60,14 +67,25 @@
     "jquery-sparkline": "~2.4.0",
     "lodash": "^4.17.4",
     "nanoid": "^1.0.1",
+    "ng-file-upload": "^12.2.13",
     "ng-idle": "~1.3.2",
+    "ng-redux": "^3.5.2",
     "ngletteravatar": "~4.0.4",
     "object-path": "~0.11.4",
     "oclazyload": "~1.1.0",
     "offline-js": "~0.7.19",
     "path-to-regexp": "~2.1.0",
-    "sanji-redux-ui": "~1.1.2",
-    "sanji-utils-ui": "^2.0.2",
+    "redux-thunk": "^2.2.0",
+    "sanji-auth-ui": "^1.3.0",
+    "sanji-exception-ui": "^1.3.0",
+    "sanji-logger-ui": "^1.3.0",
+    "sanji-redux-ui": "~1.2.0",
+    "sanji-rest-ui": "^1.5.0",
+    "sanji-router-ui": "^1.3.0",
+    "sanji-socket-ui": "^3.2.0",
+    "sanji-utils-ui": "^2.1.0",
+    "socket.io-client": "^2.0.4",
+    "toastr": "^2.1.4",
     "webfontloader": "~1.6.28"
   }
 }
