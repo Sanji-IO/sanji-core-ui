@@ -36,6 +36,7 @@ config.externals = [
   'angular-cron-jobs',
   'angular-filter',
   'angular-file-saver',
+  'easy-pie-chart',
   'oclazyload',
   'sanji-utils-ui',
   'sanji-socket-ui',

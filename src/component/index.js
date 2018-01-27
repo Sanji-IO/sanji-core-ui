@@ -31,6 +31,7 @@ import 'angular-moment';
 import 'angular-filter';
 import 'angular-cron-jobs';
 import 'angular-breadcrumb';
+import 'easy-pie-chart';
 import ngIdle from 'ng-idle';
 import { mdZippyModule } from 'angular-material-zippy';
 
@@ -81,6 +82,7 @@ const app = angular.module('sanji.core', [
   'angularMoment',
   'angular.filter',
   'ncy-angular-breadcrumb',
+  'easypiechart',
   ngIdle,
   ngFileSaver,
   sjSparklines,
