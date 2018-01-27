@@ -1,4 +1,5 @@
 export default (
+  $qProvider,
   $httpProvider,
   $compileProvider,
   $logProvider,
@@ -12,6 +13,7 @@ export default (
     appTitle: 'webapp'
   };
 
+  $qProvider.errorOnUnhandledRejections(false);
   $httpProvider.useApplyAsync(true);
   $compileProvider.debugInfoEnabled(process.env.NODE_ENV === 'development');
   $logProvider.debugEnabled(process.env.NODE_ENV === 'development');
