@@ -20,11 +20,15 @@ const RealtimeInfoComponent = {
 
     $onInit() {
       this.mySocket = this.sjio.getSocket();
-      this.mySocket.on('sj:webapp:message', this.handle.bind(this));
+      if (this.mySocket) {
+        this.mySocket.on('sj:webapp:message', this.handle.bind(this));
+      }
     }
 
     $onDestroy() {
-      this.mySocket.removeListener('sj:webapp:message', this.handle);
+      if (this.mySocket) {
+        this.mySocket.removeListener('sj:webapp:message', this.handle);
+      }
     }
 
     handle(res) {
