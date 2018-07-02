@@ -14,6 +14,7 @@ export default class TagListController {
   }
 
   $onInit() {
+    this.tagId = 0; // To prevent display error as users change devices, each tag need a unique id.
     this.types = this.devices
       .map(device => device.equipmentType)
       .filter((type, idx, self) => self.indexOf(type) === idx);
@@ -27,6 +28,7 @@ export default class TagListController {
     equipments.forEach(equip => {
       // reset status
       equip.equipmentTags.forEach(tag => {
+        tag.Id = this.tagId = this.tagId + 1;
         tag.logOnChange = false;
         tag.isSelected = false;
         tag.logDescription = false;

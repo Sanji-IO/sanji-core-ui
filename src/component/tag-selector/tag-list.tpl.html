@@ -48,7 +48,7 @@
                 <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span>
                   <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
-                    aria-label="toggle all log description"></md-switch>            
+                    aria-label="toggle all log description"></md-switch>
                 </th>
                 <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_UNIT"></span>
@@ -63,7 +63,7 @@
               </tr>
             </thead>
             <tbody md-body>
-              <tr md-row md-auto-select md-on-select="$ctrl.changeSelectedItem()" md-on-deselect="$ctrl.changeSelectedItem()" md-select="tag" md-select-id="name" ng-repeat="tag in $ctrl.tags | orderBy: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.order | limitTo: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit : ($ctrl.table[$ctrl.selectedDevice.equipmentName].query.page - 1) * $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit track by tag.name">
+              <tr md-row md-auto-select md-on-select="$ctrl.changeSelectedItem()" md-on-deselect="$ctrl.changeSelectedItem()" md-select="tag" md-select-id="tagId" ng-repeat="tag in $ctrl.tags | orderBy: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.order | limitTo: $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit : ($ctrl.table[$ctrl.selectedDevice.equipmentName].query.page - 1) * $ctrl.table[$ctrl.selectedDevice.equipmentName].query.limit track by tag.name">
                 <td md-cell>{{tag.name}}</td>
                 <td md-cell>
                   <md-switch class="md-primary" ng-model="tag.logOnChange" ng-click="$ctrl.stopPropagation($event)" aria-label="log on change switcher"></md-switch>
@@ -84,7 +84,7 @@
             md-total="{{$ctrl.tags.length}}" md-boundary-links md-page-select></md-table-pagination>
       </div>
 
-      <div layout layout-align="space-between center"> 
+      <div layout layout-align="space-between center">
         <span layout layout-align="start center" style="font-size: 16px;">
           {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED_TOTAL' | translate}}: {{$ctrl.selectedTags.length}}
         </span>
