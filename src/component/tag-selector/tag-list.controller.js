@@ -166,6 +166,13 @@ export default class TagListController {
   }
 
   save() {
-    this.$mdDialog.hide(this.setResult());
+    const selectedDevice = this.table[this.selectedDevice.equipmentName];
+    const result = this.setResult();
+    result.forEach(item => {
+      item.logDescription = selectedDevice.selectedAllLogDescription;
+      item.logUnit = selectedDevice.selectedAllLogUnit;
+      item.logDataType = selectedDevice.selectedAllLogDataType;
+    });
+    this.$mdDialog.hide(result);
   }
 }
