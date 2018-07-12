@@ -287,6 +287,43 @@ const types = [
     }
   },
   {
+    name: 'radio_label',
+    template: `<p>
+                <span class="md-subhead" translate="{{to.label}}"></span>
+              </p>
+              <md-radio-group ng-model="model[options.key]" style="padding-bottom:10px">
+                <md-radio-button class="md-primary" aria-label="{{item.label}}"
+                ng-repeat="item in to.options track by $index"
+                ng-value="item.value">
+                  <span translate="{{item.label}}"></span>
+                </md-radio-button>
+              </md-radio-group>
+              <md-content flex layout-padding style="background-color: transparent">
+              </md-content>`,
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_NAME',
+        options: [
+          {
+            label: 'FORM_LABEL_RADIO_OPTION',
+            value: ''
+          }
+        ]
+      }
+    }
+  },
+  {
+    name: 'empty',
+    template: `<md-content flex layout-padding style="background-color: transparent">
+              </md-content>
+              <md-divider ng-if="to.divider"></md-divider>`,
+    defaultOptions: {
+      templateOptions: {
+        divider: false
+      }
+    }
+  },
+  {
     name: 'datepicker',
     template: `<md-datepicker
                 ng-model="model[options.key]"

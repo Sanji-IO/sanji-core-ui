@@ -165,6 +165,14 @@ Type name: `radio`
 templateOptions:
 - **options**: radio option array, like `[{label: 'foo', value: 'bar'}]`.
 
+Type name: `radio_label`
+templateOptions:
+- **label**: label name.
+- **options**: radio option array, like `[{label: 'foo', value: 'bar'}]`.
+
+Type name: `empty`
+templateOptions:
+- **divider**: value is `true` or `false`.
 
 Type name: `datepicker`
 templateOptions:
