@@ -19,5 +19,5 @@ export default (
   $logProvider.debugEnabled(process.env.NODE_ENV === 'development');
   exceptionHandlerProvider.configure(config.appErrorPrefix);
   routerHelperProvider.configure({ docTitle: config.appTitle + ': ', defaultRoute: '/' });
-  storeProvider.setStore('sessionStorage');
+  storeProvider.setStore('localStorage');
 };
