@@ -1,4 +1,4 @@
-<script type ="text/ng-template" id="sanji-tag-selector-list.tpl.html">
+<script type="text/ng-template" id="sanji-tag-selector-list.tpl.html">
   <md-dialog aria-label="Edit upload tag setting" style="min-width:40%">
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -10,7 +10,8 @@
       </div>
     </md-toolbar>
     <md-dialog-content class="md-padding">
-        <md-input-container>
+      <form>
+        <md-input-container style="width: 100%">
           <label translate="TAG_SELECTOR_DIALOG_FORM_EQUIPMENT"></label>
           <md-select ng-model="$ctrl.selectedDevice"
             md-on-close="$ctrl.changeTableContent($ctrl.selectedDevice)">
