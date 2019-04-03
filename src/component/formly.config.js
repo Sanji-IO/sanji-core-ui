@@ -432,6 +432,23 @@ const types = [
     }
   },
   {
+    name: 'altitude',
+    defaultOptions: {
+      templateOptions: {
+        label: 'FORM_LABEL_ALTITUDE'
+      },
+      validators: {
+        longitude: {
+          expression: function($viewValue, $modelValue) {
+            const value = $modelValue || $viewValue;
+            return !value || validateAltitude(value);
+          },
+          message: '"FORM_ALTITUDE_ERROR_MSG"'
+        }
+      }
+    }
+  },
+  {
     name: 'password',
     template: `<input type="password" ng-model="model[options.key]">`,
     defaultOptions: {
@@ -640,6 +657,10 @@ function validateLatitude(value) {
 
 function validateLongitude(value) {
   return /^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/.test(value);
+}
+
+function validateAltitude(value) {
+  return /^[+-]?(?:[1-9][0-9]{0,3}(?:\.\d{1,9})?|10000)$/.test(value);
 }
 
 function validatePassword(value) {
