@@ -154,20 +154,24 @@ export default class TagListController {
 
   toggleAllTag(device, status) {
     device.equipmentTags.forEach(tag => (tag.isSelected = status));
-    this.selectedTags = device.equipmentTags.map(item => {
-      return {
-        name: item.name,
-        equipmentName: device.equipmentName,
-        equipmentType: device.equipmentType,
-        unit: item.unit || '',
-        dataType: item.dataType,
-        description: item.description,
-        logOnChange: item.logOnChange,
-        logDescription: item.logDescription,
-        logUnit: item.logUnit,
-        logDataType: item.logDataType
-      };
-    });
+    if (status) {
+      this.selectedTags = device.equipmentTags.map(item => {
+        return {
+          name: item.name,
+          equipmentName: device.equipmentName,
+          equipmentType: device.equipmentType,
+          unit: item.unit || '',
+          dataType: item.dataType,
+          description: item.description,
+          logOnChange: item.logOnChange,
+          logDescription: item.logDescription,
+          logUnit: item.logUnit,
+          logDataType: item.logDataType
+        };
+      });
+    } else {
+      this.selectedTags = [];
+    }
     this.updateEquipmentTagListStatus(this.devices, this.selectedTags);
   }
 

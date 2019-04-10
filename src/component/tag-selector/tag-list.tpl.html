@@ -39,6 +39,11 @@
           <div class="md-toolbar-tools">
             <span>{{$ctrl.table[$ctrl.selectedDevice.equipmentName].selected.length}} {{'TAG_SELECTOR_DIALOG_ITEM_SELECTED' | translate}}</span>
             <div flex></div>
+            <md-button class="md-icon-button" aria-label="Select All Tag"
+            ng-click="$ctrl.toggleAllTag($ctrl.selectedDevice, false)">
+              <md-tooltip><span translate="TAG_SELECTOR_DIALOG_TAG_LIST_UNSELECT_ALL"></span></md-tooltip>
+              <md-icon ng-md-icon icon="select_all" style="fill: rgba(0, 0, 0, .54)"></md-icon>
+            </md-button>
           </div>
         </md-toolbar>
 
