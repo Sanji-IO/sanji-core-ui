@@ -56,6 +56,7 @@ export default class TagListController {
   setTableConfig(devices) {
     devices.forEach(device => {
       this.table[device.equipmentName] = {};
+      this.table[device.equipmentName].selectedAllTag = false;
       this.table[device.equipmentName].selectedAllLogOnChange = false;
       this.table[device.equipmentName].selectedAllLogDescription = false;
       this.table[device.equipmentName].selectedAllLogUnit = false;
@@ -153,9 +154,10 @@ export default class TagListController {
   }
 
   toggleAllTag(device, status) {
-    device.equipmentTags.forEach(tag => (tag.isSelected = status));
-    if (status) {
-      this.selectedTags = device.equipmentTags.map(item => {
+    this.table[device.equipmentName].selectedAllTag = !status;
+    device.equipmentTags.forEach(tag => (tag.isSelected = !status));
+    if (this.table[device.equipmentName].selectedAllTag) {
+      const result = device.equipmentTags.map(item => {
         return {
           name: item.name,
           equipmentName: device.equipmentName,
@@ -169,8 +171,9 @@ export default class TagListController {
           logDataType: item.logDataType
         };
       });
+      this.selectedTags = [...this.selectedTags, ...result];
     } else {
-      this.selectedTags = [];
+      this.selectedTags = this.selectedTags.filter(item => item.equipmentName !== device.equipmentName);
     }
     this.updateEquipmentTagListStatus(this.devices, this.selectedTags);
   }
