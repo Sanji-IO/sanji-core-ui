@@ -1,6 +1,6 @@
 export default class TagListController {
   constructor($mdDialog, rest) {
-    "ngInject";
+    'ngInject';
     this.$mdDialog = $mdDialog;
     this.rest = rest;
     this.tags = null;
@@ -10,14 +10,14 @@ export default class TagListController {
     this.isSparkplug = false;
     this.code = {
       timestamp: new Date().toISOString(),
-      value: "",
+      value: ''
     };
   }
 
   $onInit() {
     this.tagId = 0; // To prevent display error as users change devices, each tag need a unique id.
     this.types = this.devices
-      .map((device) => device.equipmentType)
+      .map(device => device.equipmentType)
       .filter((type, idx, self) => self.indexOf(type) === idx);
     this.setTableConfig(this.devices);
     this.updateEquipmentTagListStatus(this.devices, this.data);
@@ -26,9 +26,9 @@ export default class TagListController {
   }
 
   updateEquipmentTagListStatus(equipments, selectedTags) {
-    equipments.forEach((equip) => {
+    equipments.forEach(equip => {
       // reset status
-      equip.equipmentTags.forEach((tag) => {
+      equip.equipmentTags.forEach(tag => {
         tag.Id = this.tagId = this.tagId + 1;
         tag.logOnChange = false;
         tag.isSelected = false;
@@ -38,11 +38,9 @@ export default class TagListController {
       });
 
       // update status
-      selectedTags.forEach((item) => {
+      selectedTags.forEach(item => {
         if (item.equipmentName === equip.equipmentName) {
-          const tempTag = equip.equipmentTags.find(
-            (tag) => tag.name === item.name
-          );
+          const tempTag = equip.equipmentTags.find(tag => tag.name === item.name);
           if (tempTag) {
             tempTag.logOnChange = item.logOnChange;
             tempTag.logDescription = item.logDescription;
@@ -57,7 +55,7 @@ export default class TagListController {
   }
 
   setTableConfig(devices) {
-    devices.forEach((device) => {
+    devices.forEach(device => {
       this.table[device.equipmentName] = {};
       this.table[device.equipmentName].selectedAllTag = false;
       this.table[device.equipmentName].selectedAllLogOnChange = false;
@@ -67,26 +65,21 @@ export default class TagListController {
       this.table[device.equipmentName].promise = null;
       this.table[device.equipmentName].selected = [];
       this.table[device.equipmentName].query = {
-        order: "name",
+        order: 'name',
         limit: 10,
-        page: 1,
+        page: 1
       };
     });
   }
 
   setSelectedTag(device) {
-    let selectedTagsArray = device.equipmentTags.filter(
-      (item) => item.isSelected === true
-    );
+    let selectedTagsArray = device.equipmentTags.filter(item => item.isSelected === true);
 
     this.table[device.equipmentName].selected = selectedTagsArray;
     if (selectedTagsArray.length > 0) {
-      this.table[device.equipmentName].selectedAllLogDescription =
-        selectedTagsArray[0].logDescription;
-      this.table[device.equipmentName].selectedAllLogUnit =
-        selectedTagsArray[0].logUnit;
-      this.table[device.equipmentName].selectedAllLogDataType =
-        selectedTagsArray[0].logDataType;
+      this.table[device.equipmentName].selectedAllLogDescription = selectedTagsArray[0].logDescription;
+      this.table[device.equipmentName].selectedAllLogUnit = selectedTagsArray[0].logUnit;
+      this.table[device.equipmentName].selectedAllLogDataType = selectedTagsArray[0].logDataType;
     }
   }
 
@@ -96,19 +89,19 @@ export default class TagListController {
 
   setResult() {
     const results = [];
-    this.devices.forEach((device) => {
-      this.table[device.equipmentName].selected.forEach((item) => {
+    this.devices.forEach(device => {
+      this.table[device.equipmentName].selected.forEach(item => {
         results.push({
           name: item.name,
           equipmentName: device.equipmentName,
           equipmentType: device.equipmentType,
-          unit: item.unit || "",
+          unit: item.unit || '',
           dataType: item.dataType,
           description: item.description,
           logOnChange: item.logOnChange,
           logDescription: item.logDescription,
           logUnit: item.logUnit,
-          logDataType: item.logDataType,
+          logDataType: item.logDataType
         });
       });
     });
@@ -125,12 +118,10 @@ export default class TagListController {
   }
 
   changeSelectedDevice(type) {
-    if (type === "All") {
+    if (type === 'All') {
       return;
     }
-    const devices = this.devices.filter(
-      (device) => device.equipmentType === type
-    );
+    const devices = this.devices.filter(device => device.equipmentType === type);
     this.setTableConfig(devices);
     this.updateEquipmentTagListStatus(devices, this.data);
     this.setSelectedDevice(devices[0]);
@@ -142,22 +133,22 @@ export default class TagListController {
   }
 
   toggleAllLogOnChange(device, status) {
-    device.equipmentTags.forEach((tag) => (tag.logOnChange = status));
+    device.equipmentTags.forEach(tag => (tag.logOnChange = status));
   }
 
   toggleAllLogDescription(device, status) {
-    device.equipmentTags.forEach((tag) => (tag.logDescription = status));
+    device.equipmentTags.forEach(tag => (tag.logDescription = status));
     if (status) {
-      this.code.description = "";
+      this.code.description = '';
     } else {
       delete this.code.description;
     }
   }
 
   toggleAllLogUnit(device, status) {
-    device.equipmentTags.forEach((tag) => (tag.logUnit = status));
+    device.equipmentTags.forEach(tag => (tag.logUnit = status));
     if (status) {
-      this.code.unit = "";
+      this.code.unit = '';
     } else {
       delete this.code.unit;
     }
@@ -165,35 +156,33 @@ export default class TagListController {
 
   toggleAllTag(device, status) {
     this.table[device.equipmentName].selectedAllTag = !status;
-    device.equipmentTags.forEach((tag) => (tag.isSelected = !status));
+    device.equipmentTags.forEach(tag => (tag.isSelected = !status));
     if (this.table[device.equipmentName].selectedAllTag) {
-      const result = device.equipmentTags.map((item) => {
+      const result = device.equipmentTags.map(item => {
         return {
           name: item.name,
           equipmentName: device.equipmentName,
           equipmentType: device.equipmentType,
-          unit: item.unit || "",
+          unit: item.unit || '',
           dataType: item.dataType,
           description: item.description,
           logOnChange: item.logOnChange,
           logDescription: item.logDescription,
           logUnit: item.logUnit,
-          logDataType: item.logDataType,
+          logDataType: item.logDataType
         };
       });
       this.selectedTags = [...this.selectedTags, ...result];
     } else {
-      this.selectedTags = this.selectedTags.filter(
-        (item) => item.equipmentName !== device.equipmentName
-      );
+      this.selectedTags = this.selectedTags.filter(item => item.equipmentName !== device.equipmentName);
     }
     this.updateEquipmentTagListStatus(this.devices, this.selectedTags);
   }
 
   toggleAllLogDataType(device, status) {
-    device.equipmentTags.forEach((tag) => (tag.logDataType = status));
+    device.equipmentTags.forEach(tag => (tag.logDataType = status));
     if (status) {
-      this.code.dataType = "";
+      this.code.dataType = '';
     } else {
       delete this.code.dataType;
     }
@@ -206,7 +195,7 @@ export default class TagListController {
   save() {
     const selectedDevice = this.table[this.selectedDevice.equipmentName];
     const result = this.setResult();
-    result.forEach((item) => {
+    result.forEach(item => {
       item.logDescription = selectedDevice.selectedAllLogDescription;
       item.logUnit = selectedDevice.selectedAllLogUnit;
       item.logDataType = selectedDevice.selectedAllLogDataType;
