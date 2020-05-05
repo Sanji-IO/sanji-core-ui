@@ -32,6 +32,7 @@ const types = [
   {
     name: 'tag_selector',
     template: `<tag-selector data="model[options.key]"
+                is-sparkplug="to.isSparkplug"
                 base-path="{{to.basePath}}"
                 api-token="{{to.apiToken}}"
                 on-update="setData($event)"></tag-selector>`,
