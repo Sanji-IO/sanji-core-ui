@@ -7,7 +7,6 @@ export default class TagListController {
     this.selectedDevice = null;
     this.selectedTags = [];
     this.table = {};
-    this.isSparkplug = false;
     this.code = {
       timestamp: new Date().toISOString(),
       value: ''
