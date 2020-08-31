@@ -57,19 +57,19 @@
                   <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange" ng-change="$ctrl.toggleAllLogOnChange($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogOnChange)"
                     aria-label="toggle all log on change"></md-switch>
                 </th>
-                <th ng-if="!$ctrl.isSparkplug" md-column>
+                <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_DESCRIPTION"></span>
-                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
+                  <md-switch ng-if="!$ctrl.isSparkplug" class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription" ng-change="$ctrl.toggleAllLogDescription($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDescription)"
                     aria-label="toggle all log description"></md-switch>
                 </th>
-                <th ng-if="!$ctrl.isSparkplug" md-column>
+                <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_UNIT"></span>
-                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit" ng-change="$ctrl.toggleAllLogUnit($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit)"
+                  <md-switch ng-if="!$ctrl.isSparkplug" class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit" ng-change="$ctrl.toggleAllLogUnit($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogUnit)"
                     aria-label="toggle all log unit"></md-switch>
                 </th>
-                <th ng-if="!$ctrl.isSparkplug" md-column>
+                <th md-column>
                   <span translate="TAG_SELECTOR_DIALOG_TABLE_LOG_DATATYPE"></span>
-                  <md-switch class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType" ng-change="$ctrl.toggleAllLogDataType($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType)"
+                  <md-switch ng-if="!$ctrl.isSparkplug" class="md-primary" ng-model="$ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType" ng-change="$ctrl.toggleAllLogDataType($ctrl.selectedDevice, $ctrl.table[$ctrl.selectedDevice.equipmentName].selectedAllLogDataType)"
                     aria-label="toggle all log data type"></md-switch>
                 </th>
               </tr>
@@ -80,11 +80,11 @@
                 <td md-cell>
                   <md-switch class="md-primary" ng-model="tag.logOnChange" ng-click="$ctrl.stopPropagation($event)" aria-label="log on change switcher"></md-switch>
                 </td>
-                <td ng-if="!$ctrl.isSparkplug" md-cell>{{tag.description}}</td>
-                <td ng-if="!$ctrl.isSparkplug" md-cell>
+                <td md-cell>{{tag.description}}</td>
+                <td md-cell>
                   <span>{{tag.unit || ''}}</span>
                 </td>
-                <td ng-if="!$ctrl.isSparkplug" md-cell>
+                <td md-cell>
                   <span>{{tag.dataType}}</span>
                 </td>
               </tr>
