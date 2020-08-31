@@ -269,7 +269,9 @@ const types = [
   },
   {
     name: 'radio',
-    template: `<md-radio-group ng-model="model[options.key]">
+    template: `
+              <label ng-if="to.label !== undefined" style="rgba(0, 0, 0, 0.38); font-size: 13px; margin-bottom: 10px; display: block;">{{to.label}}</label>
+              <md-radio-group ng-model="model[options.key]">
                   <md-radio-button class="md-primary" aria-label="{{item.label}}"
                   ng-repeat="item in to.options track by $index"
                   ng-value="item.value">
