@@ -441,7 +441,7 @@ const types = [
         label: 'FORM_LABEL_ALTITUDE'
       },
       validators: {
-        longitude: {
+        altitude: {
           expression: function($viewValue, $modelValue) {
             const value = $modelValue || $viewValue;
             return !value || validateAltitude(value);
@@ -663,7 +663,7 @@ function validateLongitude(value) {
 }
 
 function validateAltitude(value) {
-  return /^[+-]?(?:[1-9][0-9]{0,3}(?:\.\d{1,9})?|10000)$/.test(value);
+  return /^[+-]?(?:[1-9][0-9]{0,3}(?:\.\d{1,9})?|10000|0)$/.test(value);
 }
 
 function validatePassword(value) {
